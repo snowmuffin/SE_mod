@@ -2,10 +2,10 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BlueprintClasses>
   </BlueprintClasses>
-  <BlueprintClassEntries>
+  <BlueprintClassEntries><!-- OreToIngot -->
     <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
     <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
-
+    <Entry Class="Components" BlueprintSubtypeId="Upgrade_module" />
 
   </BlueprintClassEntries>
 </Definitions>

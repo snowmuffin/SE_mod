@@ -34,5 +34,21 @@
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Upgrade_module</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Upgrade_module</DisplayName>
+            <Icon>Textures\GUI\Icons\component\reactor_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Platinum" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Upgrade_module" />
+            <BaseProductionTimeInSeconds>50</BaseProductionTimeInSeconds>
+        </Blueprint>
     </Blueprints>
 </Definitions>
