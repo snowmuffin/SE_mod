@@ -6,8 +6,8 @@
                 <TypeId>Component</TypeId>
                 <SubtypeId>Upgrade_module</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_Upgrade_module</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <DisplayName>Upgrade_module</DisplayName>
+            <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
             <Size>
                 <X>0.1</X>
                 <Y>0.1</Y>

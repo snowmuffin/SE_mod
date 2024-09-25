@@ -6,6 +6,6 @@
     <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
     <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
     <Entry Class="Components" BlueprintSubtypeId="Upgrade_module" />
-
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="Assembler/ModuleAmplificationStation" />
   </BlueprintClassEntries>
 </Definitions>
