@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+    <!-- Lanthanum Ore -->
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>LanthanumOre</SubtypeId>
+      </Id>
+      <DisplayName>Lanthanum Ore</DisplayName>
+      <Icon>Textures\Icons\Lanthanum.dds</Icon>
+      <Size>
+        <X>0.072</X>
+        <Y>0.072</Y>
+        <Z>0.072</Z>
+      </Size>
+      <Mass>2</Mass>
+      <Volume>0.74</Volume>
+      <Model>Models\Debris\RockDebris01_LOD3.mwm</Model>
+      <PhysicalMaterial>Stone</PhysicalMaterial>
+      <IconSymbol>La</IconSymbol>
+      <MinimalPricePerUnit>100</MinimalPricePerUnit>
+      <MinimumOfferAmount>1000</MinimumOfferAmount>
+      <MaximumOfferAmount>10000</MaximumOfferAmount>
+      <MinimumOrderAmount>1000</MinimumOrderAmount>
+      <MaximumOrderAmount>20000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <!-- Lanthanum Ingot -->
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ingot</TypeId>
+        <SubtypeId>Lanthanum</SubtypeId>
+      </Id>
+      <DisplayName>Lanthanum Ingot</DisplayName>
+      <Icon>Textures\Icons\LanthanumIngot.dds</Icon>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.01</Mass>
+      <Volume>0.002</Volume>
+      <Model>Models\Ingots\generic_ingot.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <IconSymbol>La</IconSymbol>
+      <MinimumOfferAmount>1000</MinimumOfferAmount>
+      <MaximumOfferAmount>10000</MaximumOfferAmount>
+      <MinimumOrderAmount>1000</MinimumOrderAmount>
+      <MaximumOrderAmount>20000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <!-- Cerium Ore -->
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>CeriumOre</SubtypeId>
+      </Id>
+      <DisplayName>Cerium Ore</DisplayName>
+      <Icon>Textures\Icons\Cerium.dds</Icon>
+      <Size>
+        <X>0.072</X>
+        <Y>0.072</Y>
+        <Z>0.072</Z>
+      </Size>
+      <Mass>2</Mass>
+      <Volume>0.74</Volume>
+      <Model>Models\Debris\RockDebris01_LOD3.mwm</Model>
+      <PhysicalMaterial>Stone</PhysicalMaterial>
+      <IconSymbol>Ce</IconSymbol>
+      <MinimalPricePerUnit>100</MinimalPricePerUnit>
+      <MinimumOfferAmount>1000</MinimumOfferAmount>
+      <MaximumOfferAmount>10000</MaximumOfferAmount>
+      <MinimumOrderAmount>1000</MinimumOrderAmount>
+      <MaximumOrderAmount>20000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <!-- Cerium Ingot -->
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ingot</TypeId>
+        <SubtypeId>Cerium</SubtypeId>
+      </Id>
+      <DisplayName>Cerium Ingot</DisplayName>
+      <Icon>Textures\Icons\CeriumIngot.dds</Icon>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.01</Mass>
+      <Volume>0.002</Volume>
+      <Model>Models\Ingots\generic_ingot.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <IconSymbol>Ce</IconSymbol>
+      <MinimumOfferAmount>1000</MinimumOfferAmount>
+      <MaximumOfferAmount>10000</MaximumOfferAmount>
+      <MinimumOrderAmount>1000</MinimumOrderAmount>
+      <MaximumOrderAmount>20000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+    </PhysicalItem>
+  </PhysicalItems>
+</Definitions>

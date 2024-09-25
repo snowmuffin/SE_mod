@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Blueprints>
+        <!-- Lanthanum Ore to Ingot -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>LanthanumOreToIngot</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ore" SubtypeId="LanthanumOre" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="0.03" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <!-- Cerium Ore to Ingot -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CeriumOreToIngot</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ore" SubtypeId="CeriumOre" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="0.03" TypeId="Ingot" SubtypeId="Cerium" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
+    </Blueprints>
+</Definitions>
