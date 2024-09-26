@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SessionComponents>
+    <SessionComponent xsi:type="MyObjectBuilder_SessionComponentDescriptor">
+      <Id Type="MyObjectBuilder_SessionComponentDescriptor" Subtype="ItemCountHandler" />
+      <ComponentType>ItemCountHandler</ComponentType>
+      <LoadOnClient>true</LoadOnClient>
+      <LoadOnServer>true</LoadOnServer>
+      <UpdateOrder>AfterSimulation</UpdateOrder>
+    </SessionComponent>
+    <SessionComponent xsi:type="MyObjectBuilder_SessionComponentDescriptor">
+      <Id Type="MyObjectBuilder_SessionComponentDescriptor" Subtype="ClientMessageHandler" />
+      <ComponentType>ClientMessageHandler</ComponentType>
+      <LoadOnClient>true</LoadOnClient>
+      <LoadOnServer>false</LoadOnServer>
+      <UpdateOrder>NoUpdate</UpdateOrder>
+    </SessionComponent>
+  </SessionComponents>
+</Definitions>
+
