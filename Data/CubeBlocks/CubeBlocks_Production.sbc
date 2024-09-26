@@ -56,14 +56,7 @@
             <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
             <OperationalPowerConsumption>0.56</OperationalPowerConsumption>
             <BlueprintClasses>
-                <Class>LargeBlocks</Class>
-                <Class>SmallBlocks</Class>
-                <Class>Components</Class>
-                <Class>EliteEquipment</Class>
-                <Class>EliteTools</Class>
-				<Class>EliteWeapons</Class>
-				<Class>EliteConsumables</Class>				
-                <Class>BuildPlanner</Class>
+                <Class>BasicEquipment</Class>
             </BlueprintClasses>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>

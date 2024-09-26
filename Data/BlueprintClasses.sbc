@@ -1,11 +1,23 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BlueprintClasses>
+    <Class>
+        <Id>
+            <TypeId>BlueprintClassDefinition</TypeId>
+            <SubtypeId>Upgrade</SubtypeId>
+        </Id>
+        <DisplayName>Upgrade</DisplayName>
+        <Description>Upgrade</Description>
+        <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+        <HighlightIcon>Textures\GUI\Icons\buttons\component.dds</HighlightIcon>
+        <FocusIcon>Textures\GUI\Icons\buttons\component_focus.dds</FocusIcon>
+        <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
+    </Class>
   </BlueprintClasses>
   <BlueprintClassEntries><!-- OreToIngot -->
     <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
     <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
-    <Entry Class="Components" BlueprintSubtypeId="Upgrade_module" />
+    <Entry Class="BasicEquipment" BlueprintSubtypeId="Upgrademodule" />
     <Entry Class="LargeBlocks" BlueprintSubtypeId="Assembler/ModuleAmplificationStation" />
   </BlueprintClassEntries>
 </Definitions>

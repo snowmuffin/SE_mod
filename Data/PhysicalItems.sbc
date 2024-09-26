@@ -109,6 +109,27 @@
       <CanPlayerOrder>true</CanPlayerOrder>
       <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
       <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+    </PhysicalItem> 
+    <PhysicalItem xsi:type="MyObjectBuilder_CustomItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>Upgrademodule</SubtypeId>
+      </Id>
+      <DisplayName>Upgrade module</DisplayName>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MaxIntegrity>100</MaxIntegrity>
+      <DropProbability>0.5</DropProbability>
+      <Health>100</Health>
+      <MaxStackAmount>100</MaxStackAmount>
     </PhysicalItem>
   </PhysicalItems>
 </Definitions>
