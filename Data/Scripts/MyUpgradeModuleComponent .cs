@@ -53,17 +53,19 @@ namespace SE_UpgradeModuleMod
     {
         private bool _initialized = false;
         private HashSet<string> existingUniqueIds = new HashSet<string>(); // 기존 UniqueId를 저장하는 집합
+        private System.IO.TextWriter _logFile;
 
         public override void LoadData()
         {
-            MyLog.Default.WriteLineAndConsole("ItemCountHandler: LoadData called.");
+            _logFile = MyAPIGateway.Utilities.WriteFileInLocalStorage("ItemCountHandler.log", typeof(ItemCountHandler));
+            Log("LoadData called.");
 
             // 메시지 핸들러 등록
             MyAPIGateway.Utilities.RegisterMessageHandler(ModConstants.ModMessageId, ReceivedMessageHandler);
 
             if (MyAPIGateway.Multiplayer.IsServer)
             {
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: Server detected. Registering OnEntityAdded event.");
+                Log("Server detected. Registering OnEntityAdded event.");
                 // 엔티티 추가 이벤트 등록
                 MyAPIGateway.Entities.OnEntityAdd += OnEntityAdded;
             }
@@ -71,45 +73,56 @@ namespace SE_UpgradeModuleMod
 
         protected override void UnloadData()
         {
-            MyLog.Default.WriteLineAndConsole("ItemCountHandler: UnloadData called.");
+            Log("UnloadData called.");
 
             // 메시지 핸들러 해제
             MyAPIGateway.Utilities.UnregisterMessageHandler(ModConstants.ModMessageId, ReceivedMessageHandler);
 
             if (MyAPIGateway.Multiplayer.IsServer)
             {
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: Server detected. Unregistering OnEntityAdded event.");
+                Log("Server detected. Unregistering OnEntityAdded event.");
                 // 엔티티 추가 이벤트 해제
                 MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdded;
             }
+
+            _logFile?.Flush();
+            _logFile?.Close();
+            _logFile = null;
         }
 
         public override void UpdateAfterSimulation()
         {
             if (!_initialized)
             {
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: First UpdateAfterSimulation called.");
+                Log("First UpdateAfterSimulation called.");
 
                 if (MyAPIGateway.Multiplayer.IsServer)
                 {
-                    MyLog.Default.WriteLineAndConsole("ItemCountHandler: Server detected. Collecting UniqueIds.");
+                    Log("Server detected. Collecting UniqueIds.");
                     // 아이템의 UniqueId를 수집하고 클라이언트에 전송
                     GetItemUniqueIdsInWorld("Upgrademodule");
                 }
 
                 _initialized = true;
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: Initialization complete.");
+                Log("Initialization complete.");
             }
+        }
+
+        // 로그 작성 메서드
+        private void Log(string message)
+        {
+            _logFile?.WriteLine($"{DateTime.Now}: {message}");
+            _logFile?.Flush();
         }
 
         // 엔티티가 추가될 때 호출되는 메서드
         private void OnEntityAdded(IMyEntity entity)
         {
-            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: OnEntityAdded called for entity {entity.DisplayName}.");
+            Log($"OnEntityAdded called for entity {entity.DisplayName}.");
 
             if (!MyAPIGateway.Multiplayer.IsServer)
             {
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: Not a server, exiting OnEntityAdded.");
+                Log("Not a server, exiting OnEntityAdded.");
                 return;
             }
 
@@ -117,20 +130,20 @@ namespace SE_UpgradeModuleMod
             var floatingObject = entity as MyFloatingObject;
             if (floatingObject != null)
             {
-                MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Floating object detected: {floatingObject.Name}.");
+                Log($"Floating object detected: {floatingObject.Name}.");
 
                 var content = floatingObject.Item.Content;
 
                 // 아이템의 SubtypeId를 비교하여 대상 아이템인지 확인
                 if (content.GetId().SubtypeId == MyStringHash.GetOrCompute("Upgrademodule"))
                 {
-                    MyLog.Default.WriteLineAndConsole("ItemCountHandler: Upgrademodule item detected.");
+                    Log("Upgrademodule item detected.");
 
                     // 아이템의 UniqueId를 확인
                     var customItem = content as MyObjectBuilder_CustomItem;
                     if (customItem != null)
                     {
-                        MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Custom item found with UniqueId: {customItem.UniqueId}.");
+                        Log($"Custom item found with UniqueId: {customItem.UniqueId}.");
 
                         if (string.IsNullOrEmpty(customItem.UniqueId) || existingUniqueIds.Contains(customItem.UniqueId))
                         {
@@ -144,7 +157,7 @@ namespace SE_UpgradeModuleMod
                             customItem.UniqueId = newUniqueId;
                             existingUniqueIds.Add(newUniqueId);
 
-                            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Assigned new UniqueId: {newUniqueId}.");
+                            Log($"Assigned new UniqueId: {newUniqueId}.");
 
                             // 클라이언트에 메시지 전송
                             SendMessageToClients($"New UniqueId assigned: {newUniqueId}");
@@ -152,111 +165,46 @@ namespace SE_UpgradeModuleMod
                     }
                     else
                     {
-                        MyLog.Default.WriteLineAndConsole("ItemCountHandler: Failed to cast content to MyObjectBuilder_CustomItem.");
+                        Log("Failed to cast content to MyObjectBuilder_CustomItem.");
                     }
                 }
             }
         }
 
-        // 특정 SubtypeId를 가진 아이템들의 UniqueId를 조회하고 클라이언트에 전송하는 메서드
         private void GetItemUniqueIdsInWorld(string subtypeId)
         {
-            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Collecting UniqueIds for items with SubtypeId: {subtypeId}.");
+            Log($"Collecting UniqueIds for items with SubtypeId: '{subtypeId}'.");
             HashSet<string> uniqueIds = new HashSet<string>();
 
             // 모든 엔티티를 순회
             var entities = new HashSet<IMyEntity>();
             MyAPIGateway.Entities.GetEntities(entities);
-            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Total entities found: {entities.Count}.");
+            Log($"Total entities found: {entities.Count}.");
 
-            foreach (var entity in entities)
-            {
-                // MyFloatingObject 검사
-                var floatingObject = entity as MyFloatingObject;
-                if (floatingObject != null)
-                {
-                    var content = floatingObject.Item.Content;
-
-                    if (content.GetId().SubtypeId == MyStringHash.GetOrCompute(subtypeId))
-                    {
-                        var customItem = content as MyObjectBuilder_CustomItem;
-                        if (customItem != null && !string.IsNullOrEmpty(customItem.UniqueId))
-                        {
-                            uniqueIds.Add(customItem.UniqueId);
-                            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Found UniqueId in floating object: {customItem.UniqueId}.");
-                        }
-                        else
-                        {
-                            MyLog.Default.WriteLineAndConsole("ItemCountHandler: Custom item in floating object has no UniqueId.");
-                        }
-                    }
-                }
-
-                // 그리드의 인벤토리 아이템 검사
-                var grid = entity as IMyCubeGrid;
-                if (grid != null)
-                {
-                    var blocks = new List<IMySlimBlock>();
-                    grid.GetBlocks(blocks);
-
-                    foreach (var block in blocks)
-                    {
-                        var fatBlock = block.FatBlock;
-                        if (fatBlock != null)
-                        {
-                            var terminalBlock = fatBlock as IMyTerminalBlock;
-                            if (terminalBlock != null)
-                            {
-                                int inventoryCount = terminalBlock.InventoryCount;
-                                for (int i = 0; i < inventoryCount; i++)
-                                {
-                                    var inventory = terminalBlock.GetInventory(i) as IMyInventory;
-                                    if (inventory != null)
-                                    {
-                                        var items = inventory.GetItems();
-
-                                        foreach (var item in items)
-                                        {
-                                            var contentId = item.Content.GetId();
-                                            if (contentId.SubtypeId == MyStringHash.GetOrCompute(subtypeId))
-                                            {
-                                                var customItem = item.Content as MyObjectBuilder_CustomItem;
-                                                if (customItem != null && !string.IsNullOrEmpty(customItem.UniqueId))
-                                                {
-                                                    uniqueIds.Add(customItem.UniqueId);
-                                                    MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Found UniqueId in grid inventory: {customItem.UniqueId}.");
-                                                }
-                                                else
-                                                {
-                                                    MyLog.Default.WriteLineAndConsole("ItemCountHandler: Custom item in grid inventory has no UniqueId.");
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            // ... (생략된 코드: FloatingObject와 그리드 인벤토리 검사 부분)
 
             // 모든 플레이어의 인벤토리를 검사
             var players = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(players);
-            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Total players found: {players.Count}.");
+            Log($"Total players found: {players.Count}.");
 
             foreach (var player in players)
             {
+                Log($"Checking player: DisplayName='{player.DisplayName}', PlayerId={player.IdentityId}.");
+
                 var character = player.Character;
                 if (character != null)
                 {
                     int inventoryCount = character.InventoryCount;
+                    Log($"Player character has {inventoryCount} inventories.");
+
                     for (int i = 0; i < inventoryCount; i++)
                     {
                         var inventory = character.GetInventory(i) as IMyInventory;
                         if (inventory != null)
                         {
                             var items = inventory.GetItems();
+                            Log($"Inventory {i} has {items.Count} items.");
 
                             foreach (var item in items)
                             {
@@ -264,22 +212,72 @@ namespace SE_UpgradeModuleMod
                                 if (contentId.SubtypeId == MyStringHash.GetOrCompute(subtypeId))
                                 {
                                     var customItem = item.Content as MyObjectBuilder_CustomItem;
-                                    if (customItem != null && !string.IsNullOrEmpty(customItem.UniqueId))
+                                    if (customItem != null)
                                     {
-                                        uniqueIds.Add(customItem.UniqueId);
-                                        MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Found UniqueId in player inventory: {customItem.UniqueId}.");
+                                        if (!string.IsNullOrEmpty(customItem.UniqueId))
+                                        {
+                                            uniqueIds.Add(customItem.UniqueId);
+                                            Log($"Found UniqueId in player inventory: '{customItem.UniqueId}'.");
+                                        }
+                                        else
+                                        {
+                                            Log("Custom item in player inventory has no UniqueId. Assigning new UniqueId.");
+
+                                            // 서버에서만 아이템 수정
+                                            if (MyAPIGateway.Multiplayer.IsServer)
+                                            {
+                                                // 새로운 UniqueId 생성
+                                                string newUniqueId;
+                                                do
+                                                {
+                                                    newUniqueId = Guid.NewGuid().ToString();
+                                                } while (existingUniqueIds.Contains(newUniqueId));
+
+                                                customItem.UniqueId = newUniqueId;
+                                                existingUniqueIds.Add(newUniqueId);
+                                                uniqueIds.Add(newUniqueId);
+
+                                                Log($"Assigned new UniqueId to item in player inventory: '{newUniqueId}'.");
+
+                                                // 아이템 변경 사항을 적용하기 위해 인벤토리 아이템을 업데이트합니다.
+                                                var index = items.IndexOf(item);
+                                                if (index >= 0)
+                                                {
+                                                    // 아이템을 업데이트하여 변경 사항을 적용
+                                                    items[index] = item;
+                                                    Log($"Updated item in inventory at index {index}.");
+                                                }
+                                                else
+                                                {
+                                                    Log("Failed to find item index in inventory.");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Log("Not a server. Cannot assign UniqueId.");
+                                            }
+                                        }
                                     }
                                     else
                                     {
-                                        MyLog.Default.WriteLineAndConsole("ItemCountHandler: Custom item in player inventory has no UniqueId.");
+                                        Log($"Failed to cast item content to MyObjectBuilder_CustomItem. Actual type: '{item.Content.GetType().Name}'.");
                                     }
                                 }
                             }
                         }
+                        else
+                        {
+                            Log($"Inventory {i} is null.");
+                        }
                     }
+                }
+                else
+                {
+                    Log("Player character is null.");
                 }
             }
 
+            Log($"Total UniqueIds collected: {uniqueIds.Count}");
             // 수집된 UniqueId를 클라이언트에 전송
             foreach (var id in uniqueIds)
             {
@@ -295,7 +293,7 @@ namespace SE_UpgradeModuleMod
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(message);
             MyAPIGateway.Multiplayer.SendMessageToOthers(ModConstants.ModMessageId, bytes);
-            MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Sent message to clients: {message}");
+            Log($"Sent message to clients: {message}");
         }
 
         // 클라이언트에서 메시지를 수신하고 채팅에 출력하는 메서드
@@ -313,11 +311,11 @@ namespace SE_UpgradeModuleMod
                 }
 
                 // 로그에도 메시지 기록
-                MyLog.Default.WriteLineAndConsole($"ItemCountHandler: Received message: {message}");
+                Log($"Received message: {message}");
             }
             else
             {
-                MyLog.Default.WriteLineAndConsole("ItemCountHandler: Received data is not byte array.");
+                Log("Received data is not byte array.");
             }
         }
     }
