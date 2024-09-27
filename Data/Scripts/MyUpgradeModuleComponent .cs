@@ -27,7 +27,7 @@ namespace SE_UpgradeModuleMod
         private System.IO.TextWriter _logFile;
         private Dictionary<long, string> entityHashCodeMap = new Dictionary<long, string>(); // EntityId와 HashCode 매핑 저장소
         private const string StorageFileName = "EntityHashCodeMap.xml"; // 매핑 데이터 파일 이름
-        private const string LogFileName = "ItemCountHandler.log"; // 로그 파일 이름
+        private const string LogFileName = "test.log"; // 로그 파일 이름
 
         public override void LoadData()
         {
