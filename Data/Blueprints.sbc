@@ -46,7 +46,7 @@
                 <Item Amount="1" TypeId="Ore" SubtypeId="CeriumOre" />
             </Prerequisites>
             <Results>
-                <Item Amount="1" TypeId="MyObjectBuilder_CustomItem" SubtypeId="Upgrademodule" />
+                <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Upgrademodule" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>

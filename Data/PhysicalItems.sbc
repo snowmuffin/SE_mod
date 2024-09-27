@@ -110,9 +110,9 @@
       <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
       <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
     </PhysicalItem> 
-    <PhysicalItem xsi:type="MyObjectBuilder_CustomItem">
+    <PhysicalItem>
       <Id>
-        <TypeId>MyObjectBuilder_CustomItem</TypeId>
+        <TypeId>PhysicalObject</TypeId>
         <SubtypeId>Upgrademodule</SubtypeId>
       </Id>
       <DisplayName>Upgrade module</DisplayName>
