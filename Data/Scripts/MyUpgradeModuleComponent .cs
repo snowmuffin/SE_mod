@@ -295,7 +295,7 @@ namespace SE_UpgradeModuleMod
         // 클라이언트에 메시지를 전송하는 메서드
         private void SendMessageToClients(string message)
         {
-            var bytes = Encoding.UTF8.GetBytes(message);
+            var bytes = System.Text.Encoding.UTF8.GetBytes(message);
             MyAPIGateway.Multiplayer.SendMessageToOthers(ModConstants.ModMessageId, bytes);
             Log($"Sent message to clients: {message}");
         }
