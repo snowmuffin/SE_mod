@@ -119,6 +119,8 @@ namespace SE_UpgradeModuleMod
                 // 로그 파일이 열려 있지 않을 경우, 클라이언트 채팅에 출력 (디버그용)
                 MyAPIGateway.Utilities.ShowMessage("ItemCountHandler Log", message);
             }
+            _logFile?.WriteLine($"{DateTime.Now}: {message}");
+            _logFile?.Flush();
         }
 
         // 해시코드 생성 메서드
