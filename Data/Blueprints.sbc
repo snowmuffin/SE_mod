@@ -38,18 +38,78 @@
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Upgrademodule</SubtypeId>
+                <SubtypeId>DefenseUpgradeModule</SubtypeId>
             </Id>
-            <DisplayName>Upgrademodule</DisplayName>
+            <DisplayName>Defense_Upgrade_Module</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ore" SubtypeId="CeriumOre" />
+                <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="220" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="2" TypeId="Ingot" SubtypeId="Magnesium" />
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
-                <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Upgrademodule" />
+                <Item Amount="1" TypeId="PhysicalObject" SubtypeId="DefenseUpgradeModule_Level1" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
 
+        <!-- 공격 모듈 블루프린트 -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="220" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="2" TypeId="Ingot" SubtypeId="Magnesium" />
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="PhysicalObject" SubtypeId="AttackUpgradeModule_Level1" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <!-- 전력 효율 모듈 블루프린트 -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule</SubtypeId>
+            </Id>
+            <DisplayName>Power_Efficiency_Upgrade_Module</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="220" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="2" TypeId="Ingot" SubtypeId="Magnesium" />
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="10" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="30" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="PhysicalObject" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
     </Blueprints>
 </Definitions>

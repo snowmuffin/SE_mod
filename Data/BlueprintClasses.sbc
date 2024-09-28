@@ -17,7 +17,9 @@
   <BlueprintClassEntries><!-- OreToIngot -->
     <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
     <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
-    <Entry Class="BasicEquipment" BlueprintSubtypeId="Upgrademodule" />
+    <Entry Class="BasicEquipment" BlueprintSubtypeId="DefenseUpgradeModule" />
+    <Entry Class="BasicEquipment" BlueprintSubtypeId="AttackUpgradeModule" />
+    <Entry Class="BasicEquipment" BlueprintSubtypeId="PowerEfficiencyUpgradeModule" />
     <Entry Class="LargeBlocks" BlueprintSubtypeId="Assembler/ModuleAmplificationStation" />
   </BlueprintClassEntries>
 </Definitions>
