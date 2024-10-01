@@ -1,0 +1,965 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Components>
+        <Component>
+            <Id>
+            <TypeId>Component</TypeId>
+            <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 1</DisplayName>
+            <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+            <Size>
+            <X>0.1</X>
+            <Y>0.1</Y>
+            <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+        
+        </Component>
+
+        <Component>
+            <Id>
+            <TypeId>Component</TypeId>
+            <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 2</DisplayName>
+            <DropProbability>0.3</DropProbability>
+            <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+            <Size>
+            <X>0.1</X>
+            <Y>0.1</Y>
+            <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+        
+        </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 3</DisplayName>
+      <DropProbability>0.15</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 4</DisplayName>
+      <DropProbability>0.08</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 5</DisplayName>
+      <DropProbability>0.04</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 6</DisplayName>
+      <DropProbability>0.02</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 7</DisplayName>
+      <DropProbability>0.01</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 8</DisplayName>
+      <DropProbability>0.005</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 9</DisplayName>
+      <DropProbability>0.0025</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
+      </Id>
+      <DisplayName>Defense Module Lv 10</DisplayName>
+      <DropProbability>0.001</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 1</DisplayName>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 2</DisplayName>
+      <DropProbability>0.3</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 3</DisplayName>
+      <DropProbability>0.15</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 4</DisplayName>
+      <DropProbability>0.08</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 5</DisplayName>
+      <DropProbability>0.04</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 6</DisplayName>
+      <DropProbability>0.02</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 7</DisplayName>
+      <DropProbability>0.01</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 8</DisplayName>
+      <DropProbability>0.005</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 9</DisplayName>
+      <DropProbability>0.0025</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
+      </Id>
+      <DisplayName>Attack Module Lv 10</DisplayName>
+      <DropProbability>0.001</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+
+    <!-- 전력 효율 모듈 (레벨 1~10) -->
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 1</DisplayName>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+      <AmmoDefinitionId Subtype="Missile" />
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 2</DisplayName>
+      <DropProbability>0.3</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <!-- 반복적으로 Lv 3부터 Lv 10까지 작성 -->
+    
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 3</DisplayName>
+      <DropProbability>0.15</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 4</DisplayName>
+      <DropProbability>0.08</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 5</DisplayName>
+      <DropProbability>0.04</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 6</DisplayName>
+      <DropProbability>0.02</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 7</DisplayName>
+      <DropProbability>0.01</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 8</DisplayName>
+      <DropProbability>0.005</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 9</DisplayName>
+      <DropProbability>0.0025</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
+      </Id>
+      <DisplayName>PowerEfficiency Module Lv 10</DisplayName>
+      <DropProbability>0.001</DropProbability>
+      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+      <Size>
+        <X>0.1</X>
+        <Y>0.1</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\computer_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>4000</Health>
+            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>2</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+      
+    </Component>
+    </Components>
+</Definitions>

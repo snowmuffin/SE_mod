@@ -14,10 +14,38 @@
         <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
     </Class>
   </BlueprintClasses>
-  <BlueprintClassEntries><!-- OreToIngot -->
+  <BlueprintClassEntries>
     <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
     <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
-    <Entry Class="BasicEquipment" BlueprintSubtypeId="Upgrademodule" />
-    <Entry Class="LargeBlocks" BlueprintSubtypeId="Assembler/ModuleAmplificationStation" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level6" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level6" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level7" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level7" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level8" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level8" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level9" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level9" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level10" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level10" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level10" />
   </BlueprintClassEntries>
 </Definitions>

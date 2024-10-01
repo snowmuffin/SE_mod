@@ -17,7 +17,6 @@
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <!-- Cerium Ore to Ingot -->
         <Blueprint>
             <Id>
@@ -34,22 +33,493 @@
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level1</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="750" TypeId="Component" SubtypeId="SteelPlate" />
+                <Item Amount="500" TypeId="Component" SubtypeId="Motor" />
+                <Item Amount="100" TypeId="Component" SubtypeId="MetalGrid" />
+                <Item Amount="350" TypeId="Component" SubtypeId="Computer" />
+                <Item Amount="250" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="100" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="5" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="250" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="250" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
 
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Upgrademodule</SubtypeId>
+                <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
             </Id>
-            <DisplayName>Upgrademodule</DisplayName>
+            <DisplayName>Defense_Upgrade_Module_Level7</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ore" SubtypeId="CeriumOre" />
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
             </Prerequisites>
             <Results>
-                <Item Amount="1" TypeId="MyObjectBuilder_CustomItem" SubtypeId="Upgrademodule" />
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Defense_Upgrade_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level1</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="150" TypeId="Component" SubtypeId="SteelPlate" />
+                <Item Amount="100" TypeId="Component" SubtypeId="Motor" />
+                <Item Amount="20" TypeId="Component" SubtypeId="MetalGrid" />
+                <Item Amount="70" TypeId="Component" SubtypeId="Computer" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
 
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level7</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Attack_Upgrade_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level1</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="150" TypeId="Component" SubtypeId="SteelPlate" />
+                <Item Amount="100" TypeId="Component" SubtypeId="Motor" />
+                <Item Amount="20" TypeId="Component" SubtypeId="MetalGrid" />
+                <Item Amount="70" TypeId="Component" SubtypeId="Computer" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Gold" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="50" TypeId="Ingot" SubtypeId="Lanthanum" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+            </Results>
+            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level7</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency_Upgrade_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
     </Blueprints>
 </Definitions>
