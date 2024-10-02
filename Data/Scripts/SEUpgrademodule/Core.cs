@@ -245,7 +245,7 @@ namespace SEUpgrademodule
 		public static bool Filter(IMyTerminalBlock block) 
 		{
 
-			return (block.CustomName.Contains("[MainCockpit]"));
+			return (block.CustomName.Contains("[Upgrade]"));
 		}
 
     }

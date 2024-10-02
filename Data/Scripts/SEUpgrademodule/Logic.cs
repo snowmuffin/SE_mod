@@ -50,10 +50,7 @@ namespace SEUpgrademodule
             Entity.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             
-            if (!MoreLoot.cockpits.ContainsKey(Entity.EntityId))
-            {
-                MoreLoot.cockpits.TryAdd(Entity.EntityId, this);
-            }
+
         }
 		public void UpdatePrintBalanced()
 		{
@@ -196,7 +193,7 @@ namespace SEUpgrademodule
 
             IMyTerminalBlock tm =  Entity as IMyTerminalBlock;
 
-            if (!tm.CustomName.Contains("[MainCockpit]")) 
+            if (!tm.CustomName.Contains("[Upgrade]")) 
                 return;
 
 

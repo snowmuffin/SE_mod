@@ -27,7 +27,7 @@ namespace SEUpgrademodule
         IMyCubeGrid Grid = null;
         List<IMySlimBlock> GridBlocks = new List<IMySlimBlock>();
         List<IMyCargoContainer> Container = new List<IMyCargoContainer>();
-
+        List<IMyTerminalBlock> Cockpit = new List<IMyTerminalBlock>();
         // 업그레이드 레벨을 관리할 리스트
         List<UpgradeLevel> PUpLevels = new List<UpgradeLevel>();
         List<UpgradeLevel> AUpLevels = new List<UpgradeLevel>();
@@ -112,12 +112,12 @@ namespace SEUpgrademodule
 
             // 모든 업그레이드 레벨 리스트 합치기
             List<UpgradeLevel> allUpgradeLevels = new List<UpgradeLevel>();
-            allUpgradeLevels.AddRange(PUpLevels);
-            allUpgradeLevels.AddRange(AUpLevels);
-            allUpgradeLevels.AddRange(DUpLevels);
+            allUpgradeLevels.AddRange(PUpLevels.Take(5));
+            allUpgradeLevels.AddRange(AUpLevels.Take(5));
+            allUpgradeLevels.AddRange(DUpLevels.Take(5));
 
-            int maxLevel = 10;
-            double k = 1.0; // 지수 스케일링 상수 (필요에 따라 조정)
+            int maxLevel = 5;
+            double k = 0.5; // 지수 스케일링 상수 (필요에 따라 조정)
 
             try
             {
@@ -176,7 +176,110 @@ namespace SEUpgrademodule
 
             return added;
         }
+        private bool AddLootCockpit(IMyTerminalBlock cockpit)
+        {
+            bool added = false;
 
+            List<UpgradeLevel> allUpgradeLevels = new List<UpgradeLevel>();
+            IMyInventory inventory = cockpit.GetInventory();
+            allUpgradeLevels.AddRange(PUpLevels);
+            allUpgradeLevels.AddRange(AUpLevels);
+            allUpgradeLevels.AddRange(DUpLevels);
+
+            // 각 업그레이드 타입에 대해 처리할 최대 레벨
+            int maxLevel = 10;
+            double k = 0.7; // 지수 스케일링 상수 (필요에 따라 조정)
+
+            // 그리드 레벨 합산을 위한 변수
+            int totalLevel = 0;
+
+            try
+            {
+                // 디버그 로그: 업그레이드 시작
+                MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Starting loot addition for cockpit {cockpit.CustomName} in grid {cockpit.CubeGrid.CustomName}");
+
+                // 각 업그레이드 타입별로 레벨을 랜덤하게 선택
+                string[] upgradeTypes = { "PUp", "AUp", "DUp" };
+
+                foreach (var upgradeType in upgradeTypes)
+                {
+                    // 랜덤하게 레벨 선택 (1부터 maxLevel까지)
+                    int randomLevel = MyUtils.GetRandomInt(1, maxLevel + 1);
+                    string upgradeName = $"{upgradeType}Lv{randomLevel}";
+
+                    // 디버그 로그: 랜덤 레벨 선택
+                    MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Selected random level {randomLevel} for upgrade type {upgradeType}");
+
+                    // 해당 업그레이드를 찾아서 추가
+                    var upgrade = allUpgradeLevels.FirstOrDefault(u => u.Name == upgradeName);
+
+                    if (upgrade != null)
+                    {
+                        // 기본 확률 선택
+                        double baseChance = 1.0;
+
+                        // 지수 스케일링 적용
+                        double scaledChance = GetExponentiallyScaledChance(randomLevel, baseChance, maxLevel, k);
+
+                        // 디버그 로그: 확률 계산
+                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Calculated scaled chance for {upgradeName}: {scaledChance}");
+
+                        // 확률 검사
+                        if (MyUtils.GetRandomDouble(0, 1) <= scaledChance)
+                        {
+                            int amount = 1;
+
+                            // 디버그 로그: 아이템 추가
+                            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Adding {amount}x {upgrade.Name} to cockpit {cockpit.CustomName}");
+                            MyLog.Default.WriteLine($"SE_Upgrade_module: Added {amount}x {upgrade.Name} to {cockpit.CustomName}");
+                            inventory.AddItems(amount, upgrade.Builder);
+                            added = true;
+
+                            // 해당 업그레이드 레벨을 합산
+                            totalLevel += randomLevel;
+                        }
+                        else
+                        {
+                            // 디버그 로그: 확률에 실패
+                            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Failed to add {upgradeName} due to scaled chance.");
+                        }
+                    }
+                    else
+                    {
+                        // 디버그 로그: 업그레이드 찾기 실패
+                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Upgrade {upgradeName} not found in available upgrades.");
+                    }
+                }
+
+                // 그리드 이름에 'LV'와 총 레벨을 추가
+                if (totalLevel > 0)
+                {
+                    var grid = cockpit.CubeGrid;
+                    string originalName = grid.CustomName;
+
+                    // 이미 'LV'가 붙어 있는지 체크
+                    if (!originalName.Contains("LV"))
+                    {
+                        grid.CustomName += $" LV{totalLevel}";
+
+                        // 디버그 로그: 그리드 이름 변경
+                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Updated grid name to {grid.CustomName}");
+                        MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // 디버그 로그: 예외 처리
+                MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Exception occurred: {e.Message}");
+                MyLog.Default.WriteLine("SEUpgrademodule: FAILED " + e);
+            }
+
+            // 디버그 로그: 작업 완료
+            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Loot addition process completed for cockpit {cockpit.CustomName}");
+            
+            return added;
+        }
         private void NewSpawn(long entityId, string prefabName)
         {
             try
@@ -195,17 +298,35 @@ namespace SEUpgrademodule
 
                     foreach (var block in GridBlocks)
                     {
-                        if (block.FatBlock != null && block.FatBlock is IMyCargoContainer)
+                        if (block.FatBlock != null)
                         {
-                            var cargo = block.FatBlock as IMyCargoContainer;
-                            if (cargo != null && !cargo.MarkedForClose && cargo.IsWorking)
+                            if(block.FatBlock is IMyCargoContainer)
                             {
-                                var inventory = cargo.GetInventory();
-                                if (cargo.GetInventory() != null)
+                                var cargo = block.FatBlock as IMyCargoContainer;
+                                if (cargo != null && !cargo.MarkedForClose && cargo.IsWorking)
                                 {
-                                    Container.Add(cargo);
+                                    var inventory = cargo.GetInventory();
+                                    if (cargo.GetInventory() != null)
+                                    {
+                                        Container.Add(cargo);
+                                    }
                                 }
                             }
+                            else if(block.FatBlock is IMyCockpit)
+                            {
+                                
+                                var cockpit = block.FatBlock as IMyTerminalBlock;
+                                if (cockpit != null)
+                                {
+                                    
+                                    if (cockpit.GetInventory() != null)
+                                    {
+                                        
+                                        Cockpit.Add(cockpit);
+                                    }
+                                }
+                            }
+
                         }
                     }
 
@@ -217,6 +338,11 @@ namespace SEUpgrademodule
                     {
                         if (AddLoot(cargo) && ++addedLoot >= MaxContainers) break;
                     }
+                    Cockpit.ShuffleList();
+                    Cockpit[0].CustomName += " [Upgrade]";
+                    MyLog.Default.WriteLine("SEUpgrademodule: Valid Cockpit " + Cockpit[0].CubeGrid.CustomName);
+
+                    AddLootCockpit(Cockpit[0]);
 
                 }
             }
