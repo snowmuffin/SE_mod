@@ -70,7 +70,7 @@
    - Enhanced NPC grids will display their total level in their names.
      - 강화된 NPC 그리드는 이름에 총 레벨이 표시됩니다.
 ---
-## 🙌 Acknowledgments / 감사의 말
+## 🙌 Contributors
    - NyaNyaNyang: Provided valuable modeling resources for this project.
    - NyaNyaNyang님께서 이 프로젝트에 모델링 리소스를 제공해주셨습니다.
 ---
