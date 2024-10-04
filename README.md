@@ -1,15 +1,9 @@
 # SE_Upgrade_module_mod
 
-## 📄 Introduction
+## 📄 Introduction / 소개
 
 **SE_Upgrade_module_mod** enhances your game by adding advanced modules for attack, defense, and energy efficiency up to level 10.
-
----
-
-## 📄 소개
-
 **SE_Upgrade_module_mod**은 공격, 방어, 에너지 효율성을 높이는 모듈을 레벨 10까지 추가하여 게임을 개선합니다.
-
 ---
 
 ## 🌟 Features / 기능
