@@ -78,21 +78,6 @@
 
 ---
 
-## 🛠 Installation / 설치 방법
-
-1. **Download the Mod / 모드 다운로드**
-   - Clone the repository or download the ZIP file from GitHub.
-     - GitHub 저장소를 클론하거나 ZIP 파일을 다운로드하세요.
-
-2. **Install the Mod / 모드 설치**
-   - Extract the contents to your game's `Mods` directory.
-     - 게임의 `Mods` 디렉토리에 내용을 추출하세요.
-
-3. **Activate the Mod / 모드 활성화**
-   - Launch your game and activate the **SE_Upgrade_module_mod** from the mods menu.
-     - 게임을 실행하고 모드 메뉴에서 **SE_Upgrade_module_mod**을 활성화하세요.
-
----
 
 ## 📜 License
 
