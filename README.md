@@ -110,8 +110,6 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 
 ---
 
-## 📚 Additional Resources / 추가 자료
-
 
 - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3341019311)
 
