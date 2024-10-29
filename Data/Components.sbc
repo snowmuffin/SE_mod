@@ -1,965 +1,1511 @@
 <?xml version="1.0"?>
-<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Components>
+        <!-- 방어 모듈 -->
         <Component>
             <Id>
-            <TypeId>Component</TypeId>
-            <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Defense Module Lv 1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-01.dds</Icon>
             <Size>
-            <X>0.1</X>
-            <Y>0.1</Y>
-            <Z>0.1</Z>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
             </Size>
             <Mass>1</Mass>
             <Volume>1</Volume>
-            <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <MinimalPricePerUnit>1000000</MinimalPricePerUnit>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
-
             <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-        
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
         </Component>
-
         <Component>
             <Id>
-            <TypeId>Component</TypeId>
-            <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Defense Module Lv 2</DisplayName>
-            <DropProbability>0.3</DropProbability>
-            <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-02.dds</Icon>
             <Size>
-            <X>0.1</X>
-            <Y>0.1</Y>
-            <Z>0.1</Z>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
             </Size>
             <Mass>1</Mass>
             <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
             <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-        
         </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 3</DisplayName>
-      <DropProbability>0.15</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Defense Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 1</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-01.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>1000000</MinimalPricePerUnit>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
-
             <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 4</DisplayName>
-      <DropProbability>0.08</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 2</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-02.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Attack Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\red-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <!-- ?�너지 ?�율 모듈 -->
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 1</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-01.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>1000000</MinimalPricePerUnit>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
-
             <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 5</DisplayName>
-      <DropProbability>0.04</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 6</DisplayName>
-      <DropProbability>0.02</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 7</DisplayName>
-      <DropProbability>0.01</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 8</DisplayName>
-      <DropProbability>0.005</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 9</DisplayName>
-      <DropProbability>0.0025</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
-      </Id>
-      <DisplayName>Defense Module Lv 10</DisplayName>
-      <DropProbability>0.001</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 1</DisplayName>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 2</DisplayName>
-      <DropProbability>0.3</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 3</DisplayName>
-      <DropProbability>0.15</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 4</DisplayName>
-      <DropProbability>0.08</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 5</DisplayName>
-      <DropProbability>0.04</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 6</DisplayName>
-      <DropProbability>0.02</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 7</DisplayName>
-      <DropProbability>0.01</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 8</DisplayName>
-      <DropProbability>0.005</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 9</DisplayName>
-      <DropProbability>0.0025</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
-      </Id>
-      <DisplayName>Attack Module Lv 10</DisplayName>
-      <DropProbability>0.001</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-
-    <!-- 전력 효율 모듈 (레벨 1~10) -->
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 1</DisplayName>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-      <AmmoDefinitionId Subtype="Missile" />
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 2</DisplayName>
-      <DropProbability>0.3</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <!-- 반복적으로 Lv 3부터 Lv 10까지 작성 -->
-    
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 3</DisplayName>
-      <DropProbability>0.15</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 4</DisplayName>
-      <DropProbability>0.08</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 5</DisplayName>
-      <DropProbability>0.04</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 6</DisplayName>
-      <DropProbability>0.02</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 7</DisplayName>
-      <DropProbability>0.01</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 8</DisplayName>
-      <DropProbability>0.005</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 9</DisplayName>
-      <DropProbability>0.0025</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
-
-    <Component>
-      <Id>
-        <TypeId>Component</TypeId>
-        <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
-      </Id>
-      <DisplayName>PowerEfficiency Module Lv 10</DisplayName>
-      <DropProbability>0.001</DropProbability>
-      <Icon>Textures\GUI\Icons\component\upgrade_module.dds</Icon>
-      <Size>
-        <X>0.1</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>1</Volume>
-      <Model>Models\Components\computer_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>500</MaxIntegrity>
-            <DropProbability>0.5</DropProbability>
-            <Health>4000</Health>
-            <MinimalPricePerUnit>400000</MinimalPricePerUnit>
-            <MinimumOfferAmount>2</MinimumOfferAmount>
-            <MaximumOfferAmount>125</MaximumOfferAmount>
-            <MinimumOrderAmount>2</MinimumOrderAmount>
-            <MaximumOrderAmount>125</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
-      
-    </Component>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 2</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-02.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>PowerEfficiency Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 1</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-01.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 2</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-02.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>BerserkerModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Berserker Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\purple-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 1</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-01.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 2</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-02.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SpeedModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Speed Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\green-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level1</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 1</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-01.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 2</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-02.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 3</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-03.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 4</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-04.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 5</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-05.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 6</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-06.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 7</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-07.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 8</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-08.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 9</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-09.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>FortressModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Fortress Module Lv 10</DisplayName>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied.</Description>
+            <Icon>Textures\GUI\Icons\component\modules\orange-10.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <MinimalPricePerUnit>0</MinimalPricePerUnit>
+            <MinimumOfferAmount>0</MinimumOfferAmount>
+            <MaximumOfferAmount>0</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <MinimumAcquisitionAmount>0</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>0</MaximumAcquisitionAmount>
+            <DropProbability>0</DropProbability>
+            <Model>Models\Components\computer_component.mwm</Model>
+        </Component>
     </Components>
 </Definitions>
