@@ -50,12 +50,12 @@ namespace SEUpgrademodule
                     LargeGridBasic = new Item() { Chance = 0.2f, MinAmount = 6, MaxAmount = 25 },
 
                     // Stage 2: Advanced (고급)
-                    SmallGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 11 },
-                    LargeGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 5, MaxAmount = 13 },
+                    SmallGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 6 },
+                    LargeGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 6 },
 
 
                     DisableGrindSubgridDamage = true,
-                    ExcludeGrids = new List<string>() { "respawn" }
+                    ExcludeGrids = new List<string>() { "respawn","Respawn" }
                 };
             }
 

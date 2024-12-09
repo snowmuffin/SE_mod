@@ -40,6 +40,7 @@ namespace SEUpgrademodule
             // 데미지 핸들러 등록
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(1, HandleDamage);
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5856, UpgradeMessageHandler);
+            MyAPIGateway.Missiles.OnMissileCollided += missileCollisionHandler;
             foreach (var kv in Upgradecore.Upgrades)
             {
                 UpgradeLogic basec = null;
@@ -53,7 +54,72 @@ namespace SEUpgrademodule
             }
             m_init = true;
         }
+        HashSet<long> processedMissiles = new HashSet<long>();
 
+        void missileCollisionHandler(IMyMissile missile)
+        {
+            try
+            {
+                // 미사일이 이미 처리된 경우, 더 이상 진행하지 않음
+                if (processedMissiles.Contains(missile.EntityId))
+                {
+                    return;
+                }
+
+                // 미사일을 처음 처리한 경우 HashSet에 추가
+                processedMissiles.Add(missile.EntityId);
+
+                IMyEntity attackerEntity = MyAPIGateway.Entities.GetEntityById(missile.LauncherId);
+                IMyCubeGrid attackergrid = attackerEntity as IMyCubeGrid;
+                IMyCubeBlock attackerblock = attackerEntity as IMyCubeBlock;
+
+                if (attackergrid == null && attackerblock != null)
+                {
+                    attackergrid = attackerblock.CubeGrid;
+                }
+
+                if (attackergrid != null)
+                {
+                    if (!m_cachedGrids.ContainsKey(attackergrid.EntityId))
+                    {
+                        IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(attackergrid);
+                        List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
+                        List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
+
+                        if (tsystem != null)
+                        {
+                            tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
+
+                            foreach (var cockpit in cockpits)
+                            {
+                                UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
+                            }
+
+                            m_cachedGrids.TryAdd(attackergrid.EntityId, UpgradeLogics);
+                        }
+                    }
+
+                    // 공격자 업그레이드 정보 로드
+                    if (m_cachedGrids.ContainsKey(attackergrid.EntityId))
+                    {
+                        List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackergrid.EntityId];
+                        int maxAttackLevel = 0;
+
+                        foreach (var upgradeLogic in cachedattackerUpgradeLogics)
+                        {
+                            if (upgradeLogic.m_AttackUpgradeLevel > maxAttackLevel)
+                                maxAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
+                        }
+
+                        missile.ExplosionDamage *= (float)Math.Pow(1 + 0.02, maxAttackLevel);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // 예외 처리
+            }
+        }
 
         public override void UpdateBeforeSimulation()
         {
@@ -107,140 +173,120 @@ namespace SEUpgrademodule
         void HandleDamage(object target, ref MyDamageInformation info)
         {
             IMySlimBlock slimBlock = target as IMySlimBlock;
-            if (slimBlock == null) return;
-
             long attackerId = info.AttackerId;
             IMyEntity attackerEntity = null;
             IMyCubeGrid attackerGrid = null;
             float damageMultiplier = 1f;
-
             try
             {
-                DebugLog($"HandleDamage triggered. AttackerId: {attackerId}");
-
+                // 공격자 정보를 가져오기
                 attackerEntity = MyAPIGateway.Entities.GetEntityById(attackerId);
-                if (attackerEntity is IMyCubeGrid)
+                attackerGrid = attackerEntity as IMyCubeGrid;
+                if (attackerGrid == null && attackerEntity is IMyCubeBlock)
                 {
-                    attackerGrid = attackerEntity as IMyCubeGrid;
-                }
-                else if (attackerEntity is IMyCubeBlock)
-                {
-
-                    attackerGrid = (attackerEntity as IMyCubeBlock).CubeGrid;
+                    attackerGrid = ((IMyCubeBlock)attackerEntity).CubeGrid;
                 }
 
+                // 공격자의 캐시 확인 및 로직 적용
                 if (attackerGrid != null)
                 {
-                    List<UpgradeLogic> attackerUpgradeLogics;
-                    if (!m_cachedGrids.TryGetValue(attackerGrid.EntityId, out attackerUpgradeLogics))
+                    if (!m_cachedGrids.ContainsKey(attackerGrid.EntityId))
                     {
-                        DebugLog("Attacker not found in cache, fetching data.");
-                        DebugLog($"Attacker Grid found: {attackerGrid.DisplayName}");
-
                         IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(attackerGrid);
+                        List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
+                        List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
+
                         if (tsystem != null)
                         {
-                            List<IMyCockpit> cockpits = new List<IMyCockpit>();
                             tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
 
-                            DebugLog($"Found {cockpits.Count} cockpits in attacker grid.");
-
-                            attackerUpgradeLogics = new List<UpgradeLogic>();
                             foreach (var cockpit in cockpits)
                             {
-                                var upgradeLogic = cockpit.GameLogic.GetAs<UpgradeLogic>();
-                                if (upgradeLogic != null)
+                                UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
+                            }
+
+                            m_cachedGrids.TryAdd(attackerGrid.EntityId, UpgradeLogics);
+                        }
+                    }
+
+                    // 공격 레벨 계산 (최소값을 찾음)
+                    if (m_cachedGrids.ContainsKey(attackerGrid.EntityId))
+                    {
+                        List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackerGrid.EntityId];
+                        
+                        // 리스트에 값이 있을 때만 최소값 계산
+                        if (cachedattackerUpgradeLogics.Count > 0)
+                        {
+                            int minAttackLevel = cachedattackerUpgradeLogics[0].m_AttackUpgradeLevel;
+
+                            foreach (var upgradeLogic in cachedattackerUpgradeLogics)
+                            {
+                                if (upgradeLogic.m_AttackUpgradeLevel < minAttackLevel)
                                 {
-                                    attackerUpgradeLogics.Add(upgradeLogic);
+                                    minAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
                                 }
                             }
+                            
 
-                            m_cachedGrids[attackerGrid.EntityId] = attackerUpgradeLogics;
-                            DebugLog("Attacker upgrade logic cached.");
+                            damageMultiplier *= (float)Math.Pow(1 + 0.02, minAttackLevel);
+                            
+
                         }
-                    }
-
-                    if (attackerUpgradeLogics != null && attackerUpgradeLogics.Count > 0)
-                    {
-                        int maxAttackLevel = attackerUpgradeLogics.Max(u => u.m_AttackUpgradeLevel);
-                        DebugLog($"Max attack level: {maxAttackLevel}");
-
-                        damageMultiplier *= ComputeMultiplier(1.02f, maxAttackLevel);
                     }
                 }
 
-                // 방어 레벨 계산
-                List<UpgradeLogic> defenderUpgradeLogics;
-                if (!m_cachedGrids.TryGetValue(slimBlock.CubeGrid.EntityId, out defenderUpgradeLogics))
+                // 방어 레벨 계산 (최소값을 찾음)
+                if (!m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
                 {
-                    DebugLog("Defense grid not found in cache, fetching data.");
-
                     IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(slimBlock.CubeGrid as IMyCubeGrid);
+                    List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
+                    List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
+
                     if (tsystem != null)
                     {
-                        List<IMyCockpit> cockpits = new List<IMyCockpit>();
                         tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
 
-                        DebugLog($"Found {cockpits.Count} cockpits in defense grid.");
-
-                        defenderUpgradeLogics = new List<UpgradeLogic>();
                         foreach (var cockpit in cockpits)
                         {
-                            var upgradeLogic = cockpit.GameLogic.GetAs<UpgradeLogic>();
-                            if (upgradeLogic != null)
-                            {
-                                defenderUpgradeLogics.Add(upgradeLogic);
-                            }
+                            UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
                         }
 
-                        m_cachedGrids[slimBlock.CubeGrid.EntityId] = defenderUpgradeLogics;
-                        DebugLog("Defense upgrade logic cached.");
+                        m_cachedGrids.TryAdd(slimBlock.CubeGrid.EntityId, UpgradeLogics);
                     }
                 }
 
-                if (defenderUpgradeLogics == null || defenderUpgradeLogics.Count == 0)
+                // 방어 레벨 계산 (최소값을 찾음)
+                if (m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
                 {
-                    DebugLog("Defense upgrades not found in cache after attempted fetch.");
-                    return; // 캐시에 정보가 없으면 더 이상 처리하지 않음
+                    List<UpgradeLogic> cachedUpgradeLogics = m_cachedGrids[slimBlock.CubeGrid.EntityId];
+
+                    // 리스트에 값이 있을 때만 최소값 계산
+                    if (cachedUpgradeLogics.Count > 0)
+                    {
+                        int minDefenseLevel = cachedUpgradeLogics[0].m_DefenseUpgradeLevel;
+
+                        foreach (var upgradeLogic in cachedUpgradeLogics)
+                        {
+                            if (upgradeLogic.m_DefenseUpgradeLevel < minDefenseLevel)
+                            {
+                                minDefenseLevel = upgradeLogic.m_DefenseUpgradeLevel;
+                            }
+                        }
+                        
+                        damageMultiplier *= (float)Math.Pow(1 - 0.02, minDefenseLevel);
+                    }
                 }
 
-                int maxDefenseLevel = defenderUpgradeLogics.Max(u => u.m_DefenseUpgradeLevel);
-                DebugLog($"Max defense level: {maxDefenseLevel}");
-
-                damageMultiplier *= ComputeMultiplier(0.98f, maxDefenseLevel);
                 info.Amount *= damageMultiplier;
-
-                DebugLog($"Final damage: {info.Amount}");
+                
             }
             catch (Exception e)
             {
                 // 예외 처리 (로깅 또는 HUD 알림)
-                MyAPIGateway.Utilities.ShowMessage("ERROR", $"Exception in HandleDamage: {e.Message}");
             }
         }
 
-        // 멀티플라이어 계산을 위한 헬퍼 메서드
-        float ComputeMultiplier(float baseValue, int level)
-        {
-            float multiplier = 1f;
-            for (int i = 0; i < level; i++)
-            {
-                multiplier *= baseValue;
-            }
-            return multiplier;
-        }
-
-        // 최적화된 DebugLog 메서드
-        const bool DEBUG_MODE = false;
-
-        void DebugLog(string message)
-        {
-            if (DEBUG_MODE)
-            {
-                MyAPIGateway.Utilities.ShowMessage("DEBUG", message);
-            }
-        }
-
+                
 
 		public static bool Filter(IMyTerminalBlock block) 
 		{

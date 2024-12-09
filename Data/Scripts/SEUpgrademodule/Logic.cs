@@ -40,6 +40,9 @@ namespace SEUpgrademodule
         public int m_PowerEfficiencyUpgradeLevel = 0;
         public int m_AttackUpgradeLevel = 0;
         public int m_DefenseUpgradeLevel = 0;
+        public int m_SpeedModuleLevel = 0;
+        public int m_FortressModuleLevel = 0;
+        public int m_BerserkerModuleLevel = 0;
         bool m_closed = false;
         MyObjectBuilder_EntityBase m_objectBuilder;
         bool m_init = false;
@@ -50,6 +53,11 @@ namespace SEUpgrademodule
             Entity.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             
+            
+            Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
+
+			terminalBlock.AppendingCustomInfo += UpdateBlockInfo;
+
 
         }
 		public void UpdatePrintBalanced()
@@ -104,8 +112,12 @@ namespace SEUpgrademodule
 
 				info.Clear();
 
-				info.AppendLine("");
 
+				info.AppendLine("");
+                info.AppendLine($"Attack_Level:{m_AttackUpgradeLevel}");
+                info.AppendLine($"Defense_Level:{m_DefenseUpgradeLevel}");
+                info.AppendLine($"PowerEfficiency_Level:{m_PowerEfficiencyUpgradeLevel}");
+                info.AppendLine($"Speed_Level:{m_SpeedModuleLevel}");
 				IMyGridTerminalSystem tsystem = null;
 
 				if (block.CubeGrid != null)
@@ -184,82 +196,87 @@ namespace SEUpgrademodule
                 m_init = true;
             }
 
-            if (cubeBlock == null)
+            if (cubeBlock == null || cubeBlock.CubeGrid == null)
                 return;
 
-            IMyCubeGrid grid = cubeBlock.CubeGrid;
-            if (grid == null)
+            IMyTerminalBlock terminalBlock = Entity as IMyTerminalBlock;
+            if (terminalBlock == null || !terminalBlock.CustomName.Contains("[Upgrade]"))
                 return;
-
-            IMyTerminalBlock tm =  Entity as IMyTerminalBlock;
-
-            if (!tm.CustomName.Contains("[Upgrade]")) 
-                return;
-
 
             IMyInventory inventory = cubeBlock.GetInventory(0);
             if (inventory == null)
                 return;
 
+            ResetUpgradeLevels();
+
             List<VRage.Game.ModAPI.Ingame.MyInventoryItem> items = new List<VRage.Game.ModAPI.Ingame.MyInventoryItem>();
-            inventory.GetItems(items); 
-            m_PowerEfficiencyUpgradeLevel = 0;
-            m_AttackUpgradeLevel = 0;
-            m_DefenseUpgradeLevel = 0;
+            inventory.GetItems(items);
+
             foreach (var item in items)
-            {
-                // PowerEfficiencyUpgradeModule_Level 확인
-                if (item.Type.SubtypeId.ToString().StartsWith("PowerEfficiencyUpgradeModule_Level"))
-                {
-                    string levelStr = item.Type.SubtypeId.ToString().Replace("PowerEfficiencyUpgradeModule_Level", "");
-                    int level;
-                    if (int.TryParse(levelStr, out level) && level > m_PowerEfficiencyUpgradeLevel)
-                    {
-                        m_PowerEfficiencyUpgradeLevel = level;
-
-                        
-                    }
-                }
-                // AttackUpgradeModule_Level 확인
-                else if (item.Type.SubtypeId.ToString().StartsWith("AttackUpgradeModule_Level"))
-                {
-                    string levelStr = item.Type.SubtypeId.ToString().Replace("AttackUpgradeModule_Level", "");
-                    int level;
-                    if (int.TryParse(levelStr, out level) && level > m_AttackUpgradeLevel)
-                    {
-                        m_AttackUpgradeLevel = level;
-
-                    }
-                }
-                // DefenseUpgradeModule_Level 확인
-                else if (item.Type.SubtypeId.ToString().StartsWith("DefenseUpgradeModule_Level"))
-                {
-                    string levelStr = item.Type.SubtypeId.ToString().Replace("DefenseUpgradeModule_Level", "");
-                    int level;
-                    if (int.TryParse(levelStr, out level) && level > m_DefenseUpgradeLevel)
-                    {
-                        m_DefenseUpgradeLevel = level;
-
-                    }
-
-                }
+            {    
+                UpdateUpgradeLevel(item, "PowerEfficiencyUpgradeModule_Level", ref m_PowerEfficiencyUpgradeLevel);
+                UpdateUpgradeLevel(item, "AttackUpgradeModule_Level", ref m_AttackUpgradeLevel);
+                UpdateUpgradeLevel(item, "DefenseUpgradeModule_Level", ref m_DefenseUpgradeLevel);
+                UpdateUpgradeLevel(item, "SpeedModule_Level", ref m_SpeedModuleLevel);
+                UpdateUpgradeLevel(item, "BerserkerModule_Level", ref m_BerserkerModuleLevel);
+                UpdateUpgradeLevel(item, "FortressModule_Level", ref m_FortressModuleLevel);
             }
-            IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid (grid);
-            List<IMyThrust> thrusts = new List<IMyThrust>();
-            float PowerMultiplier = (float)Math.Pow(1 - 0.02, m_PowerEfficiencyUpgradeLevel);
-            if (tsystem != null) 
-            {
-                tsystem.GetBlocksOfType<IMyThrust>(thrusts);
-
-                foreach(var thrust in thrusts)
-                {
-                    thrust.PowerConsumptionMultiplier = PowerMultiplier;
-                }
-                
-            }
+            
+            
+            m_PowerEfficiencyUpgradeLevel -=m_SpeedModuleLevel+m_BerserkerModuleLevel;
+            m_AttackUpgradeLevel +=m_BerserkerModuleLevel;
+            m_DefenseUpgradeLevel += m_FortressModuleLevel-m_BerserkerModuleLevel;
+            m_SpeedModuleLevel -= m_FortressModuleLevel;
+            // Save upgrade levels
             savemessage.DefenseUpgradeLevel = m_DefenseUpgradeLevel;
             savemessage.AttackUpgradeLevel = m_AttackUpgradeLevel;
             savemessage.PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel;
+            ApplyThrustPowerMultiplier(cubeBlock.CubeGrid, m_PowerEfficiencyUpgradeLevel,m_SpeedModuleLevel);
+
+
+            terminalBlock.RefreshCustomInfo();
+        }
+
+        private void ResetUpgradeLevels()
+        {
+            m_PowerEfficiencyUpgradeLevel = 0;
+            m_AttackUpgradeLevel = 0;
+            m_DefenseUpgradeLevel = 0;
+            m_SpeedModuleLevel = 0;
+            m_FortressModuleLevel = 0;
+            m_BerserkerModuleLevel = 0;
+        }
+
+        private void UpdateUpgradeLevel(VRage.Game.ModAPI.Ingame.MyInventoryItem item, string prefix, ref int upgradeLevel)
+        {
+            if (item.Type.SubtypeId.ToString().StartsWith(prefix))
+            {
+                string levelStr = item.Type.SubtypeId.ToString().Replace(prefix, "");
+                
+                
+                int level;
+                if (int.TryParse(levelStr, out level) && level > upgradeLevel)
+                {
+                    upgradeLevel = level;
+                }
+            }
+        }
+        private void ApplyThrustPowerMultiplier(IMyCubeGrid grid, int powerEfficiencyLevel, int SpeedModuleLevel)
+        {
+            
+            IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(grid);
+            if (tsystem == null)
+                return;
+
+            List<IMyThrust> thrusts = new List<IMyThrust>();
+            tsystem.GetBlocksOfType(thrusts);
+
+            float powerMultiplier = (float)Math.Pow(1 - 0.02, powerEfficiencyLevel);
+            foreach (var thrust in thrusts)
+            {
+                thrust.ThrustMultiplier =(float)Math.Pow(1.1, SpeedModuleLevel);
+                thrust.PowerConsumptionMultiplier = powerMultiplier;
+            }
         }
 		public override void UpdateOnceBeforeFrame()
 		{

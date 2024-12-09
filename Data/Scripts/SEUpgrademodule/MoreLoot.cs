@@ -42,7 +42,7 @@ namespace SEUpgrademodule
                 Config.Load();
 
                 int maxLevel = 10;
-                double k = 1.0; // 지수 스케일링 상수 (필요에 따라 조정 가능)
+                double k = 0.3f; // 지수 스케일링 상수 (필요에 따라 조정 가능)
 
                 // PUp 레벨 초기화
                 for (int level = 1; level <= maxLevel; level++)
@@ -54,9 +54,9 @@ namespace SEUpgrademodule
                         ChanceSmall = Config.Instance.SmallGridAdvanced.Chance,
                         ChanceLarge = Config.Instance.LargeGridAdvanced.Chance,
                         MinItemsSmall = Config.Instance.SmallGridAdvanced.MinAmount,
-                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount - (level - 1),
+                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount,
                         MinItemsLarge = Config.Instance.LargeGridAdvanced.MinAmount,
-                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount - (level - 1)
+                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount
                     });
                 }
 
@@ -70,9 +70,9 @@ namespace SEUpgrademodule
                         ChanceSmall = Config.Instance.SmallGridAdvanced.Chance,
                         ChanceLarge = Config.Instance.LargeGridAdvanced.Chance,
                         MinItemsSmall = Config.Instance.SmallGridAdvanced.MinAmount,
-                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount - (level - 1),
+                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount,
                         MinItemsLarge = Config.Instance.LargeGridAdvanced.MinAmount,
-                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount - (level - 1)
+                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount
                     });
                 }
 
@@ -86,9 +86,9 @@ namespace SEUpgrademodule
                         ChanceSmall = Config.Instance.SmallGridAdvanced.Chance,
                         ChanceLarge = Config.Instance.LargeGridAdvanced.Chance,
                         MinItemsSmall = Config.Instance.SmallGridAdvanced.MinAmount,
-                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount - (level - 1),
+                        MaxItemsSmall = Config.Instance.SmallGridAdvanced.MaxAmount,
                         MinItemsLarge = Config.Instance.LargeGridAdvanced.MinAmount,
-                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount - (level - 1)
+                        MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount
                     });
                 }
 
@@ -112,12 +112,12 @@ namespace SEUpgrademodule
 
             // 모든 업그레이드 레벨 리스트 합치기
             List<UpgradeLevel> allUpgradeLevels = new List<UpgradeLevel>();
-            allUpgradeLevels.AddRange(PUpLevels.Take(5));
-            allUpgradeLevels.AddRange(AUpLevels.Take(5));
-            allUpgradeLevels.AddRange(DUpLevels.Take(5));
+            allUpgradeLevels.AddRange(PUpLevels.Take(3));
+            allUpgradeLevels.AddRange(AUpLevels.Take(3));
+            allUpgradeLevels.AddRange(DUpLevels.Take(3));
 
-            int maxLevel = 5;
-            double k = 0.5; // 지수 스케일링 상수 (필요에 따라 조정)
+            int maxLevel = 3;
+            double k = 1.5; // 지수 스케일링 상수 (필요에 따라 조정)
 
             try
             {
@@ -188,7 +188,7 @@ namespace SEUpgrademodule
 
             // 각 업그레이드 타입에 대해 처리할 최대 레벨
             int maxLevel = 10;
-            double k = 0.7; // 지수 스케일링 상수 (필요에 따라 조정)
+            double k = 0.7f; // 지수 스케일링 상수 (필요에 따라 조정)
 
             // 그리드 레벨 합산을 위한 변수
             int totalLevel = 0;
@@ -196,87 +196,98 @@ namespace SEUpgrademodule
             try
             {
                 // 디버그 로그: 업그레이드 시작
-                MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Starting loot addition for cockpit {cockpit.CustomName} in grid {cockpit.CubeGrid.CustomName}");
 
                 // 각 업그레이드 타입별로 레벨을 랜덤하게 선택
                 string[] upgradeTypes = { "PUp", "AUp", "DUp" };
 
-                foreach (var upgradeType in upgradeTypes)
+                foreach (var selectedUpgradeType in upgradeTypes)
                 {
-                    // 랜덤하게 레벨 선택 (1부터 maxLevel까지)
-                    int randomLevel = MyUtils.GetRandomInt(1, maxLevel + 1);
-                    string upgradeName = $"{upgradeType}Lv{randomLevel}";
+                    List<double> levelWeights = new List<double>();
+                    double totalWeight = 0;
+            
 
-                    // 디버그 로그: 랜덤 레벨 선택
-                    MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Selected random level {randomLevel} for upgrade type {upgradeType}");
+                    for (int level = 1; level <= maxLevel; level++)
+                    {
+                        // 지수 스케일링: 레벨이 높을수록 가중치가 낮아짐
+                        double weight = Math.Exp(-k * (level - 1));
+                        levelWeights.Add(weight);
+                        totalWeight += weight;
+                    }
 
-                    // 해당 업그레이드를 찾아서 추가
+                    // 3. 누적 가중치를 이용하여 레벨 선택
+                    double randomValue = MyUtils.GetRandomDouble(0, totalWeight);
+                    double cumulativeWeight = 0;
+                    int selectedLevel = maxLevel;
+
+                    for (int level = 1; level <= maxLevel; level++)
+                    {
+                        cumulativeWeight += levelWeights[level - 1];
+                        if (randomValue <= cumulativeWeight)
+                        {
+                            selectedLevel = level;
+                            break;
+                        }
+                    }
+
+                    // 4. 선택된 업그레이드 타입과 레벨로 이름 생성
+                    string upgradeName = $"{selectedUpgradeType}Lv{selectedLevel}";
+
+                    // 디버그 로그: 선택된 레벨과 타입
+
+                    // 5. 해당 업그레이드를 찾아서 추가
                     var upgrade = allUpgradeLevels.FirstOrDefault(u => u.Name == upgradeName);
 
                     if (upgrade != null)
                     {
-                        // 기본 확률 선택
-                        double baseChance = 1.0;
+                        // 확률 기반 추가 로직 생략하고, 무조건 추가
+                        int amount = 1;
 
-                        // 지수 스케일링 적용
-                        double scaledChance = GetExponentiallyScaledChance(randomLevel, baseChance, maxLevel, k);
+                        // 디버그 로그: 아이템 추가
+                        inventory.AddItems(amount, upgrade.Builder);
+                        added = true;
 
-                        // 디버그 로그: 확률 계산
-                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Calculated scaled chance for {upgradeName}: {scaledChance}");
-
-                        // 확률 검사
-                        if (MyUtils.GetRandomDouble(0, 1) <= scaledChance)
-                        {
-                            int amount = 1;
-
-                            // 디버그 로그: 아이템 추가
-                            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Adding {amount}x {upgrade.Name} to cockpit {cockpit.CustomName}");
-                            MyLog.Default.WriteLine($"SE_Upgrade_module: Added {amount}x {upgrade.Name} to {cockpit.CustomName}");
-                            inventory.AddItems(amount, upgrade.Builder);
-                            added = true;
-
-                            // 해당 업그레이드 레벨을 합산
-                            totalLevel += randomLevel;
-                        }
-                        else
-                        {
-                            // 디버그 로그: 확률에 실패
-                            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Failed to add {upgradeName} due to scaled chance.");
-                        }
+                        // 해당 업그레이드 레벨을 합산
+                        totalLevel += selectedLevel;
                     }
                     else
                     {
                         // 디버그 로그: 업그레이드 찾기 실패
-                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Upgrade {upgradeName} not found in available upgrades.");
                     }
+
+
                 }
-
-                // 그리드 이름에 'LV'와 총 레벨을 추가
-                if (totalLevel > 0)
+                // 6. 그리드 이름에 'LV'와 총 레벨을 추가
+                if (totalLevel >= 0)
                 {
-                    var grid = cockpit.CubeGrid;
-                    string originalName = grid.CustomName;
-
-                    // 이미 'LV'가 붙어 있는지 체크
-                    if (!originalName.Contains("LV"))
+                    
+                    var grid = (cockpit as IMyCubeBlock).CubeGrid;               
+                    
+                    if (!grid.CustomName.Contains("[LV"))
                     {
-                        grid.CustomName += $" LV{totalLevel}";
+                        grid.CustomName += $" [LV{totalLevel}]";
 
                         // 디버그 로그: 그리드 이름 변경
-                        MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Updated grid name to {grid.CustomName}");
                         MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
                     }
+
+                    // 디버그 로그: 그리드 이름 변경
+                    MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
                 }
+                if (!cockpit.CustomName.Contains("[Upgrade]"))
+                {
+                    
+                    cockpit.CustomName += " [Upgrade]";
+            
+                }
+               
             }
             catch (Exception e)
             {
                 // 디버그 로그: 예외 처리
-                MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Exception occurred: {e.Message}");
                 MyLog.Default.WriteLine("SEUpgrademodule: FAILED " + e);
             }
 
-            // 디버그 로그: 작업 완료
-            MyAPIGateway.Utilities.ShowMessage("DEBUG", $"Loot addition process completed for cockpit {cockpit.CustomName}");
+        
             
             return added;
         }
@@ -286,13 +297,18 @@ namespace SEUpgrademodule
             {
                 Grid = null;
                 Grid = MyAPIGateway.Entities.GetEntityById(entityId) as IMyCubeGrid;
+                if(Grid.IsStatic)
+                {
+                    return;
+                }
                 if (Grid != null && Grid.Physics != null)
                 {
-                    if (Config.Instance.ExcludeGrids.Contains(prefabName.ToLower()) || Config.Instance.ExcludeGrids.Contains(Grid.CustomName.ToLower()))
+                    if (Config.Instance.ExcludeGrids.Contains(prefabName.ToLower()) || Config.Instance.ExcludeGrids.Contains(Grid.CustomName.ToLower())||prefabName.ToLower().Contains("respawn"))
                     {
                         return;
                     }
                     Container.Clear();
+                    Cockpit.Clear();
                     GridBlocks.Clear();
                     Grid.GetBlocks(GridBlocks);
 
@@ -330,19 +346,55 @@ namespace SEUpgrademodule
                         }
                     }
 
-                    MyLog.Default.WriteLine("SEUpgrademodule: Valid Grid " + Grid.CustomName + " spawned with " + Container.Count + " possible Cargos");
 
                     Container.ShuffleList();
                     int addedLoot = 0;
+                    Cockpit.ShuffleList();
                     foreach (IMyCargoContainer cargo in Container)
                     {
                         if (AddLoot(cargo) && ++addedLoot >= MaxContainers) break;
                     }
-                    Cockpit.ShuffleList();
-                    Cockpit[0].CustomName += " [Upgrade]";
-                    MyLog.Default.WriteLine("SEUpgrademodule: Valid Cockpit " + Cockpit[0].CubeGrid.CustomName);
+                    addedLoot = 0;
+                    MaxContainers = 1;
+                    foreach (IMyTerminalBlock cockpit in Cockpit)
+                    {
+                        if (AddLootCockpit(cockpit))
+                        {
+                            
+                            break;
+                        }
+                    }
+                    
+                    List<IMyBeacon> beacons = new List<IMyBeacon>();
+                    IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid (Grid);
+                    tsystem.GetBlocksOfType<IMyBeacon>(beacons);
+                    if (beacons != null)
+                    {
+                        foreach(IMyBeacon beacon in beacons)
+                        {
+                            beacon.Enabled = true; // 비콘 활성화
+                            beacon.CustomName = Grid.CustomName; // 신호 이름 설정
+                            beacon.HudText  = Grid.CustomName;
+                        }
+            
 
-                    AddLootCockpit(Cockpit[0]);
+                    }
+
+                    List<IMyRadioAntenna> antennas = new List<IMyRadioAntenna>();
+                    tsystem.GetBlocksOfType<IMyRadioAntenna>(antennas);
+                    if (antennas != null)
+                    {
+                        foreach(IMyRadioAntenna antenna in antennas)
+                        {
+                            antenna.Enabled = true; // 비콘 활성화
+                            antenna.CustomName = Grid.CustomName; // 신호 이름 설정
+                            antenna.HudText  = Grid.CustomName;
+                        }
+                    }
+
+                    
+                    
+                    
 
                 }
             }

@@ -1014,7 +1014,7 @@
                 <SubtypeId>SpeedModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 1</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +1, Defense level -1, Power Efficiency level -1.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +1, Power Efficiency level -1.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-01.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1039,7 +1039,7 @@
                 <SubtypeId>SpeedModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 2</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +2, Defense level -2, Power Efficiency level -2.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +2, Power Efficiency level -2.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-02.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1064,7 +1064,7 @@
                 <SubtypeId>SpeedModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 3</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +3, Defense level -3, Power Efficiency level -3.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +3, Power Efficiency level -3.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-03.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1089,7 +1089,7 @@
                 <SubtypeId>SpeedModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 4</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +4, Defense level -4, Power Efficiency level -4.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +4, Power Efficiency level -4.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-04.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1114,7 +1114,7 @@
                 <SubtypeId>SpeedModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 5</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +5, Defense level -5, Power Efficiency level -5.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +5, Power Efficiency level -5.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-05.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1139,7 +1139,7 @@
                 <SubtypeId>SpeedModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 6</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +6, Defense level -6, Power Efficiency level -6.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +6, Power Efficiency level -6.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-06.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1164,7 +1164,7 @@
                 <SubtypeId>SpeedModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 7</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +7, Defense level -7, Power Efficiency level -7.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +7,Power Efficiency level -7.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-07.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1189,7 +1189,7 @@
                 <SubtypeId>SpeedModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 8</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +8, Defense level -8, Power Efficiency level -8.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +8, Power Efficiency level -8.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-08.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1214,7 +1214,7 @@
                 <SubtypeId>SpeedModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 9</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +9, Defense level -9, Power Efficiency level -9.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +9, Power Efficiency level -9.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-09.dds</Icon>
             <Size>
                 <X>0.1</X>
@@ -1239,7 +1239,7 @@
                 <SubtypeId>SpeedModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Speed Module Lv 10</DisplayName>
-            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +10, Defense level -10, Power Efficiency level -10.</Description>
+            <Description>To apply the upgrade module, rename the cockpit block with an inventory to include '[Upgrade]' in its name, and place the module in the block's inventory. Only one module of each type can be applied. Speed level +10, Power Efficiency level -10.</Description>
             <Icon>Textures\GUI\Icons\component\modules\green-10.dds</Icon>
             <Size>
                 <X>0.1</X>

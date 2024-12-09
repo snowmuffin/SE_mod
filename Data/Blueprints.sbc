@@ -10,10 +10,10 @@
             <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ore" SubtypeId="LanthanumOre" />
+                <Item Amount="10" TypeId="Ore" SubtypeId="LanthanumOre" />
             </Prerequisites>
             <Results>
-                <Item Amount="0.03" TypeId="Ingot" SubtypeId="Lanthanum" />
+                <Item Amount="0.001" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
@@ -26,35 +26,32 @@
             <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ore" SubtypeId="CeriumOre" />
+                <Item Amount="10" TypeId="Ore" SubtypeId="CeriumOre" />
             </Prerequisites>
             <Results>
-                <Item Amount="0.03" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="0.001" TypeId="Ingot" SubtypeId="Cerium" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
+        <!-- Defense Upgrade component\modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-01.dds</Icon>
             <Prerequisites>
-                <Item Amount="750" TypeId="Component" SubtypeId="SteelPlate" />
-                <Item Amount="500" TypeId="Component" SubtypeId="Motor" />
-                <Item Amount="100" TypeId="Component" SubtypeId="MetalGrid" />
-                <Item Amount="350" TypeId="Component" SubtypeId="Computer" />
-                <Item Amount="250" TypeId="Ingot" SubtypeId="Silver" />
-                <Item Amount="100" TypeId="Ingot" SubtypeId="Gold" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Platinum" />
-                <Item Amount="250" TypeId="Ingot" SubtypeId="Cerium" />
-                <Item Amount="250" TypeId="Ingot" SubtypeId="Lanthanum" />
+               
+               
+
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
             </Results>
-            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -62,14 +59,14 @@
                 <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
             </Results>
-            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -77,14 +74,14 @@
                 <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
             </Results>
-            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -92,14 +89,14 @@
                 <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
             </Results>
-            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -107,14 +104,14 @@
                 <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
             </Results>
-            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -122,102 +119,94 @@
                 <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
             </Results>
             <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
             </Results>
             <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
             </Results>
             <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
             </Results>
             <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\skyblue-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
+                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
-
+        <!-- Attack Upgrade component\modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-01.dds</Icon>
             <Prerequisites>
-                <Item Amount="150" TypeId="Component" SubtypeId="SteelPlate" />
-                <Item Amount="100" TypeId="Component" SubtypeId="Motor" />
-                <Item Amount="20" TypeId="Component" SubtypeId="MetalGrid" />
-                <Item Amount="70" TypeId="Component" SubtypeId="Computer" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Silver" />
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Gold" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Cerium" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Lanthanum" />
+               
+               
+
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
             </Results>
-            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -225,14 +214,14 @@
                 <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
             </Results>
-            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -240,14 +229,14 @@
                 <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
             </Results>
-            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -255,14 +244,14 @@
                 <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
             </Results>
-            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -270,14 +259,14 @@
                 <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
             </Results>
-            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -285,102 +274,94 @@
                 <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
             </Results>
             <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
             </Results>
             <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
             </Results>
             <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
             </Results>
             <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\red-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
+                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
-
+        <!-- Power Efficiency Upgrade component\modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-01.dds</Icon>
             <Prerequisites>
-                <Item Amount="150" TypeId="Component" SubtypeId="SteelPlate" />
-                <Item Amount="100" TypeId="Component" SubtypeId="Motor" />
-                <Item Amount="20" TypeId="Component" SubtypeId="MetalGrid" />
-                <Item Amount="70" TypeId="Component" SubtypeId="Computer" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Silver" />
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Gold" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Cerium" />
-                <Item Amount="50" TypeId="Ingot" SubtypeId="Lanthanum" />
+               
+               
+
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
             </Results>
-            <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -388,14 +369,14 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
             </Results>
-            <BaseProductionTimeInSeconds>60</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -403,14 +384,14 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
             </Results>
-            <BaseProductionTimeInSeconds>90</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -418,14 +399,14 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
             </Results>
-            <BaseProductionTimeInSeconds>120</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -433,14 +414,14 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
             </Results>
-            <BaseProductionTimeInSeconds>150</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
         </Blueprint>
         <Blueprint>
             <Id>
@@ -448,76 +429,479 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
             </Results>
             <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
             </Results>
             <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
             </Results>
             <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
             </Results>
             <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
         </Blueprint>
-
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\yellow-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="50" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-02.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-03.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-04.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-05.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-06.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level7</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-07.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level6" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-08.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-09.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>BerserkerModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Berserker_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\purple-10.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="BerserkerModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-02.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-03.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-04.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-05.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-06.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level7</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-07.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level6" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-08.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-09.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>FortressModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Fortress_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\orange-10.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="FortressModule_Level10" />
+            </Results>
+            <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level2</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level2</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-02.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level1" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level2" />
+            </Results>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level3</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level3</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-03.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level2" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level3" />
+            </Results>
+            <BaseProductionTimeInSeconds>9</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level4</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level4</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-04.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level3" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level4" />
+            </Results>
+            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level5</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level5</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-05.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level4" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level5" />
+            </Results>
+            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level6</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level6</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-06.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level5" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level6" />
+            </Results>
+            <BaseProductionTimeInSeconds>180</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level7</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level7</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-07.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level6" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level7" />
+            </Results>
+            <BaseProductionTimeInSeconds>210</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level8</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level8</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-08.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level7" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level8" />
+            </Results>
+            <BaseProductionTimeInSeconds>240</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level9</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level9</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-09.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level8" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level9" />
+            </Results>
+            <BaseProductionTimeInSeconds>270</BaseProductionTimeInSeconds>
+        </Blueprint>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SpeedModule_Level10</SubtypeId>
+            </Id>
+            <DisplayName>Speed_Module_Level10</DisplayName>
+            <Icon>Textures\GUI\Icons\component\modules\green-10.dds</Icon>
+            <Prerequisites>
+                <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level9" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="SpeedModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
