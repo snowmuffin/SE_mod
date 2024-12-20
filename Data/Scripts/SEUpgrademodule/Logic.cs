@@ -43,12 +43,30 @@ namespace SEUpgrademodule
         public int m_SpeedModuleLevel = 0;
         public int m_FortressModuleLevel = 0;
         public int m_BerserkerModuleLevel = 0;
+        public int NpcMultiplierAttack=1;
+        public int NpcMultiplierDefence=1;
+        public int NpcMultiplierPower=1;
+        public int NpcMultiplierSpeed=1;
+        public int NpcOffsetAttack=1;
+        public int NpcOffsetDefence=1;
+        public int NpcOffsetPower=1;
+        public int NpcOffsetSpeed=1;
         bool m_closed = false;
         MyObjectBuilder_EntityBase m_objectBuilder;
         bool m_init = false;
         UpgradeModuleSummary savemessage = new UpgradeModuleSummary();
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
+            Config.Load();
+            NpcMultiplierAttack = Config.Instance.NpcMultiplier.Attack;
+            NpcMultiplierDefence = Config.Instance.NpcMultiplier.Defence;
+            NpcMultiplierPower = Config.Instance.NpcMultiplier.Power;
+            NpcMultiplierSpeed = Config.Instance.NpcMultiplier.Speed;
+            NpcOffsetAttack = Config.Instance.NpcOffset.Attack;
+            NpcOffsetDefence = Config.Instance.NpcOffset.Defence;
+            NpcOffsetPower = Config.Instance.NpcOffset.Power;
+            NpcOffsetSpeed = Config.Instance.NpcOffset.Speed;
+
             m_objectBuilder = objectBuilder;
             Entity.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
@@ -187,7 +205,25 @@ namespace SEUpgrademodule
             Entity.Storage.SetValue(UpgradeModuleSummary.StorageGuid, Convert.ToBase64String(data));
         }
 
+        public static bool IsOwnedByNPC(long ownerId)
+        {
+            // ownerId가 0이면 소유자가 없다고 간주
+            if (ownerId == 0)
+                return false;
 
+            // 세션 및 팩션 시스템이 초기화되어 있는지 확인
+            var session = MyAPIGateway.Session;
+            if (session?.Factions == null)
+                return false;
+
+            // ownerId에 해당하는 팩션을 가져옴
+            var faction = session.Factions.TryGetPlayerFaction(ownerId);
+            if (faction == null)
+                return false;
+
+            // faction이 NPC 팩션인지 확인
+            return faction.IsEveryoneNpc();
+        }
         public override void UpdateBeforeSimulation()
         {
             IMyCubeBlock cubeBlock = Entity as IMyCubeBlock;
@@ -223,10 +259,18 @@ namespace SEUpgrademodule
             }
             
             
-            m_PowerEfficiencyUpgradeLevel -=m_SpeedModuleLevel+m_BerserkerModuleLevel;
+            m_PowerEfficiencyUpgradeLevel -=m_SpeedModuleLevel+m_BerserkerModuleLevel+m_FortressModuleLevel;
             m_AttackUpgradeLevel +=m_BerserkerModuleLevel;
             m_DefenseUpgradeLevel += m_FortressModuleLevel-m_BerserkerModuleLevel;
             m_SpeedModuleLevel -= m_FortressModuleLevel;
+            if (cubeBlock != null && IsOwnedByNPC(cubeBlock.OwnerId))
+            {
+                m_PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel * NpcMultiplierPower + NpcOffsetPower;
+                m_AttackUpgradeLevel = m_AttackUpgradeLevel * NpcMultiplierAttack + NpcOffsetAttack;
+                m_DefenseUpgradeLevel = m_DefenseUpgradeLevel * NpcMultiplierDefence + NpcOffsetDefence;
+                m_SpeedModuleLevel = m_SpeedModuleLevel * NpcMultiplierSpeed + NpcOffsetSpeed;
+             
+            }
             // Save upgrade levels
             savemessage.DefenseUpgradeLevel = m_DefenseUpgradeLevel;
             savemessage.AttackUpgradeLevel = m_AttackUpgradeLevel;
@@ -274,7 +318,7 @@ namespace SEUpgrademodule
             float powerMultiplier = (float)Math.Pow(1 - 0.02, powerEfficiencyLevel);
             foreach (var thrust in thrusts)
             {
-                thrust.ThrustMultiplier =(float)Math.Pow(1.1, SpeedModuleLevel);
+                thrust.ThrustMultiplier =(float)Math.Pow(1.15, SpeedModuleLevel);
                 thrust.PowerConsumptionMultiplier = powerMultiplier;
             }
         }

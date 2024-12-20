@@ -21,8 +21,12 @@ namespace SEUpgrademodule
         [ProtoMember(4)]
         public Item LargeGridAdvanced;
         [ProtoMember(5)]
-        public List<string> ExcludeGrids;
+        public NpcMultiplier NpcMultiplier;
         [ProtoMember(6)]
+        public NpcOffset NpcOffset;
+        [ProtoMember(7)]
+        public List<string> ExcludeGrids;
+        [ProtoMember(8)]
         public Boolean DisableGrindSubgridDamage = true;
 
     }
@@ -37,5 +41,27 @@ namespace SEUpgrademodule
         public int MinAmount;
         [XmlAttribute]
         public int MaxAmount;
+    }
+    public class NpcMultiplier
+    {
+        [XmlAttribute]
+        public int Attack;
+        [XmlAttribute]
+        public int Defence;
+        [XmlAttribute]
+        public int Power;
+        [XmlAttribute]
+        public int Speed;
+    }
+    public class NpcOffset
+    {
+        [XmlAttribute]
+        public int Attack;
+        [XmlAttribute]
+        public int Defence;
+        [XmlAttribute]
+        public int Power;
+        [XmlAttribute]
+        public int Speed;
     }
 }

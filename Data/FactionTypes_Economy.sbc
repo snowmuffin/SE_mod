@@ -58,7 +58,7 @@
 
             <ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="Medkit" />
             <ItemId Type="MyObjectBuilder_ConsumableItem" Subtype="Powerkit" />
-
+            <ItemId Type="MyObjectBuilder_Component" Subtype="Prime_Matter" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="AttackUpgradeModule_Level1" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="DefenseUpgradeModule_Level1" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="PowerEfficiencyUpgradeModule_Level1" />
@@ -80,7 +80,7 @@
             <ItemId Type="MyObjectBuilder_Component" Subtype="Detector" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="SolarCell" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="PowerCell" />
-
+            <ItemId Type="MyObjectBuilder_Component" Subtype="Prime_Matter" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="AttackUpgradeModule_Level1" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="DefenseUpgradeModule_Level1" />
             <ItemId Type="MyObjectBuilder_Component" Subtype="PowerEfficiencyUpgradeModule_Level1" />

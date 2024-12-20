@@ -65,14 +65,14 @@ namespace SEUpgrademodule
                 {
                     return;
                 }
-
+                
                 // 미사일을 처음 처리한 경우 HashSet에 추가
                 processedMissiles.Add(missile.EntityId);
 
                 IMyEntity attackerEntity = MyAPIGateway.Entities.GetEntityById(missile.LauncherId);
                 IMyCubeGrid attackergrid = attackerEntity as IMyCubeGrid;
                 IMyCubeBlock attackerblock = attackerEntity as IMyCubeBlock;
-
+                
                 if (attackergrid == null && attackerblock != null)
                 {
                     attackergrid = attackerblock.CubeGrid;
@@ -278,7 +278,6 @@ namespace SEUpgrademodule
                 }
 
                 info.Amount *= damageMultiplier;
-                
             }
             catch (Exception e)
             {

@@ -264,7 +264,7 @@ namespace SEUpgrademodule
                     
                     if (!grid.CustomName.Contains("[LV"))
                     {
-                        grid.CustomName += $" [LV{totalLevel}]";
+                        grid.CustomName += $" [LV{totalLevel*2}]";
 
                         // 디버그 로그: 그리드 이름 변경
                         MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
