@@ -31,133 +31,119 @@ using VRage.Game.ObjectBuilders.ComponentSystem;
 using VRage.Voxels;
 using System.Linq;
 using System.Linq.Expressions;
-namespace SEUpgrademodule
-{ 
 
+namespace SEUpgrademodule
+{
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), false)]
     public class UpgradeLogic : MyGameLogicComponent
     {
+        public static Configuration config = new Configuration ();
         public int m_PowerEfficiencyUpgradeLevel = 0;
         public int m_AttackUpgradeLevel = 0;
         public int m_DefenseUpgradeLevel = 0;
         public int m_SpeedModuleLevel = 0;
         public int m_FortressModuleLevel = 0;
         public int m_BerserkerModuleLevel = 0;
-        public int NpcMultiplierAttack=1;
-        public int NpcMultiplierDefence=1;
-        public int NpcMultiplierPower=1;
-        public int NpcMultiplierSpeed=1;
-        public int NpcOffsetAttack=1;
-        public int NpcOffsetDefence=1;
-        public int NpcOffsetPower=1;
-        public int NpcOffsetSpeed=1;
+        public int updateCounter=0;
         bool m_closed = false;
         MyObjectBuilder_EntityBase m_objectBuilder;
         bool m_init = false;
         UpgradeModuleSummary savemessage = new UpgradeModuleSummary();
+
+        // ■■■ 디버그 메시지 출력 주기를 제어하기 위한 프레임 카운터 (예: 120프레임마다 1회)
+        private int debugCounter = 0;
+        private const int DEBUG_INTERVAL = 120; // 대략 2초(60 FPS 기준)마다 한번만 출력
+
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            Config.Load();
-            NpcMultiplierAttack = Config.Instance.NpcMultiplier.Attack;
-            NpcMultiplierDefence = Config.Instance.NpcMultiplier.Defence;
-            NpcMultiplierPower = Config.Instance.NpcMultiplier.Power;
-            NpcMultiplierSpeed = Config.Instance.NpcMultiplier.Speed;
-            NpcOffsetAttack = Config.Instance.NpcOffset.Attack;
-            NpcOffsetDefence = Config.Instance.NpcOffset.Defence;
-            NpcOffsetPower = Config.Instance.NpcOffset.Power;
-            NpcOffsetSpeed = Config.Instance.NpcOffset.Speed;
-
             m_objectBuilder = objectBuilder;
+
             Entity.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
             NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
-            
-            
+
             Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
-
-			terminalBlock.AppendingCustomInfo += UpdateBlockInfo;
-
-
+            terminalBlock.AppendingCustomInfo += UpdateBlockInfo;
         }
-		public void UpdatePrintBalanced()
-		{
-			if (!m_closed && Entity.InScene)
-			{
-				Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
-				terminalBlock.RefreshCustomInfo();
-			}
-		}
-		public void UpdateNetworkBalanced()
-		{
-			if (!m_closed && Entity.InScene)
-			{
 
-				if (MyAPIGateway.Multiplayer.MultiplayerActive && MyAPIGateway.Multiplayer.IsServer)
-				{
-					byte[] message = new byte[20];
-					byte[] messageID = BitConverter.GetBytes(Entity.EntityId);
-					byte[] messageValue1 = BitConverter.GetBytes(m_PowerEfficiencyUpgradeLevel);
+        public void UpdatePrintBalanced()
+        {
+            if (!m_closed && Entity.InScene)
+            {
+                Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
+                terminalBlock.RefreshCustomInfo();
+            }
+        }
+
+        public void UpdateNetworkBalanced()
+        {
+            if (!m_closed && Entity.InScene)
+            {
+                if (MyAPIGateway.Multiplayer.MultiplayerActive && MyAPIGateway.Multiplayer.IsServer)
+                {
+                    byte[] message = new byte[20];
+                    byte[] messageID = BitConverter.GetBytes(Entity.EntityId);
+                    byte[] messageValue1 = BitConverter.GetBytes(m_PowerEfficiencyUpgradeLevel);
                     byte[] messageValue2 = BitConverter.GetBytes(m_AttackUpgradeLevel);
                     byte[] messageValue3 = BitConverter.GetBytes(m_DefenseUpgradeLevel);
 
-					for (int i = 0; i < 8; i++) {
-						message[i] = messageID[i];
-					}
+                    for (int i = 0; i < 8; i++)
+                    {
+                        message[i] = messageID[i];
+                    }
 
-					for (int i = 0; i < 4; i++) {
-						message[i + 8] = messageValue1[i];
-					}
-					for (int i = 0; i < 4; i++) {
-						message[i + 12] = messageValue2[i];
-					}
-					for (int i = 0; i < 4; i++) {
-						message[i + 16] = messageValue3[i];
-					}
-					MyAPIGateway.Multiplayer.SendMessageToOthers(5856, message, true);
-					
-				}
+                    for (int i = 0; i < 4; i++)
+                    {
+                        message[i + 8] = messageValue1[i];
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        message[i + 12] = messageValue2[i];
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        message[i + 16] = messageValue3[i];
+                    }
+                    MyAPIGateway.Multiplayer.SendMessageToOthers(5856, message, true);
+                }
+            }
+        }
 
-			}
-		}
-		public void UpdateBlockInfo(Sandbox.ModAPI.IMyTerminalBlock block, StringBuilder info)
-		{
-			try
-			{
-				if (block == null)
-					return;
+        public void UpdateBlockInfo(Sandbox.ModAPI.IMyTerminalBlock block, StringBuilder info)
+        {
+            try
+            {
+                if (block == null) return;
+                if (info == null)  return;
 
-				if (info == null)
-					return;
-
-				info.Clear();
-
-
-				info.AppendLine("");
+                info.Clear();
+                info.AppendLine("");
                 info.AppendLine($"Attack_Level:{m_AttackUpgradeLevel}");
                 info.AppendLine($"Defense_Level:{m_DefenseUpgradeLevel}");
                 info.AppendLine($"PowerEfficiency_Level:{m_PowerEfficiencyUpgradeLevel}");
                 info.AppendLine($"Speed_Level:{m_SpeedModuleLevel}");
-				IMyGridTerminalSystem tsystem = null;
 
-				if (block.CubeGrid != null)
-					tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(block.CubeGrid);
+                IMyGridTerminalSystem tsystem = null;
+                if (block.CubeGrid != null)
+                    tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(block.CubeGrid);
+            }
+            catch (Exception e)
+            {
+                // 예외 무시 또는 로깅
+            }
+        }
 
+        public override void Close()
+        {
+            m_closed = true;
+            Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
+            terminalBlock.AppendingCustomInfo -= UpdateBlockInfo;
 
-			}
-			catch (Exception e)
-			{ }
-		}
-		public override void Close()
-		{
-			m_closed = true;
+            if (Upgradecore.Upgrades.ContainsKey(Entity.EntityId))
+            {
+                Upgradecore.Upgrades.Remove(Entity.EntityId);
+            }
+        }
 
-			Sandbox.ModAPI.IMyTerminalBlock terminalBlock = Entity as Sandbox.ModAPI.IMyTerminalBlock;
-
-			terminalBlock.AppendingCustomInfo -= UpdateBlockInfo;
-
-			if (Upgradecore.Upgrades.ContainsKey(Entity.EntityId)) {
-				Upgradecore.Upgrades.Remove(Entity.EntityId);
-			}
-		}
         private void InitStorage()
         {
             if (Entity.Storage == null)
@@ -168,14 +154,15 @@ namespace SEUpgrademodule
 
         private void LoadStorage()
         {
-            // 저장소 로드
             if (!Entity.Storage.ContainsKey(UpgradeModuleSummary.StorageGuid))
                 return;
 
             var data = Entity.Storage.GetValue(UpgradeModuleSummary.StorageGuid);
             try
             {
-                var storagedata = MyAPIGateway.Utilities.SerializeFromBinary<UpgradeModuleSummary>(Convert.FromBase64String(data));
+                var storagedata = MyAPIGateway.Utilities.SerializeFromBinary<UpgradeModuleSummary>(
+                    Convert.FromBase64String(data)
+                );
                 m_PowerEfficiencyUpgradeLevel = storagedata.PowerEfficiencyUpgradeLevel;
                 m_AttackUpgradeLevel = storagedata.AttackUpgradeLevel;
                 m_DefenseUpgradeLevel = storagedata.DefenseUpgradeLevel;
@@ -183,7 +170,6 @@ namespace SEUpgrademodule
             }
             catch (Exception e)
             {
-                // 저장 데이터가 손상된 경우 복구
                 SaveStorage();
             }
         }
@@ -193,11 +179,10 @@ namespace SEUpgrademodule
             if (Entity.Storage == null)
                 InitStorage();
 
-            // 저장할 데이터 생성
             var storageData = new UpgradeModuleSummary
             {
                 PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel,
-                AttackUpgradeLevel = m_AttackUpgradeLevel, // 오타 수정
+                AttackUpgradeLevel = m_AttackUpgradeLevel,
                 DefenseUpgradeLevel = m_DefenseUpgradeLevel
             };
 
@@ -207,31 +192,33 @@ namespace SEUpgrademodule
 
         public static bool IsOwnedByNPC(long ownerId)
         {
-            // ownerId가 0이면 소유자가 없다고 간주
-            if (ownerId == 0)
-                return false;
+            if (ownerId == 0) return false;
 
-            // 세션 및 팩션 시스템이 초기화되어 있는지 확인
             var session = MyAPIGateway.Session;
-            if (session?.Factions == null)
-                return false;
+            if (session?.Factions == null) return false;
 
-            // ownerId에 해당하는 팩션을 가져옴
             var faction = session.Factions.TryGetPlayerFaction(ownerId);
-            if (faction == null)
-                return false;
+            if (faction == null) return false;
 
-            // faction이 NPC 팩션인지 확인
             return faction.IsEveryoneNpc();
         }
+
         public override void UpdateBeforeSimulation()
         {
+
+
+
             IMyCubeBlock cubeBlock = Entity as IMyCubeBlock;
             if (!m_init)
             {
                 m_init = true;
             }
-
+            updateCounter++;
+            if (updateCounter < 1800)
+            {
+                return; // 아직 간격이 도달하지 않았으므로 반환
+            }
+            updateCounter = 0;
             if (cubeBlock == null || cubeBlock.CubeGrid == null)
                 return;
 
@@ -245,11 +232,12 @@ namespace SEUpgrademodule
 
             ResetUpgradeLevels();
 
+            // ■■■ 인벤토리 아이템 추출
             List<VRage.Game.ModAPI.Ingame.MyInventoryItem> items = new List<VRage.Game.ModAPI.Ingame.MyInventoryItem>();
             inventory.GetItems(items);
 
             foreach (var item in items)
-            {    
+            {
                 UpdateUpgradeLevel(item, "PowerEfficiencyUpgradeModule_Level", ref m_PowerEfficiencyUpgradeLevel);
                 UpdateUpgradeLevel(item, "AttackUpgradeModule_Level", ref m_AttackUpgradeLevel);
                 UpdateUpgradeLevel(item, "DefenseUpgradeModule_Level", ref m_DefenseUpgradeLevel);
@@ -257,26 +245,38 @@ namespace SEUpgrademodule
                 UpdateUpgradeLevel(item, "BerserkerModule_Level", ref m_BerserkerModuleLevel);
                 UpdateUpgradeLevel(item, "FortressModule_Level", ref m_FortressModuleLevel);
             }
-            
-            
-            m_PowerEfficiencyUpgradeLevel -=m_SpeedModuleLevel+m_BerserkerModuleLevel+m_FortressModuleLevel;
-            m_AttackUpgradeLevel +=m_BerserkerModuleLevel;
-            m_DefenseUpgradeLevel += m_FortressModuleLevel-m_BerserkerModuleLevel;
+
+            // ■■■ 종합 레벨 계산
+            m_PowerEfficiencyUpgradeLevel -= m_SpeedModuleLevel + m_BerserkerModuleLevel + m_FortressModuleLevel;
+            m_AttackUpgradeLevel += m_BerserkerModuleLevel;
+            m_DefenseUpgradeLevel += m_FortressModuleLevel - m_BerserkerModuleLevel;
             m_SpeedModuleLevel -= m_FortressModuleLevel;
+
+            // ■■■ NPC 보정 적용
             if (cubeBlock != null && IsOwnedByNPC(cubeBlock.OwnerId))
             {
-                m_PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel * NpcMultiplierPower + NpcOffsetPower;
-                m_AttackUpgradeLevel = m_AttackUpgradeLevel * NpcMultiplierAttack + NpcOffsetAttack;
-                m_DefenseUpgradeLevel = m_DefenseUpgradeLevel * NpcMultiplierDefence + NpcOffsetDefence;
-                m_SpeedModuleLevel = m_SpeedModuleLevel * NpcMultiplierSpeed + NpcOffsetSpeed;
-             
+                int beforePower = m_PowerEfficiencyUpgradeLevel;
+                int beforeAttack = m_AttackUpgradeLevel;
+                int beforeDefense = m_DefenseUpgradeLevel;
+                int beforeSpeed = m_SpeedModuleLevel;
+
+                m_PowerEfficiencyUpgradeLevel =
+                    (m_PowerEfficiencyUpgradeLevel + Upgradecore.NpcOffsetPower) * Upgradecore.NpcMultiplierPower;
+                m_AttackUpgradeLevel =
+                    (m_AttackUpgradeLevel + Upgradecore.NpcOffsetAttack) * Upgradecore.NpcMultiplierAttack;
+                m_DefenseUpgradeLevel =
+                    (m_DefenseUpgradeLevel + Upgradecore.NpcOffsetDefence) * Upgradecore.NpcMultiplierDefence;
+                m_SpeedModuleLevel =
+                    (m_SpeedModuleLevel + Upgradecore.NpcOffsetSpeed) * Upgradecore.NpcMultiplierSpeed;
+
+
             }
-            // Save upgrade levels
+
+            // ■■■ 나머지 로직
             savemessage.DefenseUpgradeLevel = m_DefenseUpgradeLevel;
             savemessage.AttackUpgradeLevel = m_AttackUpgradeLevel;
             savemessage.PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel;
-            ApplyThrustPowerMultiplier(cubeBlock.CubeGrid, m_PowerEfficiencyUpgradeLevel,m_SpeedModuleLevel);
-
+            ApplyThrustPowerMultiplier(cubeBlock.CubeGrid, m_PowerEfficiencyUpgradeLevel, m_SpeedModuleLevel);
 
             terminalBlock.RefreshCustomInfo();
         }
@@ -296,8 +296,7 @@ namespace SEUpgrademodule
             if (item.Type.SubtypeId.ToString().StartsWith(prefix))
             {
                 string levelStr = item.Type.SubtypeId.ToString().Replace(prefix, "");
-                
-                
+
                 int level;
                 if (int.TryParse(levelStr, out level) && level > upgradeLevel)
                 {
@@ -305,9 +304,9 @@ namespace SEUpgrademodule
                 }
             }
         }
+
         private void ApplyThrustPowerMultiplier(IMyCubeGrid grid, int powerEfficiencyLevel, int SpeedModuleLevel)
         {
-            
             IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(grid);
             if (tsystem == null)
                 return;
@@ -318,22 +317,24 @@ namespace SEUpgrademodule
             float powerMultiplier = (float)Math.Pow(1 - 0.02, powerEfficiencyLevel);
             foreach (var thrust in thrusts)
             {
-                thrust.ThrustMultiplier =(float)Math.Pow(1.15, SpeedModuleLevel);
+                thrust.ThrustMultiplier = (float)Math.Pow(1.15, SpeedModuleLevel);
                 thrust.PowerConsumptionMultiplier = powerMultiplier;
             }
         }
-		public override void UpdateOnceBeforeFrame()
-		{
-			InitStorage();
-			LoadStorage();
-			SaveStorage();
-		}
+
+        public override void UpdateOnceBeforeFrame()
+        {
+            InitStorage();
+            LoadStorage();
+            SaveStorage();
+        }
+
         private int ParseLevelFromSubtype(string subtype, string prefix)
         {
             int level = 0;
             if (subtype.StartsWith(prefix))
             {
-                string levelStr = subtype.Substring(prefix.Length); // 접두사 제거 후 레벨 숫자 추출
+                string levelStr = subtype.Substring(prefix.Length);
                 if (int.TryParse(levelStr, out level))
                 {
                     return level;

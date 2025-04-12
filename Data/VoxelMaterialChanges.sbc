@@ -55,11 +55,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -99,11 +99,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -150,11 +150,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -201,11 +201,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -252,11 +252,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -303,11 +303,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -359,11 +359,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -411,11 +411,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -470,11 +470,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -528,11 +528,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>
@@ -556,11 +556,11 @@
                 <Change From="Iron_01" To="Magnesium_01" />
                 <Change From="Iron_02" To="Magnesium_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Lanthanum_01" /> <!-- 란타넘 추가 -->
                 <Change From="Iron_02" To="Lanthanum_01" />
             </Option>
-            <Option Chance="0.01">
+            <Option Chance="0.05">
                 <Change From="Iron_01" To="Cerium_01" /> <!-- 세륨 추가 -->
                 <Change From="Iron_02" To="Cerium_01" />
             </Option>

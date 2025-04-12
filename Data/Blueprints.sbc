@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Blueprints>
         <!-- Lanthanum Ore to Ingot -->
         <Blueprint>
@@ -13,7 +14,7 @@
                 <Item Amount="10" TypeId="Ore" SubtypeId="LanthanumOre" />
             </Prerequisites>
             <Results>
-                <Item Amount="0.001" TypeId="Ingot" SubtypeId="Lanthanum" />
+                <Item Amount="0.01" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
@@ -29,11 +30,11 @@
                 <Item Amount="10" TypeId="Ore" SubtypeId="CeriumOre" />
             </Prerequisites>
             <Results>
-                <Item Amount="0.001" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="0.01" TypeId="Ingot" SubtypeId="Cerium" />
             </Results>
             <BaseProductionTimeInSeconds>30</BaseProductionTimeInSeconds>
         </Blueprint>
-        <!-- Defense Upgrade component\modules -->
+        <!-- Defense Upgrade Modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
@@ -42,9 +43,7 @@
             <DisplayName>Defense_Upgrade_Module_Level1</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-01.dds</Icon>
             <Prerequisites>
-               
-               
-
+                <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
@@ -61,7 +60,9 @@
             <DisplayName>Defense_Upgrade_Module_Level2</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
@@ -76,7 +77,9 @@
             <DisplayName>Defense_Upgrade_Module_Level3</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
@@ -91,7 +94,9 @@
             <DisplayName>Defense_Upgrade_Module_Level4</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
@@ -106,7 +111,9 @@
             <DisplayName>Defense_Upgrade_Module_Level5</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
@@ -121,7 +128,9 @@
             <DisplayName>Defense_Upgrade_Module_Level6</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
@@ -136,7 +145,9 @@
             <DisplayName>Defense_Upgrade_Module_Level7</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
@@ -151,7 +162,9 @@
             <DisplayName>Defense_Upgrade_Module_Level8</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
@@ -166,7 +179,9 @@
             <DisplayName>Defense_Upgrade_Module_Level9</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
@@ -181,14 +196,17 @@
             <DisplayName>Defense_Upgrade_Module_Level10</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\skyblue-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
+                <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
-        <!-- Attack Upgrade component\modules -->
+
+        <!-- Attack Upgrade Modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
@@ -197,9 +215,7 @@
             <DisplayName>Attack_Upgrade_Module_Level1</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-01.dds</Icon>
             <Prerequisites>
-               
-               
-
+                <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
@@ -216,7 +232,9 @@
             <DisplayName>Attack_Upgrade_Module_Level2</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
@@ -231,7 +249,9 @@
             <DisplayName>Attack_Upgrade_Module_Level3</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
@@ -246,7 +266,9 @@
             <DisplayName>Attack_Upgrade_Module_Level4</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
@@ -261,7 +283,9 @@
             <DisplayName>Attack_Upgrade_Module_Level5</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
@@ -276,7 +300,9 @@
             <DisplayName>Attack_Upgrade_Module_Level6</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
@@ -291,7 +317,9 @@
             <DisplayName>Attack_Upgrade_Module_Level7</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
@@ -306,7 +334,9 @@
             <DisplayName>Attack_Upgrade_Module_Level8</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
@@ -321,7 +351,9 @@
             <DisplayName>Attack_Upgrade_Module_Level9</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
@@ -336,14 +368,17 @@
             <DisplayName>Attack_Upgrade_Module_Level10</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\red-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
+                <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="AttackUpgradeModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
-        <!-- Power Efficiency Upgrade component\modules -->
+
+        <!-- Power Efficiency Upgrade Modules -->
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
@@ -352,9 +387,7 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level1</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-01.dds</Icon>
             <Prerequisites>
-               
-               
-
+                <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
@@ -371,7 +404,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level2</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-02.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
@@ -386,7 +421,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level3</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-03.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
@@ -401,7 +438,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level4</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-04.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="13.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
@@ -416,7 +455,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level5</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-05.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="40.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
@@ -431,7 +472,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level6</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-06.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="121.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
@@ -446,7 +489,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level7</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-07.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="364.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
@@ -461,7 +506,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level8</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-08.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
@@ -476,7 +523,9 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level9</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-09.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
@@ -491,13 +540,16 @@
             <DisplayName>PowerEfficiency_Upgrade_Module_Level10</DisplayName>
             <Icon>Textures\GUI\Icons\component\modules\yellow-10.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+                <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Lanthanum" />
             </Prerequisites>
             <Results>
                 <Item Amount="1" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level10" />
             </Results>
             <BaseProductionTimeInSeconds>300</BaseProductionTimeInSeconds>
         </Blueprint>
+
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>

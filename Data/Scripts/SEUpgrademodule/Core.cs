@@ -16,19 +16,92 @@ using VRage.Game.Components;
 using VRage.Game;
 using VRage.Game.ModAPI;
 using System.Collections.Concurrent;
+
 namespace SEUpgrademodule
 {
+    public class Configuration
+    {
+        public Multiplier Multiplier;
+        public Offset Offset;
+    }
+
+    public class Multiplier
+    {
+        public int Attack;
+        public int Defence;
+        public int Power;
+        public int Speed;
+    }
+
+    public class Offset
+    {
+        public int Attack;
+        public int Defence;
+        public int Power;
+        public int Speed;
+    }
+
+    public class UpgradecoreConfig
+    {
+        public static Configuration ConfigInstance { get; set; } = new Configuration
+        {
+            Multiplier = new Multiplier
+            {
+                Attack = 1,
+                Defence = 1,
+                Power = 1,
+                Speed = 1
+            },
+            Offset = new Offset
+            {
+                Attack = 0,
+                Defence = 0,
+                Power = 0,
+                Speed = 0
+            }
+        };
+
+        public static void ApplyConfig(Configuration configResponse)
+        {
+            ConfigInstance.Multiplier.Attack = configResponse.Multiplier.Attack;
+            ConfigInstance.Multiplier.Defence = configResponse.Multiplier.Defence;
+            ConfigInstance.Multiplier.Power = configResponse.Multiplier.Power;
+            ConfigInstance.Multiplier.Speed = configResponse.Multiplier.Speed;
+            ConfigInstance.Offset.Attack = configResponse.Offset.Attack;
+            ConfigInstance.Offset.Defence = configResponse.Offset.Defence;
+            ConfigInstance.Offset.Power = configResponse.Offset.Power;
+            ConfigInstance.Offset.Speed = configResponse.Offset.Speed;
+        }
+    }
+
+    [Serializable]
+    public class ConfigurationMessage
+    {
+        public ulong sender;
+    }
+
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation | MyUpdateOrder.AfterSimulation | MyUpdateOrder.Simulation)]
     class Upgradecore : MySessionComponentBase
     {
         bool m_init = false;
         IMyEntity Entity;
 		MyObjectBuilder_SessionComponent m_objectBuilder;
+
         public static ConcurrentDictionary<long, UpgradeLogic> Upgrades = new ConcurrentDictionary<long, UpgradeLogic>();
+
+        public static int NpcMultiplierAttack = 1;
+        public static int NpcMultiplierDefence = 1;
+        public static int NpcMultiplierPower = 1;
+        public static int NpcMultiplierSpeed = 1;
+        public static int NpcOffsetAttack = 1;
+        public static int NpcOffsetDefence = 1;
+        public static int NpcOffsetPower = 1;
+        public static int NpcOffsetSpeed = 1;
 
         private ConcurrentDictionary<long, List<UpgradeLogic>> m_cachedGrids = new ConcurrentDictionary<long, List<UpgradeLogic>>();
         private PrintLoadBalancer printLoadBalancer = new PrintLoadBalancer();
         private NetworkLoadBalancer networkLoadBalancer = new NetworkLoadBalancer();
+
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             m_objectBuilder = sessionComponent;
@@ -36,11 +109,16 @@ namespace SEUpgrademodule
 
         private void init()
         {
-
-            // 데미지 핸들러 등록
-            MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(1, HandleDamage);
+  
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5856, UpgradeMessageHandler);
+            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5853, HandleConfigRequest);
+            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5854, HandleConfigResponse);
+
+            MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(0, HandleDamage);
             MyAPIGateway.Missiles.OnMissileCollided += missileCollisionHandler;
+
+            loadConfigFile();
+
             foreach (var kv in Upgradecore.Upgrades)
             {
                 UpgradeLogic basec = null;
@@ -54,25 +132,23 @@ namespace SEUpgrademodule
             }
             m_init = true;
         }
+
         HashSet<long> processedMissiles = new HashSet<long>();
 
         void missileCollisionHandler(IMyMissile missile)
         {
             try
             {
-                // 미사일이 이미 처리된 경우, 더 이상 진행하지 않음
                 if (processedMissiles.Contains(missile.EntityId))
                 {
                     return;
                 }
-                
-                // 미사일을 처음 처리한 경우 HashSet에 추가
                 processedMissiles.Add(missile.EntityId);
 
                 IMyEntity attackerEntity = MyAPIGateway.Entities.GetEntityById(missile.LauncherId);
                 IMyCubeGrid attackergrid = attackerEntity as IMyCubeGrid;
                 IMyCubeBlock attackerblock = attackerEntity as IMyCubeBlock;
-                
+
                 if (attackergrid == null && attackerblock != null)
                 {
                     attackergrid = attackerblock.CubeGrid;
@@ -110,7 +186,6 @@ namespace SEUpgrademodule
                             if (upgradeLogic.m_AttackUpgradeLevel > maxAttackLevel)
                                 maxAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
                         }
-
                         missile.ExplosionDamage *= (float)Math.Pow(1 + 0.02, maxAttackLevel);
                     }
                 }
@@ -123,28 +198,26 @@ namespace SEUpgrademodule
 
         public override void UpdateBeforeSimulation()
         {
-            // 초기화되지 않았다면 초기화 진행
+            // 모드가 로드되고 한 번만 초기화
             if (!m_init)
             {
                 init();
             }
             else
             {
-
-                // 캐시된 그리드를 클리어
                 m_cachedGrids.Clear();
             }
 
-
-            // 로드 밸런서 업데이트
             printLoadBalancer.Update();
             networkLoadBalancer.Update();
-
         }
+
         public override void UpdateAfterSimulation()
         {
+            
+
+
         }
-        // UpgradeLogic 인스턴스 등록
 
 		private void UpgradeMessageHandler(ushort channel, byte[] message, ulong recipient, bool reliable)
 		{
@@ -152,10 +225,11 @@ namespace SEUpgrademodule
 			int value1 = BitConverter.ToInt32(message, 8);
             int value2 = BitConverter.ToInt32(message, 12);
             int value3 = BitConverter.ToInt32(message, 16);
-            
+
 			if(!MyAPIGateway.Multiplayer.IsServer)
 			{
-				//Log.writeLine("<ShieldGeneratorGameLogic> Sync received.");
+
+
 				foreach(var LogicKV in Upgradecore.Upgrades) 
 				{
 					if(ID == LogicKV.Key) 
@@ -166,8 +240,6 @@ namespace SEUpgrademodule
 					}
 				}
 			}
-
-
 		}
 
         void HandleDamage(object target, ref MyDamageInformation info)
@@ -179,7 +251,6 @@ namespace SEUpgrademodule
             float damageMultiplier = 1f;
             try
             {
-                // 공격자 정보를 가져오기
                 attackerEntity = MyAPIGateway.Entities.GetEntityById(attackerId);
                 attackerGrid = attackerEntity as IMyCubeGrid;
                 if (attackerGrid == null && attackerEntity is IMyCubeBlock)
@@ -187,7 +258,6 @@ namespace SEUpgrademodule
                     attackerGrid = ((IMyCubeBlock)attackerEntity).CubeGrid;
                 }
 
-                // 공격자의 캐시 확인 및 로직 적용
                 if (attackerGrid != null)
                 {
                     if (!m_cachedGrids.ContainsKey(attackerGrid.EntityId))
@@ -204,7 +274,6 @@ namespace SEUpgrademodule
                             {
                                 UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
                             }
-
                             m_cachedGrids.TryAdd(attackerGrid.EntityId, UpgradeLogics);
                         }
                     }
@@ -213,8 +282,7 @@ namespace SEUpgrademodule
                     if (m_cachedGrids.ContainsKey(attackerGrid.EntityId))
                     {
                         List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackerGrid.EntityId];
-                        
-                        // 리스트에 값이 있을 때만 최소값 계산
+
                         if (cachedattackerUpgradeLogics.Count > 0)
                         {
                             int minAttackLevel = cachedattackerUpgradeLogics[0].m_AttackUpgradeLevel;
@@ -226,11 +294,7 @@ namespace SEUpgrademodule
                                     minAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
                                 }
                             }
-                            
-
                             damageMultiplier *= (float)Math.Pow(1 + 0.02, minAttackLevel);
-                            
-
                         }
                     }
                 }
@@ -245,26 +309,21 @@ namespace SEUpgrademodule
                     if (tsystem != null)
                     {
                         tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
-
                         foreach (var cockpit in cockpits)
                         {
                             UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
                         }
-
                         m_cachedGrids.TryAdd(slimBlock.CubeGrid.EntityId, UpgradeLogics);
                     }
                 }
 
-                // 방어 레벨 계산 (최소값을 찾음)
                 if (m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
                 {
                     List<UpgradeLogic> cachedUpgradeLogics = m_cachedGrids[slimBlock.CubeGrid.EntityId];
 
-                    // 리스트에 값이 있을 때만 최소값 계산
                     if (cachedUpgradeLogics.Count > 0)
                     {
                         int minDefenseLevel = cachedUpgradeLogics[0].m_DefenseUpgradeLevel;
-
                         foreach (var upgradeLogic in cachedUpgradeLogics)
                         {
                             if (upgradeLogic.m_DefenseUpgradeLevel < minDefenseLevel)
@@ -272,26 +331,116 @@ namespace SEUpgrademodule
                                 minDefenseLevel = upgradeLogic.m_DefenseUpgradeLevel;
                             }
                         }
-                        
                         damageMultiplier *= (float)Math.Pow(1 - 0.02, minDefenseLevel);
                     }
                 }
-
                 info.Amount *= damageMultiplier;
+
             }
             catch (Exception e)
             {
-                // 예외 처리 (로깅 또는 HUD 알림)
+                // 예외 처리
             }
         }
 
-                
+        public void loadConfigFile()
+        {
+            // 서버 혹은 싱글플레이 시 실제 Config 로드
+            if (MyAPIGateway.Multiplayer.IsServer || !MyAPIGateway.Multiplayer.MultiplayerActive)
+            {
+                Config.Load();
+                NpcMultiplierAttack = Config.Instance.NpcMultiplier.Attack;
+                NpcMultiplierDefence = Config.Instance.NpcMultiplier.Defence;
+                NpcMultiplierPower = Config.Instance.NpcMultiplier.Power;
+                NpcMultiplierSpeed = Config.Instance.NpcMultiplier.Speed;
+                NpcOffsetAttack = Config.Instance.NpcOffset.Attack;
+                NpcOffsetDefence = Config.Instance.NpcOffset.Defence;
+                NpcOffsetPower = Config.Instance.NpcOffset.Power;
+                NpcOffsetSpeed = Config.Instance.NpcOffset.Speed;
 
-		public static bool Filter(IMyTerminalBlock block) 
-		{
 
-			return (block.CustomName.Contains("[Upgrade]"));
-		}
+            }
+            else
+            {
+                // 클라이언트는 서버에 요청
+                RequestConfigFromServer();
+            }
+        }
 
+        private void RequestConfigFromServer()
+        {
+            var configRequest = new ConfigurationMessage
+            {
+                sender = MyAPIGateway.Multiplayer.MyId
+            };
+
+            string requestXml = MyAPIGateway.Utilities.SerializeToXML(configRequest);
+            byte[] requestBytes = Encoding.Unicode.GetBytes(requestXml);
+
+            MyAPIGateway.Multiplayer.SendMessageTo(5853, requestBytes, MyAPIGateway.Multiplayer.ServerId, true);
+        }
+
+        private void HandleConfigRequest(ushort channel, byte[] message, ulong sender, bool reliable)
+        {
+            if (MyAPIGateway.Multiplayer.IsServer)
+            {
+                try
+                {
+                    string requestXml = Encoding.Unicode.GetString(message);
+                    ConfigurationMessage configRequest = MyAPIGateway.Utilities.SerializeFromXML<ConfigurationMessage>(requestXml);
+
+                    var configResponse = new MyUpConfig
+                    {
+                        NpcMultiplier = Config.Instance.NpcMultiplier,
+                        NpcOffset = Config.Instance.NpcOffset
+                    };
+
+                    string responseXml = MyAPIGateway.Utilities.SerializeToXML(configResponse);
+                    byte[] responseBytes = Encoding.Unicode.GetBytes(responseXml);
+
+                    MyAPIGateway.Multiplayer.SendMessageTo(5854, responseBytes, sender, reliable);
+
+   
+                }
+                catch (Exception ex)
+                {
+                    // 예외 처리
+                }
+            }
+        }
+
+        private void HandleConfigResponse(ushort channel, byte[] message, ulong sender, bool reliable)
+        {
+            if (!MyAPIGateway.Multiplayer.IsServer)
+            {
+                try
+                {
+                    string responseXml = Encoding.Unicode.GetString(message);
+                    MyUpConfig configResponse = MyAPIGateway.Utilities.SerializeFromXML<MyUpConfig>(responseXml);
+
+                    if (configResponse != null)
+                    {
+                        NpcMultiplierAttack = configResponse.NpcMultiplier.Attack;
+                        NpcMultiplierDefence = configResponse.NpcMultiplier.Defence;
+                        NpcMultiplierPower = configResponse.NpcMultiplier.Power;
+                        NpcMultiplierSpeed = configResponse.NpcMultiplier.Speed;
+                        NpcOffsetAttack = configResponse.NpcOffset.Attack;
+                        NpcOffsetDefence = configResponse.NpcOffset.Defence;
+                        NpcOffsetPower = configResponse.NpcOffset.Power;
+                        NpcOffsetSpeed = configResponse.NpcOffset.Speed;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // 예외 처리
+                }
+            }
+        }
+
+        public static bool Filter(IMyTerminalBlock block) 
+        {
+            return block.CustomName.Contains("[Upgrade]");
+        }
     }
 }

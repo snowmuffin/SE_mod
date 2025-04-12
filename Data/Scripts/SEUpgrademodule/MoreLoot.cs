@@ -191,7 +191,7 @@ namespace SEUpgrademodule
             double k = 0.7f; // 지수 스케일링 상수 (필요에 따라 조정)
 
             // 그리드 레벨 합산을 위한 변수
-            int totalLevel = 0;
+            int totalLevel = Config.Instance.NpcOffset.Power+Config.Instance.NpcOffset.Defence+Config.Instance.NpcOffset.Attack;
 
             try
             {
@@ -264,7 +264,7 @@ namespace SEUpgrademodule
                     
                     if (!grid.CustomName.Contains("[LV"))
                     {
-                        grid.CustomName += $" [LV{totalLevel*2}]";
+                        grid.CustomName += $" [LV{totalLevel*Config.Instance.NpcMultiplier.Attack}]";
 
                         // 디버그 로그: 그리드 이름 변경
                         MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");

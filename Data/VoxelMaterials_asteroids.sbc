@@ -10,7 +10,7 @@
             </Id>
             <MaterialTypeName>Rock</MaterialTypeName>
             <MinedOre>LanthanumOre</MinedOre>
-            <MinedOreRatio>0.2</MinedOreRatio>
+            <MinedOreRatio>0.4</MinedOreRatio>
             <CanBeHarvested>true</CanBeHarvested>
             <IsRare>true</IsRare>
 
@@ -59,7 +59,7 @@
             </Id>
             <MaterialTypeName>Rock</MaterialTypeName>
             <MinedOre>CeriumOre</MinedOre>
-            <MinedOreRatio>0.2</MinedOreRatio>
+            <MinedOreRatio>0.4</MinedOreRatio>
             <CanBeHarvested>true</CanBeHarvested>
             <IsRare>true</IsRare>
 
