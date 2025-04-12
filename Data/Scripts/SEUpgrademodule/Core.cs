@@ -154,45 +154,38 @@ namespace SEUpgrademodule
                     attackergrid = attackerblock.CubeGrid;
                 }
 
+                int maxAttackLevel = 0;
                 if (attackergrid != null)
                 {
-                    if (!m_cachedGrids.ContainsKey(attackergrid.EntityId))
+                    var UpgradeLogics = m_cachedGrids.GetOrAdd(attackergrid.EntityId, entityId =>
                     {
                         IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(attackergrid);
                         List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
-                        List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
+                        List<UpgradeLogic> logics = new List<UpgradeLogic>();
 
                         if (tsystem != null)
                         {
                             tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
-
-                            foreach (var cockpit in cockpits)
-                            {
-                                UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
-                            }
-
-                            m_cachedGrids.TryAdd(attackergrid.EntityId, UpgradeLogics);
+                            logics.AddRange(cockpits.Select(cockpit => ((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>()));
                         }
-                    }
+                        return logics;
+                    });
 
-                    // 공격자 업그레이드 정보 로드
-                    if (m_cachedGrids.ContainsKey(attackergrid.EntityId))
+                    if (UpgradeLogics.Any())
                     {
-                        List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackergrid.EntityId];
-                        int maxAttackLevel = 0;
-
-                        foreach (var upgradeLogic in cachedattackerUpgradeLogics)
-                        {
-                            if (upgradeLogic.m_AttackUpgradeLevel > maxAttackLevel)
-                                maxAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
-                        }
+                        maxAttackLevel = UpgradeLogics.Max(upgradeLogic => upgradeLogic.m_AttackUpgradeLevel);
                         missile.ExplosionDamage *= (float)Math.Pow(1 + 0.02, maxAttackLevel);
                     }
+                }
+
+                if (maxAttackLevel > 0)
+                {
+                    MyLog.Default.WriteLineAndConsole($"Missile Collision: MissileId={missile.EntityId}, AttackerGridId={attackergrid?.EntityId}, MaxAttackLevel={maxAttackLevel}, FinalExplosionDamage={missile.ExplosionDamage}");
                 }
             }
             catch (Exception e)
             {
-                // 예외 처리
+                MyLog.Default.WriteLineAndConsole($"Exception in missileCollisionHandler: {e.Message}");
             }
         }
 
@@ -249,6 +242,7 @@ namespace SEUpgrademodule
             IMyEntity attackerEntity = null;
             IMyCubeGrid attackerGrid = null;
             float damageMultiplier = 1f;
+
             try
             {
                 attackerEntity = MyAPIGateway.Entities.GetEntityById(attackerId);
@@ -258,6 +252,7 @@ namespace SEUpgrademodule
                     attackerGrid = ((IMyCubeBlock)attackerEntity).CubeGrid;
                 }
 
+                int minAttackLevel = 0;
                 if (attackerGrid != null)
                 {
                     if (!m_cachedGrids.ContainsKey(attackerGrid.EntityId))
@@ -278,14 +273,13 @@ namespace SEUpgrademodule
                         }
                     }
 
-                    // 공격 레벨 계산 (최소값을 찾음)
                     if (m_cachedGrids.ContainsKey(attackerGrid.EntityId))
                     {
                         List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackerGrid.EntityId];
 
                         if (cachedattackerUpgradeLogics.Count > 0)
                         {
-                            int minAttackLevel = cachedattackerUpgradeLogics[0].m_AttackUpgradeLevel;
+                            minAttackLevel = cachedattackerUpgradeLogics[0].m_AttackUpgradeLevel;
 
                             foreach (var upgradeLogic in cachedattackerUpgradeLogics)
                             {
@@ -299,7 +293,7 @@ namespace SEUpgrademodule
                     }
                 }
 
-                // 방어 레벨 계산 (최소값을 찾음)
+                int minDefenseLevel = 0;
                 if (!m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
                 {
                     IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(slimBlock.CubeGrid as IMyCubeGrid);
@@ -323,7 +317,7 @@ namespace SEUpgrademodule
 
                     if (cachedUpgradeLogics.Count > 0)
                     {
-                        int minDefenseLevel = cachedUpgradeLogics[0].m_DefenseUpgradeLevel;
+                        minDefenseLevel = cachedUpgradeLogics[0].m_DefenseUpgradeLevel;
                         foreach (var upgradeLogic in cachedUpgradeLogics)
                         {
                             if (upgradeLogic.m_DefenseUpgradeLevel < minDefenseLevel)
@@ -336,10 +330,12 @@ namespace SEUpgrademodule
                 }
                 info.Amount *= damageMultiplier;
 
+                // 종합 로그 출력
+                MyLog.Default.WriteLineAndConsole($"Damage Handled: TargetGridId={slimBlock.CubeGrid.EntityId}, AttackerGridId={attackerGrid?.EntityId}, MinAttackLevel={minAttackLevel}, MinDefenseLevel={minDefenseLevel}, FinalDamage={info.Amount}");
             }
             catch (Exception e)
             {
-                // 예외 처리
+                MyLog.Default.WriteLineAndConsole($"Exception in HandleDamage: {e.Message}");
             }
         }
 
