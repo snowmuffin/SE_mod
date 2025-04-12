@@ -41,13 +41,13 @@
             <BuildTimeSeconds>12</BuildTimeSeconds>
 
             <ResourceSourceGroup>Battery</ResourceSourceGroup>
-            <MaxPowerOutput>0.15</MaxPowerOutput>
+            <MaxPowerOutput>0.3</MaxPowerOutput>
 
             <ResourceSinkGroup>BatteryBlock</ResourceSinkGroup>
             <RequiredPowerInput>0.15</RequiredPowerInput>
-            <MaxStoredPower>0.075</MaxStoredPower>
+            <MaxStoredPower>0.15</MaxStoredPower>
             <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
-            <RechargeMultiplier>0.8</RechargeMultiplier>
+            <RechargeMultiplier>0.6</RechargeMultiplier>
             <InventorySize>
                 <X>1</X>
                 <Y>1</Y>
@@ -101,13 +101,13 @@
             <BuildTimeSeconds>30</BuildTimeSeconds>
 
             <ResourceSourceGroup>Battery</ResourceSourceGroup>
-            <MaxPowerOutput>6</MaxPowerOutput>
+            <MaxPowerOutput>12</MaxPowerOutput>
 
             <ResourceSinkGroup>BatteryBlock</ResourceSinkGroup>
             <RequiredPowerInput>6</RequiredPowerInput>
-            <MaxStoredPower>1.5</MaxStoredPower>
+            <MaxStoredPower>3.0</MaxStoredPower>
             <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
-            <RechargeMultiplier>0.8</RechargeMultiplier>
+            <RechargeMultiplier>0.6</RechargeMultiplier>
             <InventorySize>
                 <X>1</X>
                 <Y>1</Y>
@@ -165,14 +165,14 @@
             <BuildTimeSeconds>60</BuildTimeSeconds>
 
             <ResourceSourceGroup>Battery</ResourceSourceGroup>
-            <MaxPowerOutput>18</MaxPowerOutput>
+            <MaxPowerOutput>36</MaxPowerOutput>
 
             <ResourceSinkGroup>BatteryBlock</ResourceSinkGroup>
             <RequiredPowerInput>18</RequiredPowerInput>
             <AdaptibleInput>true</AdaptibleInput>
-            <MaxStoredPower>4.5</MaxStoredPower>
+            <MaxStoredPower>9.0</MaxStoredPower>
             <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
-            <RechargeMultiplier>0.8</RechargeMultiplier>
+            <RechargeMultiplier>0.6</RechargeMultiplier>
             <InventorySize>
                 <X>1</X>
                 <Y>1</Y>

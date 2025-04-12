@@ -9,7 +9,7 @@
                 <TypeId>Reactor</TypeId>
                 <SubtypeId>SmallBlockSmallGeneratorPrime</SubtypeId>
             </Id>
-            <DisplayName>Prime SmallReactor</DisplayName>
+            <DisplayName>Prime Small Reactor</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\nuclear_reactor.dds</Icon>
             <Description>Prime_Reactor</Description>
             <CubeSize>Small</CubeSize>
@@ -49,7 +49,7 @@
             <BuildTimeSeconds>20</BuildTimeSeconds>
 
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
-            <MaxPowerOutput>1</MaxPowerOutput>
+            <MaxPowerOutput>4</MaxPowerOutput>
 
             <InventorySize>
                 <X>0.5</X>
@@ -79,6 +79,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
+                    <Ratio>0.7</Ratio>
                 </FuelInfo>
             </FuelInfos>
 
@@ -104,7 +105,7 @@
                 <TypeId>Reactor</TypeId>
                 <SubtypeId>SmallBlockLargeGeneratorPrime</SubtypeId>
             </Id>
-            <DisplayName>Prime LargeReactor</DisplayName>
+            <DisplayName>Prime Large Reactor</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\nuclear_reactor_large.dds</Icon>
             <Description>PrimeReactor</Description>
             <CubeSize>Small</CubeSize>
@@ -115,7 +116,7 @@
             <Model>Models\Cubes\Small\GeneratorLarge.mwm</Model>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <Components>
-                <Component Subtype="Prime_Matter" Count="29"/>
+                <Component Subtype="Prime_Matter" Count="14"/>
                 <Component Subtype="SteelPlate" Count="80" />
                 <Component Subtype="Construction" Count="18" />
                 <Component Subtype="MetalGrid" Count="18" />
@@ -149,7 +150,7 @@
             <EdgeType>Light</EdgeType>
 
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
-            <MaxPowerOutput>29.5</MaxPowerOutput>
+            <MaxPowerOutput>59</MaxPowerOutput>
 
             <InventorySize>
                 <X>1</X>
@@ -178,6 +179,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
+                    <Ratio>0.7</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipSmNuclearLrg</PrimarySound>
@@ -201,7 +203,7 @@
                 <TypeId>Reactor</TypeId>
                 <SubtypeId>LargeBlockSmallGeneratorPrime</SubtypeId>
             </Id>
-            <DisplayName>Prime SmallReactor</DisplayName>
+            <DisplayName>Prime Small Reactor</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\nuclear_reactor.dds</Icon>
             <Description>PrimeReactor</Description>
             <CubeSize>Large</CubeSize>
@@ -210,7 +212,7 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\GeneratorSmall.mwm</Model>
             <Components>
-                <Component Subtype="Prime_Matter" Count="30"/>
+                <Component Subtype="Prime_Matter" Count="15"/>
                 <Component Subtype="SteelPlate" Count="100" />
                 <Component Subtype="Construction" Count="80" />
                 <Component Subtype="MetalGrid" Count="8" />
@@ -241,7 +243,7 @@
             <BuildTimeSeconds>30</BuildTimeSeconds>
 
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
-            <MaxPowerOutput>32</MaxPowerOutput>
+            <MaxPowerOutput>60</MaxPowerOutput>
 
             <InventorySize>
                 <X>1</X>
@@ -270,6 +272,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
+                    <Ratio>0.7</Ratio>
                 </FuelInfo>
             </FuelInfos>
 
@@ -295,7 +298,7 @@
                 <TypeId>Reactor</TypeId>
                 <SubtypeId>LargeBlockLargeGeneratorPrime</SubtypeId>
             </Id>
-            <DisplayName>Prime LargeReactor</DisplayName>
+            <DisplayName>Prime Large Reactor</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\nuclear_reactor_large.dds</Icon>
             <Description>PrimeReactor</Description>
             <CubeSize>Large</CubeSize>
@@ -305,7 +308,7 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\GeneratorLarge.mwm</Model>
             <Components>
-                <Component Subtype="Prime_Matter" Count="600"/>
+                <Component Subtype="Prime_Matter" Count="300"/>
                 <Component Subtype="SteelPlate" Count="1200" />
                 <Component Subtype="Construction" Count="140" />
                 <Component Subtype="MetalGrid" Count="80" />
@@ -338,7 +341,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>100</BuildTimeSeconds>
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
-            <MaxPowerOutput>600</MaxPowerOutput>
+            <MaxPowerOutput>1200</MaxPowerOutput>
             <InventorySize>
                 <X>2</X>
                 <Y>2</Y>
@@ -366,6 +369,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
+                    <Ratio>0.7</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipLrgNuclearLrg</PrimarySound>
