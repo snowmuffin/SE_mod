@@ -180,7 +180,7 @@ namespace SEUpgrademodule
 
                 if (maxAttackLevel > 0)
                 {
-                    MyLog.Default.WriteLineAndConsole($"Missile Collision: MissileId={missile.EntityId}, AttackerGridId={attackergrid?.EntityId}, MaxAttackLevel={maxAttackLevel}, FinalExplosionDamage={missile.ExplosionDamage}");
+                    //MyLog.Default.WriteLineAndConsole($"Missile Collision: MissileId={missile.EntityId}, AttackerGridId={attackergrid?.EntityId}, MaxAttackLevel={maxAttackLevel}, FinalExplosionDamage={missile.ExplosionDamage}");
                 }
             }
             catch (Exception e)
@@ -330,8 +330,7 @@ namespace SEUpgrademodule
                 }
                 info.Amount *= damageMultiplier;
 
-                // 종합 로그 출력
-                MyLog.Default.WriteLineAndConsole($"Damage Handled: TargetGridId={slimBlock.CubeGrid.EntityId}, AttackerGridId={attackerGrid?.EntityId}, MinAttackLevel={minAttackLevel}, MinDefenseLevel={minDefenseLevel}, FinalDamage={info.Amount}");
+                //MyLog.Default.WriteLineAndConsole($"Damage Handled: TargetGridId={slimBlock.CubeGrid.EntityId}, AttackerGridId={attackerGrid?.EntityId}, MinAttackLevel={minAttackLevel}, MinDefenseLevel={minDefenseLevel}, FinalDamage={info.Amount}");
             }
             catch (Exception e)
             {
@@ -341,7 +340,6 @@ namespace SEUpgrademodule
 
         public void loadConfigFile()
         {
-            // 서버 혹은 싱글플레이 시 실제 Config 로드
             if (MyAPIGateway.Multiplayer.IsServer || !MyAPIGateway.Multiplayer.MultiplayerActive)
             {
                 Config.Load();
