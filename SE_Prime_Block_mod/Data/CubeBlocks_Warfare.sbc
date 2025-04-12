@@ -70,7 +70,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
-                    <Ratio>0.7</Ratio>
+                    <Ratio>1.4</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipLrgNuclearSm</PrimarySound>
@@ -166,7 +166,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
-                    <Ratio>0.7</Ratio>
+                    <Ratio>1.4</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipLrgNuclearLrg</PrimarySound>
@@ -262,7 +262,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
-                    <Ratio>0.7</Ratio>
+                    <Ratio>1.4</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipSmNuclearSm</PrimarySound>
@@ -359,7 +359,7 @@
                         <TypeId>Ingot</TypeId>
                         <SubtypeId>Uranium</SubtypeId>
                     </Id>
-                    <Ratio>0.7</Ratio>
+                    <Ratio>1.4</Ratio>
                 </FuelInfo>
             </FuelInfos>
             <PrimarySound>ShipSmNuclearLrg</PrimarySound>
