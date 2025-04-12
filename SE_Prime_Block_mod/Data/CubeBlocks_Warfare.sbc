@@ -38,7 +38,7 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\ReactorReskinSmallConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ReactorReskinSmallConstruction_3.mwm" />
             </BuildProgressModels>
-            <BlockPairName>SmallReactorWarfare2</BlockPairName>
+            <BlockPairName>PrimeSmallReactorWarfare2</BlockPairName>
             <MirroringY>X</MirroringY>
             <MirroringX>Y</MirroringX>
             <EdgeType>Light</EdgeType>
@@ -134,7 +134,7 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\ReactorReskinLargeConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ReactorReskinLargeConstruction_3.mwm" />
             </BuildProgressModels>
-            <BlockPairName>LargeReactorWarfare2</BlockPairName>
+            <BlockPairName>PrimeLargeReactorWarfare2</BlockPairName>
             <MirroringY>X</MirroringY>
             <MirroringX>Y</MirroringX>
             <EdgeType>Light</EdgeType>
@@ -230,7 +230,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\ReactorReskinSmallConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\ReactorReskinSmallConstruction_1.mwm" />
             </BuildProgressModels>
-            <BlockPairName>SmallReactorWarfare2</BlockPairName>
+            <BlockPairName>PrimeSmallReactorWarfare2</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
@@ -327,7 +327,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\ReactorReskinLargeConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\ReactorReskinLargeConstruction_1.mwm" />
             </BuildProgressModels>
-            <BlockPairName>LargeReactorWarfare2</BlockPairName>
+            <BlockPairName>PrimeLargeReactorWarfare2</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <BuildTimeSeconds>30</BuildTimeSeconds>
