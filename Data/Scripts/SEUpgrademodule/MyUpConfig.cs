@@ -28,7 +28,6 @@ namespace SEUpgrademodule
         public List<string> ExcludeGrids;
         [ProtoMember(8)]
         public Boolean DisableGrindSubgridDamage = true;
-
     }
 
     [ProtoContract]

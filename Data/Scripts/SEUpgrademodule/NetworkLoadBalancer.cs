@@ -5,64 +5,62 @@ using VRage.Game;
 
 namespace SEUpgrademodule
 {
-	public class NetworkLoadBalancer
-	{
-		int m_periodLength = 0;
+    public class NetworkLoadBalancer
+    {
+        int m_periodLength = 0;
 
-		int m_progress = 0;
+        int m_progress = 0;
 
-		float m_progressPerTick = 0;
+        float m_progressPerTick = 0;
 
-		int m_processedCount = 0;
+        int m_processedCount = 0;
 
-		int m_initialSize = 0;
+        int m_initialSize = 0;
 
-		Queue<UpgradeLogic> m_notProcessed = new Queue<UpgradeLogic>();
+        Queue<UpgradeLogic> m_notProcessed = new Queue<UpgradeLogic>();
 
-		public NetworkLoadBalancer ()
-		{
+        public NetworkLoadBalancer ()
+        {
+        }
 
-		}
+        public void Update()
+        {
+            if(!(m_progress < m_periodLength))
+            {
+                m_periodLength = 100;
 
-		public void Update()
-		{
-			if(!(m_progress < m_periodLength))
-			{
-				m_periodLength = 100;
+                m_progress = 0;
 
-				m_progress = 0;
+                m_notProcessed.Clear();
 
-				m_notProcessed.Clear();
+                foreach(var kv in Upgradecore.Upgrades)
+                {
+                    m_notProcessed.Enqueue(kv.Value);
+                }
 
-				foreach(var kv in Upgradecore.Upgrades)
-				{
-					m_notProcessed.Enqueue(kv.Value);
-				}
+                m_initialSize = m_notProcessed.Count;
 
-				m_initialSize = m_notProcessed.Count;
+                m_processedCount = 0;
 
-				m_processedCount = 0;
+                m_progressPerTick = m_periodLength / ((float) m_notProcessed.Count);
+            }
 
-				m_progressPerTick = m_periodLength / ((float) m_notProcessed.Count);
-			}
+            m_progress += 1;
 
-			m_progress += 1;
+            int toProcess = ((int) (((float)m_progress/m_periodLength) * m_initialSize)) - m_processedCount;
 
-			int toProcess = ((int) (((float)m_progress/m_periodLength) * m_initialSize)) - m_processedCount;
+            for(int i = 0; i < toProcess; i++)
+            {
+                if(m_notProcessed.Count > 0)
+                {
+                    var generator = m_notProcessed.Dequeue();
 
-			for(int i = 0; i < toProcess; i++)
-			{
-				if(m_notProcessed.Count > 0)
-				{
-					var generator = m_notProcessed.Dequeue();
+                    generator.UpdateNetworkBalanced();
+                }
+            }
 
-					generator.UpdateNetworkBalanced();
-				}
-			}
-
-			m_processedCount += toProcess;
-		}
-
-	}
+            m_processedCount += toProcess;
+        }
+    }
 }
 

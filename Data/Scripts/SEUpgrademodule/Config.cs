@@ -14,15 +14,12 @@ using VRage.Utils;
 
 namespace SEUpgrademodule
 {
-
     public class Config
     {
-
         public static MyUpConfig Instance;
 
         public static void Load()
         {
-            // Load config xml
             if (MyAPIGateway.Utilities.FileExistsInWorldStorage("SEUpgrademoduleConfig.xml", typeof(MyUpConfig)))
             {
                 try
@@ -42,26 +39,19 @@ namespace SEUpgrademodule
             if (Instance == null)
             {
                 MyLog.Default.WriteLine("SEUpgrademodule: No Loot Config found, creating New");
-                // Create default values
                 Instance = new MyUpConfig()
                 {
-                    // Stage 1: Basic (기본)
                     SmallGridBasic = new Item() { Chance = 0.25f, MinAmount = 3, MaxAmount = 12 },
                     LargeGridBasic = new Item() { Chance = 0.2f, MinAmount = 6, MaxAmount = 25 },
-
-                    // Stage 2: Advanced (고급)
                     SmallGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 6 },
                     LargeGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 6 },
                     NpcMultiplier  = new NpcMultiplier() {Attack = 2, Defence = 2, Power=2, Speed=1},
-
                     NpcOffset = new NpcOffset(){Attack = 1, Defence = 1, Power=1, Speed=1},
                     DisableGrindSubgridDamage = true,
                     ExcludeGrids = new List<string>() { "respawn","Respawn" }
                 };
             }
 
-
-            // Updates
             if(Instance.ExcludeGrids == null)
             {
                 Instance.ExcludeGrids = new List<string>() { "respawn" };
@@ -73,7 +63,6 @@ namespace SEUpgrademodule
 
             Write();
         }
-
 
         public static void Write()
         {
