@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CubeBlocks>
+
+        
+   
+        <Definition xsi:type="MyObjectBuilder_ShipDrillDefinition">
+            <Id>
+                <TypeId>Drill</TypeId>
+                <SubtypeId>LargeBlockPrototechDrill</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_PrototechDrill</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\PrototechDrill.dds</Icon>
+            <Description>Description_Prototech_Drill</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="4" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\PrototechDrill.mwm</Model>
+            <PlaceDecals>false</PlaceDecals>
+            <UseModelIntersection>true</UseModelIntersection>
+            <UsesDeformation>false</UsesDeformation>
+            <Components>
+                <Component Subtype="PrototechFrame" Count="1">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="Construction" Count="200" />
+                <Component Subtype="LargeTube" Count="120" />
+                <Component Subtype="PrototechMachinery" Count="20">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="PrototechCoolingUnit" Count="3">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="MetalGrid" Count="80" />
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="PrototechPanel" Count="200" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.4" EndY="2.5" />
+                <MountPoint Side="Right" StartX="0" StartY="1.2" EndX="0.8" EndY="1.8" />
+                <MountPoint Side="Left" StartX="3.6" StartY="0.5" EndX="4" EndY="2.5" />
+                <MountPoint Side="Left" StartX="3.2" StartY="1.2" EndX="4" EndY="1.8" />
+                <MountPoint Side="Top" StartX="0.5" StartY="0" EndX="2.5" EndY="0.4" />
+                <MountPoint Side="Bottom" StartX="0.5" StartY="3.6" EndX="2.5" EndY="4" />
+                <MountPoint Side="Back" StartX="0" StartY="0.3" EndX="3" EndY="2.7" Default="true" />
+                <MountPoint Side="Back" StartX="0.3" StartY="0" EndX="2.7" EndY="0.3" />
+                <MountPoint Side="Back" StartX="0.3" StartY="2.7" EndX="2.7" EndY="3" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PrototechDrill_Construction1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PrototechDrill_Construction2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PrototechDrill_Construction3.mwm" />
+            </BuildProgressModels>
+            <VoxelPlacement>
+                <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+                <StaticMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                    <MaxAllowed>0.2</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
+                </StaticMode>
+                <DynamicMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                    <MaxAllowed>0.2</MaxAllowed>
+                    <MinAllowed>0.01</MinAllowed>
+                </DynamicMode>
+            </VoxelPlacement>
+            <BlockPairName>PrototechDrill</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>60</BuildTimeSeconds>
+            <DisassembleRatio>5</DisassembleRatio>
+            <Center x="1" y="1" z="3" />
+            <ResourceSinkGroup>Defense</ResourceSinkGroup>
+            <InventorySize>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
+            </InventorySize>
+            <SensorRadius>4</SensorRadius>
+            <SensorOffset>3</SensorOffset>
+            <CutOutRadius>7.5</CutOutRadius>
+            <CutOutOffset>3</CutOutOffset>
+            <CounterRotatingSubparts>
+                <string>Models\Cubes\Large\PrototechDrill_Mid.mwm</string>
+            </CounterRotatingSubparts>
+            <DiscardingMultiplier>1.4</DiscardingMultiplier>
+            <Speed>3.5</Speed>
+            <ParticleOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-5.15</Z>
+            </ParticleOffset>
+            <DeformationRatio>0.2</DeformationRatio>
+            <DamageEffectName>Damage_Electrical_Prototech_Drill</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PrimarySound>ToolShipDrillIdle</PrimarySound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+
+            <DustEffect>Smoke_DrillDust_Prototech</DustEffect>
+            <DustStoneEffect>Smoke_DrillDust_Prototech</DustStoneEffect>
+            <DrillingMaterialName>ShipDrill_Prototech</DrillingMaterialName>
+            
+            <PCU>301</PCU>
+        </Definition>
+        
+    </CubeBlocks>
+</Definitions>

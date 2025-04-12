@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Blueprints>
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Prime_Matter</SubtypeId>
+            </Id>
+            <DisplayName>Prime Matter</DisplayName>
+            <Icon>Textures\Prime_Matter.dds</Icon>
+            <Prerequisites>
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Cerium" />
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Lanthanum" />
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Cobalt"/>
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Silver"/>
+                <Item Amount="70" TypeId="Ingot" SubtypeId="Gold"/>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Uranium"/>
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Prime_Matter"/>
+            <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+    </Blueprints>
+</Definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Definitions>
+    <BlueprintClasses>
+        <Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>Prime_MatterComponents</SubtypeId>
+            </Id>
+            <DisplayName>Enhanced Components</DisplayName>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+        <Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>Prime_MatterComponents</SubtypeId>
+            </Id>
+            <DisplayName>Tiered Admin Components</DisplayName>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+    </BlueprintClasses>
+    <BlueprintClassEntries>
+        
+
+        <Entry Class="Components" BlueprintSubtypeId="Prime_Matter" />
+
+    </BlueprintClassEntries>
+
+
+</Definitions>

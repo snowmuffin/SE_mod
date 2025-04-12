@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Components>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Prime_Matter</SubtypeId>
+            </Id>
+            <DisplayName>Prime Matter</DisplayName>
+            <Icon>Textures\Prime_Matter.dds</Icon>
+            <Size>
+                <X>1</X>
+                <Y>0.7</Y>
+                <Z>0.4</Z>
+            </Size>
+            <Mass>50</Mass>
+            <Volume>5</Volume>
+            <Model>Models\Components\gravity_generator_components_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>500</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>1000</Health>
+            <MinimalPricePerUnit>600000</MinimalPricePerUnit>
+            <MinimumOfferAmount>20</MinimumOfferAmount>
+            <MaximumOfferAmount>125</MaximumOfferAmount>
+            <MinimumOrderAmount>20</MinimumOrderAmount>
+            <MaximumOrderAmount>125</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>5</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>25</MaximumAcquisitionAmount>
+        </Component>
+    </Components>
+</Definitions>

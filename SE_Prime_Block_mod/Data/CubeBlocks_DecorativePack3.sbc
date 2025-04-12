@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CubeBlocks>
+        <!-- Enchanced -->
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>LargeBlockColorableSolarPanelPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskin.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2"
+                  y="4"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Large\SolarPanelReskin.mwm</Model>
+            <Components>
+                <Component Count="10"
+                           Subtype="Prime_Matter" />
+                <Component Count="6"
+                           Subtype="SteelPlate" />
+                <Component Count="15"
+                           Subtype="Construction" />
+                <Component Count="18"
+                           Subtype="Girder" />
+                <Component Count="6"
+                           Subtype="Computer" />
+                <Component Count="48"
+                           Subtype="SolarCell" />
+                <Component Count="6"
+                           Subtype="Construction" />
+                <Component Count="6"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="0"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="0.5"
+                            EndY="4"
+                            Side="Right"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="1"
+                            EndY="4"
+                            Side="Left"
+                            StartX="0.5"
+                            StartY="0" />
+                <MountPoint EndX="2"
+                            EndY="0.5"
+                            Side="Top"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="2"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Large\SolarPanelReskinConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Large\SolarPanelReskinConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Large\SolarPanelReskinConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelPrime</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>50</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.35</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>LargeBlockColorableSolarPanelCornerPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel Corner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskinCorner.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2"
+                  y="4"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Large\SolarPanelReskinCorner.mwm</Model>
+            <Components>
+                <Component Count="5"
+                           Subtype="Prime_Matter" />
+                <Component Count="3"
+                           Subtype="SteelPlate" />
+                <Component Count="8"
+                           Subtype="Construction" />
+                <Component Count="9"
+                           Subtype="Girder" />
+                <Component Count="6"
+                           Subtype="Computer" />
+                <Component Count="24"
+                           Subtype="SolarCell" />
+                <Component Count="3"
+                           Subtype="Construction" />
+                <Component Count="3"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="0"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="1"
+                            EndY="4"
+                            Side="Left"
+                            StartX="0.5"
+                            StartY="0" />
+                <MountPoint EndX="2"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelCornerPrime</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringBlock>LargeBlockColorableSolarPanelCornerInverted</MirroringBlock>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>40</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.175</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>LargeBlockColorableSolarPanelCornerInvertedPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel Corner Inverted</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskinCornerInverted.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2"
+                  y="4"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Large\SolarPanelReskinCornerInverted.mwm</Model>
+            <Components>
+                <Component Count="5"
+                           Subtype="Prime_Matter" />
+                <Component Count="3"
+                           Subtype="SteelPlate" />
+                <Component Count="8"
+                           Subtype="Construction" />
+                <Component Count="9"
+                           Subtype="Girder" />
+                <Component Count="6"
+                           Subtype="Computer" />
+                <Component Count="24"
+                           Subtype="SolarCell" />
+                <Component Count="3"
+                           Subtype="Construction" />
+                <Component Count="3"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="1"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="0.5"
+                            EndY="4"
+                            Side="Right"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="2"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerInvertedConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerInvertedConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Large\SolarPanelReskinCornerInvertedConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelCornerInvertedPrime</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringBlock>LargeBlockColorableSolarPanelCorner</MirroringBlock>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>40</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.175</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>SmallBlockColorableSolarPanelPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskin.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5"
+                  y="10"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Small\SolarPanelReskin.mwm</Model>
+            <Components>
+                <Component Count="3"
+                           Subtype="Prime_Matter" />
+                <Component Count="3"
+                           Subtype="SteelPlate" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="6"
+                           Subtype="Girder" />
+                <Component Count="2"
+                           Subtype="Computer" />
+                <Component Count="12"
+                           Subtype="SolarCell" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="2"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="0"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="0.5"
+                            EndY="10"
+                            Side="Right"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="1"
+                            EndY="10"
+                            Side="Left"
+                            StartX="0.5"
+                            StartY="0" />
+                <MountPoint EndX="5"
+                            EndY="0.5"
+                            Side="Top"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="5"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Small\SolarPanelReskinConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Small\SolarPanelReskinConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Small\SolarPanelReskinConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelPrime</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>35</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.105</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>SmallBlockColorableSolarPanelCornerPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel Corner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskinCorner.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5"
+                  y="10"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Small\SolarPanelReskinCorner.mwm</Model>
+            <Components>
+                <Component Count="1"
+                           Subtype="Prime_Matter" />
+                <Component Count="2"
+                           Subtype="SteelPlate" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="3"
+                           Subtype="Girder" />
+                <Component Count="2"
+                           Subtype="Computer" />
+                <Component Count="6"
+                           Subtype="SolarCell" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="2"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="0"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="1"
+                            EndY="10"
+                            Side="Left"
+                            StartX="0.5"
+                            StartY="0" />
+                <MountPoint EndX="5"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelCornerPrime</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringBlock>SmallBlockColorableSolarPanelCornerInverted</MirroringBlock>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>25</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.0525</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
+            <Id>
+                <TypeId>SolarPanel</TypeId>
+                <SubtypeId>SmallBlockColorableSolarPanelCornerInvertedPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Colorable Solar Panel Corner Inverted</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SolarPanelReskinCornerInverted.dds</Icon>
+            <Description>Description_SolarPanel</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5"
+                  y="10"
+                  z="1" />
+            <ModelOffset x="0"
+                         y="0"
+                         z="0" />
+            <Model>Models\Cubes\Small\SolarPanelReskinCornerInverted.mwm</Model>
+            <Components>
+                <Component Count="1"
+                           Subtype="Prime_Matter" />
+                <Component Count="2"
+                           Subtype="SteelPlate" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="3"
+                           Subtype="Girder" />
+                <Component Count="2"
+                           Subtype="Computer" />
+                <Component Count="6"
+                           Subtype="SolarCell" />
+                <Component Count="2"
+                           Subtype="Construction" />
+                <Component Count="2"
+                           Subtype="BulletproofGlass" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="SolarCell" />
+            <Center x="1"
+                    y="0"
+                    z="0" />
+            <MountPoints>
+                <MountPoint EndX="0.5"
+                            EndY="10"
+                            Side="Right"
+                            StartX="0"
+                            StartY="0" />
+                <MountPoint EndX="5"
+                            EndY="1"
+                            Side="Bottom"
+                            StartX="0"
+                            StartY="0.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerInvertedConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerInvertedConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Small\SolarPanelReskinCornerInvertedConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ColorableSolarPanelCornerInvertedPrime</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringBlock>SmallBlockColorableSolarPanelCorner</MirroringBlock>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>25</BuildTimeSeconds>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.0525</MaxPowerOutput>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <PanelOffset>1.0</PanelOffset>
+            <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large3X</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>55</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_WindTurbineDefinition">
+            <Id>
+                <TypeId>WindTurbine</TypeId>
+                <SubtypeId>LargeBlockWindTurbineReskinPrime</SubtypeId>
+            </Id>
+            <DisplayName>Prime Wind Turbine</DisplayName>
+            <Description>Description_WindTurbine</Description>
+            <Icon>Textures\GUI\Icons\Cubes\WindTurbineReskin_Large.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <PlaceDecals>false</PlaceDecals>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5"
+                  y="5"
+                  z="5" />
+            <Center x="2"
+                    y="0"
+                    z="2" />
+            <!-- The Offset is there as the Base model had to be placed in the world origin 0,0,0. If the Base of the block was offseted like usual, it couldn't be built properly and had a lot of broken triangles -->
+            <ModelOffset x="0"
+                         y="-6.25"
+                         z="0" />
+            <Model>Models\Cubes\Large\WindTurbineBaseReskin.mwm</Model>
+            <Components>
+                <Component Count="15"
+                           Subtype="Prime_Matter" />
+                <Component Count="15"
+                           Subtype="InteriorPlate" />
+                <Component Count="12"
+                           Subtype="Motor" />
+                <Component Count="30"
+                           Subtype="Construction" />
+                <Component Count="36"
+                           Subtype="Girder" />
+                <Component Count="3"
+                           Subtype="Computer" />
+                <Component Count="45"
+                           Subtype="InteriorPlate" />
+            </Components>
+            <CriticalComponent Index="0"
+                               Subtype="Computer" />
+            <MountPoints>
+                <MountPoint Default="true"
+                            EndX="3"
+                            EndY="3"
+                            Side="Bottom"
+                            StartX="2"
+                            StartY="2" />
+            </MountPoints>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33"
+                       File="Models\Cubes\Large\WindTurbineReskin_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66"
+                       File="Models\Cubes\Large\WindTurbineReskin_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00"
+                       File="Models\Cubes\Large\WindTurbineReskin_Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WindTurbineReskinPrime</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>35</BuildTimeSeconds>
+            <DamageEffectId>214</DamageEffectId>
+            <ActionSound>ArcBlockWindTurbine</ActionSound>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <MaxPowerOutput>0.7</MaxPowerOutput>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <IsAirTight>false</IsAirTight>
+            <VoxelPlacement>
+                <StaticMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                </StaticMode>
+                <DynamicMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                </DynamicMode>
+            </VoxelPlacement>
+            <RaycasterSize>20</RaycasterSize>
+            <RaycastersCount>9</RaycastersCount>
+            <MinRaycasterClearance>0.3</MinRaycasterClearance>
+            <OptimalGroundClearance>25</OptimalGroundClearance>
+            <RaycastersToFullEfficiency>7</RaycastersToFullEfficiency>
+            <OptimalWindSpeed>80</OptimalWindSpeed>
+            <TurbineSpinUpSpeed>1</TurbineSpinUpSpeed>
+            <TurbineSpinDownSpeed>0.3</TurbineSpinDownSpeed>
+            <TurbineRotationSpeed>4</TurbineRotationSpeed>
+            <PCU>55</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <DLC>DecorativeBlocks3</DLC>
+        </Definition>
+    </CubeBlocks>
+</Definitions>
