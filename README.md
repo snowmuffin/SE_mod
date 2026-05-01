@@ -1,7 +1,7 @@
 # Space Engineers Mods Collection
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3341019311)
+[![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3717639172)
 
 This repository contains **SE Overclock** (recommended Workshop name): one package (`SE_Overclock_mod`) with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Overclock_mod](SE_Overclock_mod/README.md).
 
@@ -38,7 +38,7 @@ SE_mod/
 
 ## SE Overclock Mod
 
-Subscribe to **[SE_Overclock_mod](SE_Overclock_mod/)** on the Workshop as **SE Overclock** (`tools/steamcmd/Deploy-Overclock.ps1`). Use this only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
+Subscribe on the Workshop: **[SE Overclock](https://steamcommunity.com/sharedfiles/filedetails/?id=3717639172)** (FileID `3717639172`). Sources live under [SE_Overclock_mod](SE_Overclock_mod/); publish with `tools/steamcmd/Deploy-Overclock.ps1`. Use this only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
 
 See [SE_Overclock_mod/README.md](SE_Overclock_mod/README.md).
 

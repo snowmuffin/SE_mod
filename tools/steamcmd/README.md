@@ -46,7 +46,7 @@ Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`
 | `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod** (legacy). |
 | `se_unified_workshop.vdf.example` | Template for **SE_Overclock_mod** (generic). |
 | `Deploy-Overclock.ps1` | Publishes **SE_Overclock_mod** as **SE Overclock** (writes `se_overclock_workshop.vdf`, then `workshop_build_item`). |
-| `se_overclock_workshop.vdf.example` | Manual VDF template for **SE Overclock**. |
+| `se_overclock_workshop.vdf.example` | Manual VDF template for **SE Overclock** ([Workshop `3717639172`](https://steamcommunity.com/sharedfiles/filedetails/?id=3717639172)). |
 | `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
 
 Official SteamCMD workshop build behavior can change; if a command fails, check the latest [SteamCMD wiki](https://developer.valvesoftware.com/wiki/SteamCMD) and Space Engineers community guides for `workshop_build_item`.

@@ -20,7 +20,8 @@ Both are loaded on dedicated server / single-player host.
 
 ## Steam Workshop
 
-Publish with [tools/steamcmd/Deploy-Overclock.ps1](../tools/steamcmd/Deploy-Overclock.ps1) (uses Workshop title **SE Overclock**). After the first upload, set `STEAM_OVERCLOCK_PUBLISHED_ID` to the new FileID and update `modinfo.sbmi`.
+- **Listing:** [SE Overclock](https://steamcommunity.com/sharedfiles/filedetails/?id=3717639172) (`publishedfileid` **3717639172**).
+- **Publish / update:** [tools/steamcmd/Deploy-Overclock.ps1](../tools/steamcmd/Deploy-Overclock.ps1). Set `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "3717639172"` for a clean machine, or rely on an existing `se_overclock_workshop.vdf` (see steamcmd README). `modinfo.sbmi` already references this Workshop id.
 
 ## License
 

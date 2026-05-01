@@ -1,11 +1,11 @@
 "workshopitem"
 {
 	"appid"		"244850"
-	"publishedfileid"	"0"
+	"publishedfileid"	"3717639172"
 	"contentfolder"		"DRIVE:\\PATH\\TO\\SE_mod\\SE_Overclock_mod"
 	"previewfile"		"DRIVE:\\PATH\\TO\\SE_mod\\tools\\steamcmd\\workshop_preview.png"
 	"visibility"		"0"
 	"title"			"SE Overclock"
-	"description"		"Combined upgrade modules and Prime blocks. Replace publishedfileid after first upload."
+	"description"		"Combined upgrade modules and Prime blocks (SE Overclock)."
 	"changenote"		"2.0.0 unified release"
 }
