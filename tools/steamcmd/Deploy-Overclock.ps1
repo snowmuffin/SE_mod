@@ -3,7 +3,9 @@
 # Usage:
 #   .\Deploy-Overclock.ps1
 # Optional env: STEAM_USER, STEAM_PASS, STEAM_GUARD, STEAMCMD
-#   STEAM_OVERCLOCK_PUBLISHED_ID = existing Workshop file id to update; default "0" creates a new item.
+#   STEAM_OVERCLOCK_PUBLISHED_ID = Workshop file id to update. If unset, a non-zero "publishedfileid"
+#     in se_overclock_workshop.vdf (left over from a previous run or hand-edited) is reused.
+#     If still unknown, "0" creates a NEW item — then set the id (env or VDF) before the next run.
 
 $ErrorActionPreference = "Stop"
 
@@ -65,11 +67,35 @@ if (-not (Test-Path $preview)) {
 
 function Escape-VdfPath([string]$p) { return $p.Replace('\', '\\') }
 
-$prevEsc = Escape-VdfPath $preview
-$contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
-$pubId = if ($env:STEAM_OVERCLOCK_PUBLISHED_ID) { $env:STEAM_OVERCLOCK_PUBLISHED_ID } else { "0" }
+function Get-PublishedFileIdFromVdf([string]$Path) {
+    if (-not (Test-Path -LiteralPath $Path)) { return $null }
+    $raw = Get-Content -LiteralPath $Path -Raw -ErrorAction SilentlyContinue
+    if ([string]::IsNullOrWhiteSpace($raw)) { return $null }
+    if ($raw -match '"publishedfileid"\s+"(\d+)"') {
+        $id = $matches[1].Trim()
+        if ($id -ne "0") { return $id }
+    }
+    return $null
+}
 
 $vdfPath = Join-Path $toolsDir "se_overclock_workshop.vdf"
+
+$pubId = $null
+if (-not [string]::IsNullOrWhiteSpace($env:STEAM_OVERCLOCK_PUBLISHED_ID)) {
+    $pubId = $env:STEAM_OVERCLOCK_PUBLISHED_ID.Trim()
+} else {
+    $fromFile = Get-PublishedFileIdFromVdf -Path $vdfPath
+    if ($null -ne $fromFile) {
+        $pubId = $fromFile
+        Write-Host "Using publishedfileid from existing VDF: $pubId (set STEAM_OVERCLOCK_PUBLISHED_ID to override)"
+    }
+}
+if ([string]::IsNullOrWhiteSpace($pubId)) {
+    $pubId = "0"
+}
+
+$prevEsc = Escape-VdfPath $preview
+$contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
 @"
 "workshopitem"
 {

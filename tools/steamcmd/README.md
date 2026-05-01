@@ -83,4 +83,8 @@ cd D:\Documents\SE_mod\tools\steamcmd
 .\Deploy-Overclock.ps1
 ```
 
-창작마당 **제목**은 `SE Overclock`, 콘텐츠 폴더는 `SE_Overclock_mod`입니다. 갱신 시에는 `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "발급받은파일ID"` 를 설정한 뒤 같은 스크립트를 다시 실행하세요.
+창작마당 **제목**은 `SE Overclock`, 콘텐츠 폴더는 `SE_Overclock_mod`입니다.
+
+- **같은 창작마당 항목만 갱신**: `STEAM_OVERCLOCK_PUBLISHED_ID`가 비어 있으면 스크립트가 **`se_overclock_workshop.vdf`에 이미 들어 있는 비영 `publishedfileid`**를 그대로 씁니다(직전에 환경 변수로 올렸거나, 수동으로 FileID를 넣은 경우).
+- **환경 변수가 있으면 그 값이 우선**입니다. 새 항목을 또 만들고 싶을 때만 `"0"`으로 두세요.
+- **첫 업로드**에서 `publishedfileid`가 `0`이면 Steam이 **새 항목**을 만듭니다. 출력에 나온 **FileID**를 다음 중 하나로 저장한 뒤 다시 실행하세요: `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "그번호"` 또는 `se_overclock_workshop.vdf` 안의 `"publishedfileid"` 값 수정.
