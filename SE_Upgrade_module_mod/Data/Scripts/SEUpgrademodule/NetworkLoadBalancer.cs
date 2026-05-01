@@ -27,7 +27,7 @@ namespace SEUpgrademodule
         {
             if(!(m_progress < m_periodLength))
             {
-                m_periodLength = 100;
+                m_periodLength = LoadBalancerConstants.NetworkSyncPeriodFrames;
 
                 m_progress = 0;
 

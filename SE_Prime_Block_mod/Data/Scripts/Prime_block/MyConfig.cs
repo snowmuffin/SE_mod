@@ -29,6 +29,10 @@ namespace Prime_block
         [ProtoMember(8)]
         public Boolean DisableGrindSubgridDamage = true;
 
+        /// <summary>Max cargo containers to roll loot for per prefab spawn (default 5).</summary>
+        [ProtoMember(9)]
+        public int PrefabLootMaxCargoContainers;
+
     }
 
     [ProtoContract]

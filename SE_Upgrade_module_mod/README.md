@@ -37,6 +37,8 @@
     - 강화된 그리드는 이름에 레벨이 표시됩니다.
   - The level is the sum of all applied module levels.
     - 레벨은 적용된 모든 모듈 레벨의 합입니다.
+  - Prefab cargo loot uses upgrade module **levels 1–3** for rolls; cockpit NPC loot uses **levels 1–10**. Optional XML: `PrefabLootMaxCargoContainers` (default 7), `PrefabLootMaxCockpitAttempts` (default 1) in `SEUpgrademoduleConfig.xml`.
+    - 프리팹 카고 루트는 모듈 **1–3**레벨만 사용하고, 콕핏 NPC 루트는 **1–10**레벨을 사용합니다. `SEUpgrademoduleConfig.xml`에서 상한을 조정할 수 있습니다.
 
 - **Crafting Materials / 제작 재료**
   - **Cerium Ore / 세륨 광석**: Used as a crafting material for level 1 modules.

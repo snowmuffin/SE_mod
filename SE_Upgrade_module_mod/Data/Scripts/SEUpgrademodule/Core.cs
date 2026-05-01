@@ -110,9 +110,9 @@ namespace SEUpgrademodule
         private void init()
         {
   
-            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5856, UpgradeMessageHandler);
-            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5853, HandleConfigRequest);
-            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(5854, HandleConfigResponse);
+            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(UpgradeSessionConstants.ChannelUpgradeSync, UpgradeMessageHandler);
+            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(UpgradeSessionConstants.ChannelConfigRequest, HandleConfigRequest);
+            MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(UpgradeSessionConstants.ChannelConfigResponse, HandleConfigResponse);
 
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(0, HandleDamage);
             MyAPIGateway.Missiles.OnMissileCollided += missileCollisionHandler;
@@ -214,6 +214,8 @@ namespace SEUpgrademodule
 
 		private void UpgradeMessageHandler(ushort channel, byte[] message, ulong recipient, bool reliable)
 		{
+            if (message == null || message.Length < UpgradeSessionConstants.UpgradeSyncMessageByteLength)
+                return;
 			long ID = BitConverter.ToInt64(message, 0);
 			int value1 = BitConverter.ToInt32(message, 8);
             int value2 = BitConverter.ToInt32(message, 12);
@@ -371,7 +373,7 @@ namespace SEUpgrademodule
             string requestXml = MyAPIGateway.Utilities.SerializeToXML(configRequest);
             byte[] requestBytes = Encoding.Unicode.GetBytes(requestXml);
 
-            MyAPIGateway.Multiplayer.SendMessageTo(5853, requestBytes, MyAPIGateway.Multiplayer.ServerId, true);
+            MyAPIGateway.Multiplayer.SendMessageTo(UpgradeSessionConstants.ChannelConfigRequest, requestBytes, MyAPIGateway.Multiplayer.ServerId, true);
         }
 
         private void HandleConfigRequest(ushort channel, byte[] message, ulong sender, bool reliable)
@@ -392,13 +394,13 @@ namespace SEUpgrademodule
                     string responseXml = MyAPIGateway.Utilities.SerializeToXML(configResponse);
                     byte[] responseBytes = Encoding.Unicode.GetBytes(responseXml);
 
-                    MyAPIGateway.Multiplayer.SendMessageTo(5854, responseBytes, sender, reliable);
+                    MyAPIGateway.Multiplayer.SendMessageTo(UpgradeSessionConstants.ChannelConfigResponse, responseBytes, sender, reliable);
 
    
                 }
                 catch (Exception ex)
                 {
-                    // 예외 처리
+                    MyLog.Default.WriteLine("SEUpgrademodule HandleConfigRequest: " + ex.Message);
                 }
             }
         }
@@ -427,7 +429,7 @@ namespace SEUpgrademodule
                 }
                 catch (Exception ex)
                 {
-                    // 예외 처리
+                    MyLog.Default.WriteLine("SEUpgrademodule HandleConfigResponse: " + ex.Message);
                 }
             }
         }

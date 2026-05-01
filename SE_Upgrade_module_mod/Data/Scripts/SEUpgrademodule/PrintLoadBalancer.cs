@@ -24,7 +24,7 @@ namespace SEUpgrademodule
         {
             if(!(m_progress < m_periodLength))
             {
-                m_periodLength = 60;
+                m_periodLength = LoadBalancerConstants.PrintRefreshPeriodFrames;
 
                 m_progress = 0;
 

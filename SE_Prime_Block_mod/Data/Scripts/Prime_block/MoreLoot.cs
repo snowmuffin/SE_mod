@@ -22,7 +22,6 @@ namespace Prime_block
         
 
         Item Prime_Matter;
-        int MaxContainers = 5;
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
@@ -82,9 +81,16 @@ namespace Prime_block
             {
                 Grid = null;
                 Grid = MyAPIGateway.Entities.GetEntityById(entityId) as IMyCubeGrid;
-                if (Grid != null && Grid.Physics != null)
+                if (Grid == null || Grid.MarkedForClose)
+                    return;
+                if (Grid.IsStatic)
+                    return;
+                if (Grid.Physics != null)
                 {
-                    if(Config.Instance.ExcludeGrids.Contains(prefabName.ToLower()) || Config.Instance.ExcludeGrids.Contains(Grid.CustomName.ToLower()))
+                    string prefabLower = prefabName != null ? prefabName.ToLower() : "";
+                    string gridNameLower = Grid.CustomName != null ? Grid.CustomName.ToLower() : "";
+                    var exclude = Config.Instance.ExcludeGrids;
+                    if (exclude != null && (exclude.Contains(prefabLower) || exclude.Contains(gridNameLower) || prefabLower.Contains("respawn")))
                     {
                         return;
                     }
@@ -112,9 +118,10 @@ namespace Prime_block
 
                     Container.ShuffleList();
                     int addedLoot = 0;
+                    int maxCargoLoot = Config.Instance.PrefabLootMaxCargoContainers;
                     foreach (IMyCargoContainer cargo in Container)
                     {
-                        if (AddLoot(cargo) && ++addedLoot >= MaxContainers) break;
+                        if (AddLoot(cargo) && ++addedLoot >= maxCargoLoot) break;
                     }
 
                 }

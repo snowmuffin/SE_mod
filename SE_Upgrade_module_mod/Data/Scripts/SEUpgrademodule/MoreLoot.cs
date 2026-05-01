@@ -33,8 +33,6 @@ namespace SEUpgrademodule
         List<UpgradeLevel> AUpLevels = new List<UpgradeLevel>();
         List<UpgradeLevel> DUpLevels = new List<UpgradeLevel>();
 
-        int MaxContainers = 7;
-
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             if (MyAPIGateway.Session.IsServer)
@@ -256,22 +254,15 @@ namespace SEUpgrademodule
 
 
                 }
-                // 6. 그리드 이름에 'LV'와 총 레벨을 추가
+                // 6. 그리드 이름에 'LV'와 총 레벨을 추가 (합계; README와 동일하게 공격 배율만 곱하지 않음)
                 if (totalLevel >= 0)
                 {
-                    
-                    var grid = (cockpit as IMyCubeBlock).CubeGrid;               
-                    
-                    if (!grid.CustomName.Contains("[LV"))
+                    var grid = (cockpit as IMyCubeBlock).CubeGrid;
+                    if (grid != null && !grid.CustomName.Contains("[LV"))
                     {
-                        grid.CustomName += $" [LV{totalLevel*Config.Instance.NpcMultiplier.Attack}]";
-
-                        // 디버그 로그: 그리드 이름 변경
+                        grid.CustomName += $" [LV{totalLevel}]";
                         MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
                     }
-
-                    // 디버그 로그: 그리드 이름 변경
-                    MyLog.Default.WriteLine($"SE_Upgrade_module: Updated grid name to {grid.CustomName}");
                 }
                 if (!cockpit.CustomName.Contains("[Upgrade]"))
                 {
@@ -297,13 +288,16 @@ namespace SEUpgrademodule
             {
                 Grid = null;
                 Grid = MyAPIGateway.Entities.GetEntityById(entityId) as IMyCubeGrid;
-                if(Grid.IsStatic)
-                {
+                if (Grid == null || Grid.MarkedForClose)
                     return;
-                }
-                if (Grid != null && Grid.Physics != null)
+                if (Grid.IsStatic)
+                    return;
+                if (Grid.Physics != null)
                 {
-                    if (Config.Instance.ExcludeGrids.Contains(prefabName.ToLower()) || Config.Instance.ExcludeGrids.Contains(Grid.CustomName.ToLower())||prefabName.ToLower().Contains("respawn"))
+                    string prefabLower = prefabName != null ? prefabName.ToLower() : "";
+                    string gridNameLower = Grid.CustomName != null ? Grid.CustomName.ToLower() : "";
+                    var exclude = Config.Instance.ExcludeGrids;
+                    if (exclude != null && (exclude.Contains(prefabLower) || exclude.Contains(gridNameLower) || prefabLower.Contains("respawn")))
                     {
                         return;
                     }
@@ -349,24 +343,27 @@ namespace SEUpgrademodule
 
                     Container.ShuffleList();
                     int addedLoot = 0;
+                    int maxCargoLoot = Config.Instance.PrefabLootMaxCargoContainers;
                     Cockpit.ShuffleList();
                     foreach (IMyCargoContainer cargo in Container)
                     {
-                        if (AddLoot(cargo) && ++addedLoot >= MaxContainers) break;
+                        if (AddLoot(cargo) && ++addedLoot >= maxCargoLoot) break;
                     }
-                    addedLoot = 0;
-                    MaxContainers = 1;
+                    int cockpitTries = 0;
+                    int maxCockpitLoot = Config.Instance.PrefabLootMaxCockpitAttempts;
                     foreach (IMyTerminalBlock cockpit in Cockpit)
                     {
+                        cockpitTries++;
                         if (AddLootCockpit(cockpit))
-                        {
-                            
                             break;
-                        }
+                        if (cockpitTries >= maxCockpitLoot)
+                            break;
                     }
-                    
+
                     List<IMyBeacon> beacons = new List<IMyBeacon>();
-                    IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid (Grid);
+                    IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(Grid);
+                    if (tsystem == null)
+                        return;
                     tsystem.GetBlocksOfType<IMyBeacon>(beacons);
                     if (beacons != null)
                     {

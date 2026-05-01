@@ -80,7 +80,7 @@ namespace SEUpgrademodule
             {
                 if (MyAPIGateway.Multiplayer.MultiplayerActive && MyAPIGateway.Multiplayer.IsServer)
                 {
-                    byte[] message = new byte[20];
+                    byte[] message = new byte[UpgradeSessionConstants.UpgradeSyncMessageByteLength];
                     byte[] messageID = BitConverter.GetBytes(Entity.EntityId);
                     byte[] messageValue1 = BitConverter.GetBytes(m_PowerEfficiencyUpgradeLevel);
                     byte[] messageValue2 = BitConverter.GetBytes(m_AttackUpgradeLevel);
@@ -103,7 +103,7 @@ namespace SEUpgrademodule
                     {
                         message[i + 16] = messageValue3[i];
                     }
-                    MyAPIGateway.Multiplayer.SendMessageToOthers(5856, message, true);
+                    MyAPIGateway.Multiplayer.SendMessageToOthers(UpgradeSessionConstants.ChannelUpgradeSync, message, true);
                 }
             }
         }
@@ -214,7 +214,7 @@ namespace SEUpgrademodule
                 m_init = true;
             }
             updateCounter++;
-            if (updateCounter < 1800)
+            if (updateCounter < UpgradeLogicConstants.InventoryRescanFrameInterval)
             {
                 return; // 아직 간격이 도달하지 않았으므로 반환
             }

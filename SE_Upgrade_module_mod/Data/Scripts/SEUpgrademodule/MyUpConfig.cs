@@ -28,6 +28,14 @@ namespace SEUpgrademodule
         public List<string> ExcludeGrids;
         [ProtoMember(8)]
         public Boolean DisableGrindSubgridDamage = true;
+
+        /// <summary>Max cargo containers to roll loot for per prefab NPC spawn (default 7).</summary>
+        [ProtoMember(9)]
+        public int PrefabLootMaxCargoContainers;
+
+        /// <summary>How many cockpit blocks to try for cockpit loot per spawn (default 1).</summary>
+        [ProtoMember(10)]
+        public int PrefabLootMaxCockpitAttempts;
     }
 
     [ProtoContract]

@@ -35,7 +35,7 @@ namespace Prime_block
                 }
                 catch (Exception e)
                 {
-                    MyLog.Default.WriteLine("Prime_block: loading failed, generating new Config");
+                    MyLog.Default.WriteLine("Prime_block: loading failed, generating new Config: " + e.Message);
                 }
             }
 
@@ -52,7 +52,8 @@ namespace Prime_block
                     SmallGridExotic = new Item() { Chance = 0.05f, MinAmount = 1, MaxAmount = 2 },
                     LargeGridExotic = new Item() { Chance = 0.04f, MinAmount = 2, MaxAmount = 5 },
                     DisableGrindSubgridDamage = true,
-                    ExcludeGrids = new List<string>() { "respawn" }
+                    ExcludeGrids = new List<string>() { "respawn" },
+                    PrefabLootMaxCargoContainers = 5
                 };
             }
 
@@ -62,9 +63,9 @@ namespace Prime_block
             {
                 Instance.ExcludeGrids = new List<string>() { "respawn" };
             }
-            if(Instance.DisableGrindSubgridDamage == null)
+            if (Instance.PrefabLootMaxCargoContainers < 1)
             {
-                Instance.DisableGrindSubgridDamage = true;
+                Instance.PrefabLootMaxCargoContainers = 5;
             }
 
             Write();

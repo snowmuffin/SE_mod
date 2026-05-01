@@ -1,0 +1,49 @@
+# SteamCMD Workshop publish (Space Engineers)
+
+Space Engineers uses Steam **AppID `244850`**. You can **update an existing Workshop item** (or create a new one) with SteamCMD and a small VDF descriptor.
+
+## Prerequisites
+
+1. Install [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
+2. Use a Steam account that **owns Space Engineers** and is allowed to edit the Workshop item (your mod’s owner).
+3. First login may require **Steam Guard**; complete it once on that machine (or use a [sentry file](https://developer.valvesoftware.com/wiki/SteamCMD#Logging_in) for automation).
+
+## One-time setup
+
+1. Copy the example VDF for the mod you publish:
+   - `se_upgrade_workshop.vdf.example` → `se_upgrade_workshop.vdf` (gitignored name recommended: keep secrets out of commits).
+2. Edit the copy:
+   - Set **`publishedfileid`** to your item ID (Upgrade mod in this repo: `3341019311`), or **`0`** for a **new** item.
+   - Set **`contentfolder`** to the **absolute** path of the **mod root folder** (the folder that contains `Data/` and `metadata.mod`), e.g. `...\SE_mod\SE_Upgrade_module_mod`.
+   - Set **`previewfile`** to an absolute path of a preview image (JPG/PNG per Steam rules).
+   - Adjust **`title`**, **`description`**, **`changenote`**, **`visibility`** as needed.
+
+Paths in the VDF must be valid on the machine that runs SteamCMD (use doubled backslashes `\\` on Windows inside the file).
+
+## Publish / update command
+
+```text
+steamcmd +login YOUR_STEAM_USERNAME YOUR_PASSWORD +workshop_build_item "D:\full\path\to\se_upgrade_workshop.vdf" +quit
+```
+
+Prefer **not** putting the password in scripts. For a one-off machine, interactive login is fine. The example `upload-example.ps1` can read **`STEAM_PASS`** only if you set it in the environment (e.g. CI secrets); never commit passwords.
+
+## Dedicated server: download mods (not upload)
+
+To **pull** Workshop content to a server (no upload rights needed):
+
+```text
+steamcmd +login anonymous +workshop_download_item 244850 WORKSHOP_FILE_ID +quit
+```
+
+Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`; point your server’s mod list at those files or copy into the game `Mods` layout your host expects.
+
+## This repository
+
+| File | Purpose |
+|------|---------|
+| `se_upgrade_workshop.vdf.example` | Descriptor for **SE_Upgrade_module_mod** (known Workshop ID in README/modinfo). |
+| `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod**; set `publishedfileid` after you create the item once (in-game or with `publishedfileid` `0`). |
+| `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
+
+Official SteamCMD workshop build behavior can change; if a command fails, check the latest [SteamCMD wiki](https://developer.valvesoftware.com/wiki/SteamCMD) and Space Engineers community guides for `workshop_build_item`.

@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"		"244850"
+	"publishedfileid"	"3341019311"
+	"contentfolder"		"DRIVE:\\PATH\\TO\\SE_mod\\SE_Upgrade_module_mod"
+	"previewfile"		"DRIVE:\\PATH\\TO\\preview.jpg"
+	"visibility"		"0"
+	"title"			"SE Upgrade Module Mod"
+	"description"		"Upgrade modules for cockpits with [Upgrade] tag. See repository README."
+	"changenote"		"Bump metadata.mod and edit this line each release."
+}

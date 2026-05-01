@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"		"244850"
+	"publishedfileid"	"0"
+	"contentfolder"		"DRIVE:\\PATH\\TO\\SE_mod\\SE_Prime_Block_mod"
+	"previewfile"		"DRIVE:\\PATH\\TO\\prime_preview.jpg"
+	"visibility"		"0"
+	"title"			"SE Prime Block Mod"
+	"description"		"Premium blocks for Space Engineers. Set publishedfileid after first successful upload (Steam prints the new file id)."
+	"changenote"		"Initial upload or update note."
+}
