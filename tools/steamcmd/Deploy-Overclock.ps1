@@ -106,7 +106,6 @@ $contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
 	"visibility"		"0"
 	"title"			"SE Overclock"
 	"description"		"Upgrade modules + Prime blocks (unified). Repo: SE_mod SE_Overclock_mod."
-	"tags"			"Mod"
 	"changenote"		"SE Overclock — SteamCMD publish"
 }
 "@ | Set-Content -Path $vdfPath -Encoding ASCII
