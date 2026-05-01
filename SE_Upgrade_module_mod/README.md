@@ -1,5 +1,7 @@
 # SE_Upgrade_module_mod
 
+**Legacy:** new worlds should use **[SE_Unified_mod](../SE_Unified_mod/)**. See `MIGRATED_TO_UNIFIED.md`.
+
 ## 📄 Introduction / 소개
 
 **SE_Upgrade_module_mod** enhances your game by adding advanced modules for attack, defense, and energy efficiency up to level 10.

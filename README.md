@@ -3,12 +3,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3341019311)
 
-This repository contains two comprehensive mods for Space Engineers: **SE Upgrade Module Mod** and **SE Prime Block Mod**. These mods introduce advanced upgrade systems and premium blocks, significantly enhancing your gameplay experience by providing more options and greater customization.
+This repository contains **SE Unified Mod** (recommended): one Workshop package with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Unified_mod](SE_Unified_mod/README.md).
 
 ## Table of Contents
 - [Project Structure](#project-structure)
-- [SE Upgrade Module Mod](#se-upgrade-module-mod)
-- [SE Prime Block Mod](#se-prime-block-mod)
+- [SE Unified Mod](#se-unified-mod)
+- [SE Upgrade Module Mod](#se-upgrade-module-mod) (legacy)
+- [SE Prime Block Mod](#se-prime-block-mod) (legacy)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Development Information](#development-information)
@@ -16,38 +17,38 @@ This repository contains two comprehensive mods for Space Engineers: **SE Upgrad
 - [License](#license)
 - [Support & Contact](#support--contact)
 - [Changelog](#changelog)
-- [Mod coupling](#mod-coupling)
-
-## Mod coupling
-
-- **Economy (`FactionTypes_Economy.sbc`)** lives only in **SE Prime Block Mod**. Its Trader (and other) lists reference **Prime_Matter** (defined in Prime) and **tier‑1 upgrade components** (defined in Upgrade). For a consistent economy, **subscribe to both mods** and list **both** in the world’s mod list. Upgrade alone no longer ships a duplicate Trader economy patch.
-- **Scripts** stay in separate assemblies (one folder per Workshop item). Shared behaviour is aligned by convention (prefab spawn guards, config patterns), not by a shared DLL.
 
 ## Project Structure
 
 ```
 SE_mod/
-├── SE_Prime_Block_mod/          # Prime Block Mod
-│   ├── metadata.mod             # Mod metadata
-│   ├── Data/                    # Game data definitions
-│   │   ├── Components.sbc       # Component definitions
-│   │   ├── CubeBlocks_*.sbc     # Various block definitions
-│   │   └── Scripts/             # C# scripts
-│   └── Textures/                # Texture files
-└── SE_Upgrade_module_mod/       # Upgrade Module Mod
-    ├── metadata.mod             # Mod metadata
-    ├── modinfo.sbmi             # Steam Workshop info
-    ├── Data/                    # Game data definitions
-    │   ├── Components.sbc       # Upgrade module definitions
-    │   ├── PhysicalItems.sbc    # Cerium/Lanthanum ores/ingots
-    │   └── Scripts/             # C# scripts
-    ├── Models/                  # 3D models
-    └── Textures/                # Textures and icons
+├── SE_Unified_mod/              # Recommended: Upgrade + Prime in one mod
+│   ├── metadata.mod
+│   ├── modinfo.sbmi
+│   ├── Data/                    # Merged SBC + both script namespaces
+│   ├── Models/
+│   └── Textures/
+├── SE_Prime_Block_mod/          # Legacy (do not mix with SE_Unified_mod)
+│   └── MIGRATED_TO_UNIFIED.md
+└── SE_Upgrade_module_mod/       # Legacy (do not mix with SE_Unified_mod)
+    └── MIGRATED_TO_UNIFIED.md
 ```
 
 ---
 
+## SE Unified Mod
+
+Subscribe to **[SE_Unified_mod](SE_Unified_mod/)** only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
+
+See [SE_Unified_mod/README.md](SE_Unified_mod/README.md).
+
+---
+
 ## SE Upgrade Module Mod
+
+### Status (legacy)
+
+Prefer **SE Unified Mod**. This folder is kept for reference and migration notes (`MIGRATED_TO_UNIFIED.md`).
 
 ### Overview
 The **SE Upgrade Module Mod** enhances your Space Engineers experience by introducing sophisticated upgrade modules that can be applied to various grid types within the game. These modules focus on improving attack, defense, and energy efficiency, with the potential for upgrades up to level 10, offering progressive enhancements to your gameplay.
@@ -105,6 +106,10 @@ Optional tuning (world storage `SEUpgrademoduleConfig.xml`): `PrefabLootMaxCargo
 
 ## SE Prime Block Mod
 
+### Status (legacy)
+
+Prefer **SE Unified Mod**. See `MIGRATED_TO_UNIFIED.md`.
+
 ### Overview
 The **SE Prime Block Mod** introduces a range of premium blocks designed to enhance performance and functionality within Space Engineers. These blocks provide superior capabilities, allowing players to optimize their builds for various gameplay scenarios.
 
@@ -135,7 +140,7 @@ To install the mods, follow these steps:
 
 2. **Upload to Space Engineers**:
    - Navigate to your Space Engineers installation directory.
-   - Copy each mod folder (`SE_Upgrade_module_mod`, `SE_Prime_Block_mod`) into the `Mods` directory within your Space Engineers folder (each mod is its own folder under `Mods`).
+   - Copy **`SE_Unified_mod`** into `Mods` (recommended). Do not also copy the legacy split mods unless you know you need them for an old save.
 
 3. **Activate the Mods**:
    - Start Space Engineers and enable the mods in the game settings under the Mods section.

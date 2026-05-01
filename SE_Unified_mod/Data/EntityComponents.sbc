@@ -1,0 +1,13 @@
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<EntityComponents>
+		<EntityComponent xsi:type="MyObjectBuilder_ModStorageComponentDefinition">
+			<Id>
+				<TypeId>ModStorageComponent</TypeId>
+				<SubtypeId>UpgradeModuleSummary</SubtypeId>
+			</Id>
+			<RegisteredStorageGuids>
+				<guid>E51D3AD9-DD3C-4829-AE41-326B97773AE4</guid>
+			</RegisteredStorageGuids>
+		</EntityComponent>
+	</EntityComponents>
+</Definitions>

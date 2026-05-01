@@ -1,0 +1,64 @@
+﻿<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlueprintClasses>
+    <Class>
+        <Id>
+            <TypeId>BlueprintClassDefinition</TypeId>
+            <SubtypeId>Upgrade</SubtypeId>
+        </Id>
+        <DisplayName>Upgrade</DisplayName>
+        <Description>Upgrade</Description>
+        <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+        <HighlightIcon>Textures\GUI\Icons\buttons\component.dds</HighlightIcon>
+        <FocusIcon>Textures\GUI\Icons\buttons\component_focus.dds</FocusIcon>
+        <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
+    </Class>
+  
+    <Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>Prime_MatterComponents</SubtypeId>
+            </Id>
+            <DisplayName>Enhanced Components</DisplayName>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+  </BlueprintClasses>
+  <BlueprintClassEntries>
+    <Entry Class="Ingots" BlueprintSubtypeId="LanthanumOreToIngot" />
+    <Entry Class="Ingots" BlueprintSubtypeId="CeriumOreToIngot" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level1" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level2" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level3" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level4" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level5" />
+    <Entry Class="Components" BlueprintSubtypeId="DefenseUpgradeModule_Level6" />
+    <Entry Class="Components" BlueprintSubtypeId="AttackUpgradeModule_Level6" />
+    <Entry Class="Components" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level6" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="DefenseUpgradeModule_Level7" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="AttackUpgradeModule_Level7" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level7" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="DefenseUpgradeModule_Level8" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="AttackUpgradeModule_Level8" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level8" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="DefenseUpgradeModule_Level9" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="AttackUpgradeModule_Level9" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level9" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="DefenseUpgradeModule_Level10" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="AttackUpgradeModule_Level10" />
+    <Entry Class="BasicComponents" BlueprintSubtypeId="PowerEfficiencyUpgradeModule_Level10" />
+  
+    <Entry Class="Components" BlueprintSubtypeId="Prime_Matter" />
+  </BlueprintClassEntries>
+</Definitions>

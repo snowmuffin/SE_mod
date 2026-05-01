@@ -1,6 +1,8 @@
 # SE Prime Block Mod
 
-Premium block definitions for Space Engineers (batteries, solar, logistics, warfare-related blocks, etc.). This folder is a **standalone Workshop mod**: copy `SE_Prime_Block_mod` into your Space Engineers `Mods` directory.
+**Legacy:** use **[SE_Unified_mod](../SE_Unified_mod/)** for new installs. This folder remains as reference; see `MIGRATED_TO_UNIFIED.md`.
+
+Premium block definitions for Space Engineers (batteries, solar, logistics, warfare-related blocks, etc.).
 
 ## Scripts
 

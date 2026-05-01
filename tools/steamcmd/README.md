@@ -42,8 +42,9 @@ Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`
 
 | File | Purpose |
 |------|---------|
-| `se_upgrade_workshop.vdf.example` | Descriptor for **SE_Upgrade_module_mod** (known Workshop ID in README/modinfo). |
-| `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod**; set `publishedfileid` after you create the item once (in-game or with `publishedfileid` `0`). |
+| `se_upgrade_workshop.vdf.example` | Descriptor for **SE_Upgrade_module_mod** (legacy; known Workshop ID in README/modinfo). |
+| `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod** (legacy). |
+| `se_unified_workshop.vdf.example` | Template for **SE_Unified_mod** (recommended); `publishedfileid` `0` for first upload. |
 | `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
 
 Official SteamCMD workshop build behavior can change; if a command fails, check the latest [SteamCMD wiki](https://developer.valvesoftware.com/wiki/SteamCMD) and Space Engineers community guides for `workshop_build_item`.
