@@ -2,6 +2,11 @@
 
 All notable changes to this repository are recorded here. Each mod also has its own `metadata.mod` `<ModVersion>`; bump that when you publish to Steam Workshop.
 
+## [Unreleased]
+
+### Repository
+- **SE Overclock**: `tools/steamcmd/Deploy-Overclock.ps1` publishes `SE_Unified_mod` to Workshop with title *SE Overclock*; `se_overclock_workshop.vdf.example`; unified README branding.
+
 ## [2.0.0] - 2026-05-01
 
 ### SE_Unified_mod (new)

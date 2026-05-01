@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"		"244850"
+	"publishedfileid"	"0"
+	"contentfolder"		"DRIVE:\\PATH\\TO\\SE_mod\\SE_Unified_mod"
+	"previewfile"		"DRIVE:\\PATH\\TO\\SE_mod\\tools\\steamcmd\\workshop_preview.png"
+	"visibility"		"0"
+	"title"			"SE Overclock"
+	"description"		"Upgrade modules + Prime blocks (unified)."
+	"changenote"		"Initial upload"
+}

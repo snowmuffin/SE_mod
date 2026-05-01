@@ -44,7 +44,9 @@ Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`
 |------|---------|
 | `se_upgrade_workshop.vdf.example` | Descriptor for **SE_Upgrade_module_mod** (legacy; known Workshop ID in README/modinfo). |
 | `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod** (legacy). |
-| `se_unified_workshop.vdf.example` | Template for **SE_Unified_mod** (recommended); `publishedfileid` `0` for first upload. |
+| `se_unified_workshop.vdf.example` | Template for **SE_Unified_mod** (generic). |
+| `Deploy-Overclock.ps1` | Publishes **SE_Unified_mod** as **SE Overclock** (writes `se_overclock_workshop.vdf`, then `workshop_build_item`). |
+| `se_overclock_workshop.vdf.example` | Manual VDF template for **SE Overclock**. |
 | `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
 
 Official SteamCMD workshop build behavior can change; if a command fails, check the latest [SteamCMD wiki](https://developer.valvesoftware.com/wiki/SteamCMD) and Space Engineers community guides for `workshop_build_item`.
@@ -73,3 +75,12 @@ $env:STEAM_PASS = "비밀번호"
 - **프라임 모드**: 기본 `STEAM_PRIME_PUBLISHED_ID`가 없으면 **`0`**(새 항목 생성)입니다. 첫 업로드 후 SteamCMD 출력에 나오는 **FileID**를 받아 다음부터 `$env:STEAM_PRIME_PUBLISHED_ID = "그번호"` 로 설정하세요. 이미 워크숍에 올린 항목이 있으면 처음부터 그 번호를 넣으면 됩니다.
 
 미리보기는 `workshop_preview.png`(1×1 플레이스홀더)를 씁니다. 거절되면 512×512 등 가이드에 맞는 이미지로 교체하세요.
+
+### SE Overclock (통합 모드)만 올리기
+
+```powershell
+cd D:\Documents\SE_mod\tools\steamcmd
+.\Deploy-Overclock.ps1
+```
+
+창작마당 **제목**은 `SE Overclock`, 콘텐츠 폴더는 `SE_Unified_mod`입니다. 갱신 시에는 `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "발급받은파일ID"` 를 설정한 뒤 같은 스크립트를 다시 실행하세요.

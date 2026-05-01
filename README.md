@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3341019311)
 
-This repository contains **SE Unified Mod** (recommended): one Workshop package with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Unified_mod](SE_Unified_mod/README.md).
+This repository contains **SE Overclock** (recommended Workshop name): one package (`SE_Unified_mod`) with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Unified_mod](SE_Unified_mod/README.md).
 
 ## Table of Contents
 - [Project Structure](#project-structure)
@@ -36,9 +36,9 @@ SE_mod/
 
 ---
 
-## SE Unified Mod
+## SE Unified Mod (SE Overclock)
 
-Subscribe to **[SE_Unified_mod](SE_Unified_mod/)** only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
+Subscribe to **[SE_Unified_mod](SE_Unified_mod/)** on the Workshop as **SE Overclock** (`tools/steamcmd/Deploy-Overclock.ps1`). Use this only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
 
 See [SE_Unified_mod/README.md](SE_Unified_mod/README.md).
 
