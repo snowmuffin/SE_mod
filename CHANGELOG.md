@@ -4,6 +4,11 @@ All notable changes to this repository are recorded here. Each mod also has its 
 
 ## [Unreleased]
 
+### SE_Overclock_mod
+- **`Data/BlockCategories_Overclock.sbc`**: single file for ShipTools + Production GUI categories (Production wrapped with the same `Category` schema as ShipTools); removed `BlockCategories_PrimeShipTools.sbc` and `BlockCategories_UpgradeProduction.sbc`.
+- README **Mod layout** (definitions/scripts/assets map) and in-game smoke-check notes for block categories.
+- **`Upgrade-Chip-Logo.png`** moved to **`Textures/Marketing/`** (still not referenced by SBC).
+
 ### Repository
 - Renamed **`SE_Unified_mod` → `SE_Overclock_mod`**; `Deploy-Overclock.ps1` / docs / examples point at the new folder (Workshop title remains *SE Overclock*).
 
