@@ -16,6 +16,12 @@ This repository contains two comprehensive mods for Space Engineers: **SE Upgrad
 - [License](#license)
 - [Support & Contact](#support--contact)
 - [Changelog](#changelog)
+- [Mod coupling](#mod-coupling)
+
+## Mod coupling
+
+- **Economy (`FactionTypes_Economy.sbc`)** lives only in **SE Prime Block Mod**. Its Trader (and other) lists reference **Prime_Matter** (defined in Prime) and **tier‑1 upgrade components** (defined in Upgrade). For a consistent economy, **subscribe to both mods** and list **both** in the world’s mod list. Upgrade alone no longer ships a duplicate Trader economy patch.
+- **Scripts** stay in separate assemblies (one folder per Workshop item). Shared behaviour is aligned by convention (prefab spawn guards, config patterns), not by a shared DLL.
 
 ## Project Structure
 

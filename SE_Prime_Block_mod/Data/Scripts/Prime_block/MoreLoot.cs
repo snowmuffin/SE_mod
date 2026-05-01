@@ -132,26 +132,6 @@ namespace Prime_block
             }
         }
 
-        public static MyObjectBuilder_PhysicalObject GetBuilder(string category, string name)
-        {
-            switch (category)
-            {
-                case "MyObjectBuilder_Component":
-                    return new MyObjectBuilder_Component() { SubtypeName = name };
-                case "MyObjectBuilder_AmmoMagazine":
-                    return new MyObjectBuilder_AmmoMagazine() { SubtypeName = name };
-                case "MyObjectBuilder_Ingot":
-                    return new MyObjectBuilder_Ingot() { SubtypeName = name };
-                case "MyObjectBuilder_Ore":
-                    return new MyObjectBuilder_Ore() { SubtypeName = name };
-                case "MyObjectBuilder_ConsumableItem":
-                    return new MyObjectBuilder_ConsumableItem() { SubtypeName = name };
-                case "MyObjectBuilder_PhysicalGunObject":
-                    return new MyObjectBuilder_PhysicalGunObject() { SubtypeName = name };
-                default: return new MyObjectBuilder_PhysicalObject() { SubtypeName = name };
-            }
-        }
-
         protected override void UnloadData()
         {
             MyVisualScriptLogicProvider.PrefabSpawnedDetailed -= NewSpawn; //Make sure to unregister

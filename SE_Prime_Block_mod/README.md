@@ -11,7 +11,7 @@ Premium block definitions for Space Engineers (batteries, solar, logistics, warf
 
 ## Related
 
-The companion **SE Upgrade Module Mod** lives in `../SE_Upgrade_module_mod`. Both mods can be enabled together; they use separate namespaces and config file names.
+The companion **SE Upgrade Module Mod** lives in `../SE_Upgrade_module_mod`. Enable **both** if you use this mod’s **`FactionTypes_Economy.sbc`**: Trader offers reference upgrade components that only exist when the Upgrade mod is loaded. Economy definitions are not duplicated in the Upgrade mod.
 
 ## License
 

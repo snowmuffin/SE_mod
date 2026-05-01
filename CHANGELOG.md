@@ -2,11 +2,18 @@
 
 All notable changes to this repository are recorded here. Each mod also has its own `metadata.mod` `<ModVersion>`; bump that when you publish to Steam Workshop.
 
-## [Unreleased]
+## [1.0.3] - 2026-05-01
+
+### SE_Upgrade_module_mod
+- `metadata.mod` **1.0.2**: removed duplicate economy SBC (`FactionTypes_Economy.sbc`); Trader integration is owned by the Prime mod when both are used together.
+- Removed dead **`GetBuilder`** from `MoreLoot.cs`.
+
+### SE_Prime_Block_mod
+- `metadata.mod` **1.0.4**: single `Data/BlockVariantGroups.sbc` (moved from `Data/Scripts/`); fixed duplicate `Prime_MatterComponents` blueprint class; removed unused **`GetBuilder`** from `MoreLoot.cs`.
 
 ### Repository
-- `tools/steamcmd/Deploy-Workshop.ps1` for two-mod Workshop deploy; `workshop_preview.png` placeholder; Korean deploy notes in README.
-- `Deploy-Workshop.ps1`: interactive Steam login when `STEAM_USER`/`STEAM_PASS` unset; optional `STEAM_GUARD` or prompt; `+set_steam_guard_code` when provided.
+- Root README **Mod coupling**; Prime README notes economy dependency on Upgrade definitions.
+- `Deploy-Workshop.ps1`: interactive login and optional `STEAM_GUARD`; `workshop_preview.png`; steamcmd README updates.
 
 ## [1.0.2] - 2026-05-01
 
