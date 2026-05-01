@@ -48,7 +48,7 @@ See [SE_Unified_mod/README.md](SE_Unified_mod/README.md).
 
 ### Status (legacy)
 
-Prefer **SE Unified Mod**. This folder is kept for reference and migration notes (`MIGRATED_TO_UNIFIED.md`).
+Prefer **SE Overclock** (`SE_Unified_mod`). This folder is kept for reference and migration notes (`MIGRATED_TO_UNIFIED.md`).
 
 ### Overview
 The **SE Upgrade Module Mod** enhances your Space Engineers experience by introducing sophisticated upgrade modules that can be applied to various grid types within the game. These modules focus on improving attack, defense, and energy efficiency, with the potential for upgrades up to level 10, offering progressive enhancements to your gameplay.
@@ -108,7 +108,7 @@ Optional tuning (world storage `SEUpgrademoduleConfig.xml`): `PrefabLootMaxCargo
 
 ### Status (legacy)
 
-Prefer **SE Unified Mod**. See `MIGRATED_TO_UNIFIED.md`.
+Prefer **SE Overclock** (`SE_Unified_mod`). See `MIGRATED_TO_UNIFIED.md`.
 
 ### Overview
 The **SE Prime Block Mod** introduces a range of premium blocks designed to enhance performance and functionality within Space Engineers. These blocks provide superior capabilities, allowing players to optimize their builds for various gameplay scenarios.
