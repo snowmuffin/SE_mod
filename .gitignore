@@ -4,3 +4,4 @@
 # Local SteamCMD workshop descriptors (may contain machine-specific paths)
 tools/steamcmd/se_upgrade_workshop.vdf
 tools/steamcmd/se_prime_workshop.vdf
+tools/steamcmd/last_deploy*.log

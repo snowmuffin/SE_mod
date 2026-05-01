@@ -2,6 +2,11 @@
 
 All notable changes to this repository are recorded here. Each mod also has its own `metadata.mod` `<ModVersion>`; bump that when you publish to Steam Workshop.
 
+## [Unreleased]
+
+### Repository
+- `tools/steamcmd/Deploy-Workshop.ps1` for two-mod Workshop deploy; `workshop_preview.png` placeholder; Korean deploy notes in README.
+
 ## [1.0.2] - 2026-05-01
 
 ### Repository

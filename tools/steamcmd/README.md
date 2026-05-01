@@ -47,3 +47,19 @@ Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`
 | `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
 
 Official SteamCMD workshop build behavior can change; if a command fails, check the latest [SteamCMD wiki](https://developer.valvesoftware.com/wiki/SteamCMD) and Space Engineers community guides for `workshop_build_item`.
+
+## 한 번에 두 모드 배포 (로컬)
+
+비밀번호는 저장소에 넣지 마세요. PowerShell에서만 환경 변수로 넘긴 뒤 실행합니다.
+
+```powershell
+cd D:\Documents\SE_mod\tools\steamcmd
+$env:STEAM_USER = "스팀_로그인명"
+$env:STEAM_PASS = "비밀번호_또는_가드_대응_앱비번"
+.\Deploy-Workshop.ps1
+```
+
+- **업그레이드 모드**: 워크숍 ID `3341019311`으로 갱신합니다.
+- **프라임 모드**: 기본 `STEAM_PRIME_PUBLISHED_ID`가 없으면 **`0`**(새 항목 생성)입니다. 첫 업로드 후 SteamCMD 출력에 나오는 **FileID**를 받아 다음부터 `$env:STEAM_PRIME_PUBLISHED_ID = "그번호"` 로 설정하세요. 이미 워크숍에 올린 항목이 있으면 처음부터 그 번호를 넣으면 됩니다.
+
+미리보기는 `workshop_preview.png`(1×1 플레이스홀더)를 씁니다. 거절되면 512×512 등 가이드에 맞는 이미지로 교체하세요.
