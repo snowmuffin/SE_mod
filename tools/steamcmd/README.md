@@ -50,12 +50,21 @@ Official SteamCMD workshop build behavior can change; if a command fails, check 
 
 ## 한 번에 두 모드 배포 (로컬)
 
-비밀번호는 저장소에 넣지 마세요. PowerShell에서만 환경 변수로 넘긴 뒤 실행합니다.
+비밀번호는 저장소에 넣지 마세요.
+
+**대화형 로그인(권장):** 계정명·비밀번호·Steam Guard 코드를 실행 중 입력합니다. 비밀번호는 `Read-Host -AsSecureString`으로 숨깁니다.
 
 ```powershell
 cd D:\Documents\SE_mod\tools\steamcmd
+.\Deploy-Workshop.ps1
+```
+
+**비대화형(CI 등):** 환경 변수만 사용합니다.
+
+```powershell
 $env:STEAM_USER = "스팀_로그인명"
-$env:STEAM_PASS = "비밀번호_또는_가드_대응_앱비번"
+$env:STEAM_PASS = "비밀번호"
+# 선택: $env:STEAM_GUARD = "가드코드"
 .\Deploy-Workshop.ps1
 ```
 

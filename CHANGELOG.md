@@ -6,6 +6,7 @@ All notable changes to this repository are recorded here. Each mod also has its 
 
 ### Repository
 - `tools/steamcmd/Deploy-Workshop.ps1` for two-mod Workshop deploy; `workshop_preview.png` placeholder; Korean deploy notes in README.
+- `Deploy-Workshop.ps1`: interactive Steam login when `STEAM_USER`/`STEAM_PASS` unset; optional `STEAM_GUARD` or prompt; `+set_steam_guard_code` when provided.
 
 ## [1.0.2] - 2026-05-01
 

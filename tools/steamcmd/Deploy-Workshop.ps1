@@ -2,25 +2,75 @@
 # Requires: SteamCMD, Space Engineers on the account, and valid credentials.
 #
 # Usage (PowerShell):
-#   $env:STEAM_USER = "your_steam_login"
-#   $env:STEAM_PASS = "your_password_or_steam_guard_aware_app_password"
 #   .\Deploy-Workshop.ps1
+#   If STEAM_USER / STEAM_PASS are not set, you will be prompted (password is hidden).
+#   Or non-interactive: $env:STEAM_USER = "..."; $env:STEAM_PASS = "..."
 #
 # Optional:
 #   $env:STEAMCMD = "D:\SteamCMD\steamcmd.exe"   # default: C:\SteamCMD\steamcmd.exe
 #   $env:STEAM_PRIME_PUBLISHED_ID = "0"          # default 0 = create NEW Prime item; set to existing id to update
+#   $env:STEAM_GUARD = "12345"                    # optional; else prompted when empty (Enter to skip)
 
 $ErrorActionPreference = "Stop"
+
+function ConvertFrom-SecureStringPlain {
+    param([System.Security.SecureString]$SecureString)
+    if ($null -eq $SecureString) { return $null }
+    $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecureString)
+    try {
+        return [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
+    }
+    finally {
+        [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) | Out-Null
+    }
+}
+
+function Get-SteamLogin {
+    $user = $env:STEAM_USER
+    if ([string]::IsNullOrWhiteSpace($user)) {
+        $user = Read-Host "Steam account name (login)"
+    }
+    if ([string]::IsNullOrWhiteSpace($user)) {
+        Write-Error "Steam login name is required."
+    }
+
+    $pass = $env:STEAM_PASS
+    if ([string]::IsNullOrWhiteSpace($pass)) {
+        $sec = Read-Host "Steam password" -AsSecureString
+        $pass = ConvertFrom-SecureStringPlain -SecureString $sec
+        $sec.Dispose()
+    }
+    if ([string]::IsNullOrWhiteSpace($pass)) {
+        Write-Error "Steam password is required."
+    }
+
+    return @{ User = $user; Pass = $pass }
+}
 
 $steamCmd = if ($env:STEAMCMD) { $env:STEAMCMD } else { "C:\SteamCMD\steamcmd.exe" }
 if (-not (Test-Path $steamCmd)) {
     Write-Error "SteamCMD not found at $steamCmd. Set STEAMCMD to steamcmd.exe path."
 }
 
-$user = $env:STEAM_USER
-$pass = $env:STEAM_PASS
-if (-not $user -or -not $pass) {
-    Write-Error "Set STEAM_USER and STEAM_PASS (this script does not prompt for security reasons)."
+$login = Get-SteamLogin
+$user = $login.User
+$pass = $login.Pass
+
+$guard = $env:STEAM_GUARD
+if ([string]::IsNullOrWhiteSpace($guard)) {
+    $guard = Read-Host "Steam Guard code from email or app (Enter to skip)"
+}
+
+function Invoke-SteamWorkshopBuild {
+    param(
+        [Parameter(Mandatory)][string]$VdfPath
+    )
+    if ([string]::IsNullOrWhiteSpace($guard)) {
+        & $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +workshop_build_item $VdfPath +quit
+    }
+    else {
+        & $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +set_steam_guard_code $guard +workshop_build_item $VdfPath +quit
+    }
 }
 
 $toolsDir = $PSScriptRoot
@@ -73,14 +123,14 @@ $primeVdf = Join-Path $toolsDir "se_prime_workshop.vdf"
 "@ | Set-Content -Path $primeVdf -Encoding ASCII
 
 Write-Host "=== Workshop: SE Upgrade Module Mod (3341019311) ==="
-& $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +workshop_build_item $upgradeVdf +quit
+Invoke-SteamWorkshopBuild -VdfPath $upgradeVdf
 if ($LASTEXITCODE -ne 0) { Write-Error "SteamCMD failed on upgrade mod (exit $LASTEXITCODE)." }
 
 Write-Host "=== Workshop: SE Prime Block Mod (publishedfileid=$primeId) ==="
 if ($primeId -eq "0") {
     Write-Warning "publishedfileid is 0: Steam will create a NEW Workshop item. Save the printed FileID and set STEAM_PRIME_PUBLISHED_ID for future updates."
 }
-& $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +workshop_build_item $primeVdf +quit
+Invoke-SteamWorkshopBuild -VdfPath $primeVdf
 if ($LASTEXITCODE -ne 0) { Write-Error "SteamCMD failed on Prime mod (exit $LASTEXITCODE)." }
 
 Write-Host "Done."
