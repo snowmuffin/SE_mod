@@ -1,6 +1,6 @@
 # SE Prime Block Mod
 
-**Legacy:** use **[SE_Unified_mod](../SE_Unified_mod/)** for new installs. This folder remains as reference; see `MIGRATED_TO_UNIFIED.md`.
+**Legacy:** use **[SE_Overclock_mod](../SE_Overclock_mod/)** for new installs. This folder remains as reference; see `MIGRATED_TO_UNIFIED.md`.
 
 Premium block definitions for Space Engineers (batteries, solar, logistics, warfare-related blocks, etc.).
 

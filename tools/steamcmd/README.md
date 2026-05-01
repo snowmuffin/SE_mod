@@ -44,8 +44,8 @@ Install path defaults under the SteamCMD `steamapps/workshop/content/244850/...`
 |------|---------|
 | `se_upgrade_workshop.vdf.example` | Descriptor for **SE_Upgrade_module_mod** (legacy; known Workshop ID in README/modinfo). |
 | `se_prime_workshop.vdf.example` | Template for **SE_Prime_Block_mod** (legacy). |
-| `se_unified_workshop.vdf.example` | Template for **SE_Unified_mod** (generic). |
-| `Deploy-Overclock.ps1` | Publishes **SE_Unified_mod** as **SE Overclock** (writes `se_overclock_workshop.vdf`, then `workshop_build_item`). |
+| `se_unified_workshop.vdf.example` | Template for **SE_Overclock_mod** (generic). |
+| `Deploy-Overclock.ps1` | Publishes **SE_Overclock_mod** as **SE Overclock** (writes `se_overclock_workshop.vdf`, then `workshop_build_item`). |
 | `se_overclock_workshop.vdf.example` | Manual VDF template for **SE Overclock**. |
 | `upload-example.ps1` | Optional wrapper: resolves repo paths and calls `workshop_build_item` (set `SteamCmd` path and credentials yourself). |
 
@@ -83,4 +83,4 @@ cd D:\Documents\SE_mod\tools\steamcmd
 .\Deploy-Overclock.ps1
 ```
 
-창작마당 **제목**은 `SE Overclock`, 콘텐츠 폴더는 `SE_Unified_mod`입니다. 갱신 시에는 `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "발급받은파일ID"` 를 설정한 뒤 같은 스크립트를 다시 실행하세요.
+창작마당 **제목**은 `SE Overclock`, 콘텐츠 폴더는 `SE_Overclock_mod`입니다. 갱신 시에는 `$env:STEAM_OVERCLOCK_PUBLISHED_ID = "발급받은파일ID"` 를 설정한 뒤 같은 스크립트를 다시 실행하세요.

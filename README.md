@@ -3,11 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3341019311)
 
-This repository contains **SE Overclock** (recommended Workshop name): one package (`SE_Unified_mod`) with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Unified_mod](SE_Unified_mod/README.md).
+This repository contains **SE Overclock** (recommended Workshop name): one package (`SE_Overclock_mod`) with upgrade modules and Prime blocks. The former split mods remain as **legacy** reference only—see [SE_Overclock_mod](SE_Overclock_mod/README.md).
 
 ## Table of Contents
 - [Project Structure](#project-structure)
-- [SE Unified Mod](#se-unified-mod)
+- [SE Overclock Mod](#se-overclock-mod)
 - [SE Upgrade Module Mod](#se-upgrade-module-mod) (legacy)
 - [SE Prime Block Mod](#se-prime-block-mod) (legacy)
 - [Installation](#installation)
@@ -22,25 +22,25 @@ This repository contains **SE Overclock** (recommended Workshop name): one packa
 
 ```
 SE_mod/
-├── SE_Unified_mod/              # Recommended: Upgrade + Prime in one mod
+├── SE_Overclock_mod/              # Recommended: Upgrade + Prime in one mod
 │   ├── metadata.mod
 │   ├── modinfo.sbmi
 │   ├── Data/                    # Merged SBC + both script namespaces
 │   ├── Models/
 │   └── Textures/
-├── SE_Prime_Block_mod/          # Legacy (do not mix with SE_Unified_mod)
+├── SE_Prime_Block_mod/          # Legacy (do not mix with SE_Overclock_mod)
 │   └── MIGRATED_TO_UNIFIED.md
-└── SE_Upgrade_module_mod/       # Legacy (do not mix with SE_Unified_mod)
+└── SE_Upgrade_module_mod/       # Legacy (do not mix with SE_Overclock_mod)
     └── MIGRATED_TO_UNIFIED.md
 ```
 
 ---
 
-## SE Unified Mod (SE Overclock)
+## SE Overclock Mod
 
-Subscribe to **[SE_Unified_mod](SE_Unified_mod/)** on the Workshop as **SE Overclock** (`tools/steamcmd/Deploy-Overclock.ps1`). Use this only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
+Subscribe to **[SE_Overclock_mod](SE_Overclock_mod/)** on the Workshop as **SE Overclock** (`tools/steamcmd/Deploy-Overclock.ps1`). Use this only for new worlds. It merges `Components`, `Blueprints`, `BlueprintClasses`, all Prime `CubeBlocks_*`, upgrade scripts, and Prime config scripts. Prefab loot uses **one** session component (`SEUpgrademodule.MoreLoot`) for upgrade modules **and** Prime Matter rolls.
 
-See [SE_Unified_mod/README.md](SE_Unified_mod/README.md).
+See [SE_Overclock_mod/README.md](SE_Overclock_mod/README.md).
 
 ---
 
@@ -48,7 +48,7 @@ See [SE_Unified_mod/README.md](SE_Unified_mod/README.md).
 
 ### Status (legacy)
 
-Prefer **SE Overclock** (`SE_Unified_mod`). This folder is kept for reference and migration notes (`MIGRATED_TO_UNIFIED.md`).
+Prefer **SE Overclock** (`SE_Overclock_mod`). This folder is kept for reference and migration notes (`MIGRATED_TO_UNIFIED.md`).
 
 ### Overview
 The **SE Upgrade Module Mod** enhances your Space Engineers experience by introducing sophisticated upgrade modules that can be applied to various grid types within the game. These modules focus on improving attack, defense, and energy efficiency, with the potential for upgrades up to level 10, offering progressive enhancements to your gameplay.
@@ -108,7 +108,7 @@ Optional tuning (world storage `SEUpgrademoduleConfig.xml`): `PrefabLootMaxCargo
 
 ### Status (legacy)
 
-Prefer **SE Overclock** (`SE_Unified_mod`). See `MIGRATED_TO_UNIFIED.md`.
+Prefer **SE Overclock** (`SE_Overclock_mod`). See `MIGRATED_TO_UNIFIED.md`.
 
 ### Overview
 The **SE Prime Block Mod** introduces a range of premium blocks designed to enhance performance and functionality within Space Engineers. These blocks provide superior capabilities, allowing players to optimize their builds for various gameplay scenarios.
@@ -140,7 +140,7 @@ To install the mods, follow these steps:
 
 2. **Upload to Space Engineers**:
    - Navigate to your Space Engineers installation directory.
-   - Copy **`SE_Unified_mod`** into `Mods` (recommended). Do not also copy the legacy split mods unless you know you need them for an old save.
+   - Copy **`SE_Overclock_mod`** into `Mods` (recommended). Do not also copy the legacy split mods unless you know you need them for an old save.
 
 3. **Activate the Mods**:
    - Start Space Engineers and enable the mods in the game settings under the Mods section.

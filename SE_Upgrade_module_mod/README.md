@@ -1,6 +1,6 @@
 # SE_Upgrade_module_mod
 
-**Legacy:** new worlds should use **[SE_Unified_mod](../SE_Unified_mod/)**. See `MIGRATED_TO_UNIFIED.md`.
+**Legacy:** new worlds should use **[SE_Overclock_mod](../SE_Overclock_mod/)**. See `MIGRATED_TO_UNIFIED.md`.
 
 ## 📄 Introduction / 소개
 

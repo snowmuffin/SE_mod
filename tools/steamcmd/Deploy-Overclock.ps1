@@ -1,4 +1,4 @@
-# Upload SE_Unified_mod to Steam Workshop as "SE Overclock" (AppID 244850).
+# Upload SE_Overclock_mod to Steam Workshop as "SE Overclock" (AppID 244850).
 #
 # Usage:
 #   .\Deploy-Overclock.ps1
@@ -66,7 +66,7 @@ if (-not (Test-Path $preview)) {
 function Escape-VdfPath([string]$p) { return $p.Replace('\', '\\') }
 
 $prevEsc = Escape-VdfPath $preview
-$contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Unified_mod")
+$contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
 $pubId = if ($env:STEAM_OVERCLOCK_PUBLISHED_ID) { $env:STEAM_OVERCLOCK_PUBLISHED_ID } else { "0" }
 
 $vdfPath = Join-Path $toolsDir "se_overclock_workshop.vdf"
@@ -79,13 +79,13 @@ $vdfPath = Join-Path $toolsDir "se_overclock_workshop.vdf"
 	"previewfile"		"$prevEsc"
 	"visibility"		"0"
 	"title"			"SE Overclock"
-	"description"		"Upgrade modules + Prime blocks (unified). Repo: SE_mod SE_Unified_mod."
+	"description"		"Upgrade modules + Prime blocks (unified). Repo: SE_mod SE_Overclock_mod."
 	"changenote"		"SE Overclock — SteamCMD publish"
 }
 "@ | Set-Content -Path $vdfPath -Encoding ASCII
 
 Write-Host "Workshop VDF: $vdfPath"
-Write-Host "Content: $(Join-Path $repoRoot 'SE_Unified_mod')"
+Write-Host "Content: $(Join-Path $repoRoot 'SE_Overclock_mod')"
 if ($pubId -eq "0") {
     Write-Warning "publishedfileid is 0: Steam creates a NEW item. Note the FileID from output and set STEAM_OVERCLOCK_PUBLISHED_ID for next run."
 }

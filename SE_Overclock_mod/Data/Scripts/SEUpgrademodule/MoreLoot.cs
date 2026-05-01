@@ -148,7 +148,7 @@ namespace SEUpgrademodule
                 int minA = isLarge ? _primeMatter.MinLarge : _primeMatter.MinSmall;
                 int maxA = isLarge ? _primeMatter.MaxLarge : _primeMatter.MaxSmall;
                 int amount = MyUtils.GetRandomInt(minA, maxA);
-                MyLog.Default.WriteLine($"SE_Unified: Added {amount}x Prime_Matter to {container.CustomName}");
+                MyLog.Default.WriteLine($"SE_Overclock: Added {amount}x Prime_Matter to {container.CustomName}");
                 inv.AddItems(amount, _primeMatter.Builder);
                 return true;
             }

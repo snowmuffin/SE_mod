@@ -5,17 +5,17 @@ All notable changes to this repository are recorded here. Each mod also has its 
 ## [Unreleased]
 
 ### Repository
-- **SE Overclock**: `tools/steamcmd/Deploy-Overclock.ps1` publishes `SE_Unified_mod` to Workshop with title *SE Overclock*; `se_overclock_workshop.vdf.example`; unified README branding.
+- Renamed **`SE_Unified_mod` → `SE_Overclock_mod`**; `Deploy-Overclock.ps1` / docs / examples point at the new folder (Workshop title remains *SE Overclock*).
 
 ## [2.0.0] - 2026-05-01
 
-### SE_Unified_mod (new)
+### SE_Overclock_mod (new)
 - Single mod merging upgrade + Prime data; merged `Components`, `BlueprintClasses`, `Blueprints`; Prime cube SBCs and `FactionTypes_Economy`; split `BlockCategories_*` files.
 - One prefab loot path: removed `Prime_block/MoreLoot.cs`; Prime Matter rolls in `SEUpgrademodule/MoreLoot.cs` with unioned exclude lists from both XML configs.
 - `metadata.mod` **2.0.0**, `modinfo.sbmi` Workshop id **0** until first upload.
 
 ### Legacy
-- `SE_Upgrade_module_mod` / `SE_Prime_Block_mod`: `MIGRATED_TO_UNIFIED.md`; must not be enabled with `SE_Unified_mod`.
+- `SE_Upgrade_module_mod` / `SE_Prime_Block_mod`: `MIGRATED_TO_UNIFIED.md`; must not be enabled with `SE_Overclock_mod`.
 
 ## [1.0.3] - 2026-05-01
 
