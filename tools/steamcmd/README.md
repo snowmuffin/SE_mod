@@ -74,7 +74,7 @@ $env:STEAM_PASS = "비밀번호"
 - **업그레이드 모드**: 워크숍 ID `3341019311`으로 갱신합니다.
 - **프라임 모드**: 기본 `STEAM_PRIME_PUBLISHED_ID`가 없으면 **`0`**(새 항목 생성)입니다. 첫 업로드 후 SteamCMD 출력에 나오는 **FileID**를 받아 다음부터 `$env:STEAM_PRIME_PUBLISHED_ID = "그번호"` 로 설정하세요. 이미 워크숍에 올린 항목이 있으면 처음부터 그 번호를 넣으면 됩니다.
 
-미리보기는 `workshop_preview.png`(1×1 플레이스홀더)를 씁니다. 거절되면 512×512 등 가이드에 맞는 이미지로 교체하세요.
+미리보기는 **`workshop_preview.jpg`**(권장, 1MB 미만)를 쓰고, 없으면 `workshop_preview.png`를 씁니다. Space Engineers 창작마당은 **미리보기 파일이 1MB를 넘기면** `Limit exceeded`로 실패할 수 있습니다. 둘 다 없으면 1×1 PNG 플레이스홀더를 만듭니다.
 
 ### SE Overclock (통합 모드)만 올리기
 

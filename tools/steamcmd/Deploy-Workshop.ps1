@@ -75,9 +75,14 @@ function Invoke-SteamWorkshopBuild {
 
 $toolsDir = $PSScriptRoot
 $repoRoot = Split-Path (Split-Path $toolsDir -Parent) -Parent
-$preview = Join-Path $toolsDir "workshop_preview.png"
-
-if (-not (Test-Path $preview)) {
+$previewJpg = Join-Path $toolsDir "workshop_preview.jpg"
+$previewPng = Join-Path $toolsDir "workshop_preview.png"
+if (Test-Path $previewJpg) {
+    $preview = $previewJpg
+} elseif (Test-Path $previewPng) {
+    $preview = $previewPng
+} else {
+    $preview = $previewPng
     $pngB64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
     [System.IO.File]::WriteAllBytes($preview, [Convert]::FromBase64String($pngB64))
     Write-Host "Created placeholder preview: $preview"

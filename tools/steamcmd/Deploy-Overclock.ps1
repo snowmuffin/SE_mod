@@ -59,10 +59,21 @@ if ([string]::IsNullOrWhiteSpace($guard)) {
 
 $toolsDir = $PSScriptRoot
 $repoRoot = Split-Path (Split-Path $toolsDir -Parent) -Parent
-$preview = Join-Path $toolsDir "workshop_preview.png"
-if (-not (Test-Path $preview)) {
+# Space Engineers Workshop preview must stay under ~1 MB (Steam rejects larger files).
+$previewJpg = Join-Path $toolsDir "workshop_preview.jpg"
+$previewPng = Join-Path $toolsDir "workshop_preview.png"
+if (Test-Path $previewJpg) {
+    $preview = $previewJpg
+} elseif (Test-Path $previewPng) {
+    $preview = $previewPng
+} else {
+    $preview = $previewPng
     $pngB64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
     [System.IO.File]::WriteAllBytes($preview, [Convert]::FromBase64String($pngB64))
+}
+$previewBytes = (Get-Item -LiteralPath $preview).Length
+if ($previewBytes -gt 900000) {
+    Write-Warning "Preview file is $previewBytes bytes; Space Engineers Workshop preview must be under 1 MB. Use workshop_preview.jpg (see repo) or shrink workshop_preview.png."
 }
 
 function Escape-VdfPath([string]$p) { return $p.Replace('\', '\\') }
