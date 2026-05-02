@@ -7,3 +7,5 @@ tools/steamcmd/se_prime_workshop.vdf
 tools/steamcmd/se_unified_workshop.vdf
 tools/steamcmd/se_overclock_workshop.vdf
 tools/steamcmd/last_deploy*.log
+tools/texconv/
+tools/voxel_backup_2048/
