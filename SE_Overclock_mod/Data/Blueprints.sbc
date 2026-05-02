@@ -41,7 +41,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-01.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-01.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -58,7 +58,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level1" />
                 <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -75,7 +75,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level2" />
                 <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -92,7 +92,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level3" />
                 <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -109,7 +109,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level4" />
                 <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -126,7 +126,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level5" />
                 <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -143,7 +143,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level6" />
                 <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -160,7 +160,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level7" />
                 <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -177,7 +177,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level8" />
                 <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -194,7 +194,7 @@
                 <SubtypeId>DefenseUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Defense_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\skyblue-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\defense-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="DefenseUpgradeModule_Level9" />
                 <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -213,7 +213,7 @@
                 <SubtypeId>AttackUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-01.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-01.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -230,7 +230,7 @@
                 <SubtypeId>AttackUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level1" />
                 <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -247,7 +247,7 @@
                 <SubtypeId>AttackUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level2" />
                 <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -264,7 +264,7 @@
                 <SubtypeId>AttackUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level3" />
                 <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -281,7 +281,7 @@
                 <SubtypeId>AttackUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level4" />
                 <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -298,7 +298,7 @@
                 <SubtypeId>AttackUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level5" />
                 <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -315,7 +315,7 @@
                 <SubtypeId>AttackUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level6" />
                 <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -332,7 +332,7 @@
                 <SubtypeId>AttackUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level7" />
                 <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -349,7 +349,7 @@
                 <SubtypeId>AttackUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level8" />
                 <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -366,7 +366,7 @@
                 <SubtypeId>AttackUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Attack_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\red-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\attack-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="AttackUpgradeModule_Level9" />
                 <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -385,7 +385,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level1</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level1</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-01.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-01.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="Computer"/>
                 <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -402,7 +402,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level2</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level1" />
                 <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -419,7 +419,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level3</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level2" />
                 <Item Amount="4.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -436,7 +436,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level4</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level3" />
                 <Item Amount="13.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -453,7 +453,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level5</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level4" />
                 <Item Amount="40.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -470,7 +470,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level6</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level5" />
                 <Item Amount="121.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -487,7 +487,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level7</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level6" />
                 <Item Amount="364.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -504,7 +504,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level8</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level7" />
                 <Item Amount="1093.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -521,7 +521,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level9</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level8" />
                 <Item Amount="3280.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -538,7 +538,7 @@
                 <SubtypeId>PowerEfficiencyUpgradeModule_Level10</SubtypeId>
             </Id>
             <DisplayName>PowerEfficiency_Upgrade_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\yellow-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\power-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Component" SubtypeId="PowerEfficiencyUpgradeModule_Level9" />
                 <Item Amount="9841.5" TypeId="Ingot" SubtypeId="Cerium" />
@@ -556,7 +556,7 @@
                 <SubtypeId>BerserkerModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level1" />
             </Prerequisites>
@@ -571,7 +571,7 @@
                 <SubtypeId>BerserkerModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level2" />
             </Prerequisites>
@@ -586,7 +586,7 @@
                 <SubtypeId>BerserkerModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level3" />
             </Prerequisites>
@@ -601,7 +601,7 @@
                 <SubtypeId>BerserkerModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level4" />
             </Prerequisites>
@@ -616,7 +616,7 @@
                 <SubtypeId>BerserkerModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level5" />
             </Prerequisites>
@@ -631,7 +631,7 @@
                 <SubtypeId>BerserkerModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level6" />
             </Prerequisites>
@@ -646,7 +646,7 @@
                 <SubtypeId>BerserkerModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level7" />
             </Prerequisites>
@@ -661,7 +661,7 @@
                 <SubtypeId>BerserkerModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level8" />
             </Prerequisites>
@@ -676,7 +676,7 @@
                 <SubtypeId>BerserkerModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Berserker_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\purple-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\berserker-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="BerserkerModule_Level9" />
             </Prerequisites>
@@ -691,7 +691,7 @@
                 <SubtypeId>FortressModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level1" />
             </Prerequisites>
@@ -706,7 +706,7 @@
                 <SubtypeId>FortressModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level2" />
             </Prerequisites>
@@ -721,7 +721,7 @@
                 <SubtypeId>FortressModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level3" />
             </Prerequisites>
@@ -736,7 +736,7 @@
                 <SubtypeId>FortressModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level4" />
             </Prerequisites>
@@ -751,7 +751,7 @@
                 <SubtypeId>FortressModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level5" />
             </Prerequisites>
@@ -766,7 +766,7 @@
                 <SubtypeId>FortressModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level6" />
             </Prerequisites>
@@ -781,7 +781,7 @@
                 <SubtypeId>FortressModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level7" />
             </Prerequisites>
@@ -796,7 +796,7 @@
                 <SubtypeId>FortressModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level8" />
             </Prerequisites>
@@ -811,7 +811,7 @@
                 <SubtypeId>FortressModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Fortress_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\orange-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\fortress-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="FortressModule_Level9" />
             </Prerequisites>
@@ -828,7 +828,7 @@
                 <SubtypeId>SpeedModule_Level2</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level2</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-02.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-02.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level1" />
             </Prerequisites>
@@ -843,7 +843,7 @@
                 <SubtypeId>SpeedModule_Level3</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level3</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-03.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-03.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level2" />
             </Prerequisites>
@@ -858,7 +858,7 @@
                 <SubtypeId>SpeedModule_Level4</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level4</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-04.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-04.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level3" />
             </Prerequisites>
@@ -873,7 +873,7 @@
                 <SubtypeId>SpeedModule_Level5</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level5</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-05.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-05.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level4" />
             </Prerequisites>
@@ -888,7 +888,7 @@
                 <SubtypeId>SpeedModule_Level6</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level6</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-06.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-06.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level5" />
             </Prerequisites>
@@ -903,7 +903,7 @@
                 <SubtypeId>SpeedModule_Level7</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level7</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-07.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-07.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level6" />
             </Prerequisites>
@@ -918,7 +918,7 @@
                 <SubtypeId>SpeedModule_Level8</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level8</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-08.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-08.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level7" />
             </Prerequisites>
@@ -933,7 +933,7 @@
                 <SubtypeId>SpeedModule_Level9</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level9</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-09.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-09.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level8" />
             </Prerequisites>
@@ -948,7 +948,7 @@
                 <SubtypeId>SpeedModule_Level10</SubtypeId>
             </Id>
             <DisplayName>Speed_Module_Level10</DisplayName>
-            <Icon>Textures\GUI\Icons\component\modules\green-10.dds</Icon>
+            <Icon>Textures\GUI\Icons\component\modules\speed-10.dds</Icon>
             <Prerequisites>
                 <Item Amount="30" TypeId="Component" SubtypeId="SpeedModule_Level9" />
             </Prerequisites>
