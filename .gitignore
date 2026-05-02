@@ -7,3 +7,6 @@ tools/steamcmd/se_prime_workshop.vdf
 tools/steamcmd/se_unified_workshop.vdf
 tools/steamcmd/se_overclock_workshop.vdf
 tools/steamcmd/last_deploy*.log
+
+# Procedural icon PNG previews (regenerate with tools/generate_module_icon_previews.py)
+tools/_tmp_module_icons_preview/
