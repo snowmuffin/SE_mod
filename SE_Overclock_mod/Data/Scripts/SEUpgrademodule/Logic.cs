@@ -37,7 +37,6 @@ namespace SEUpgrademodule
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), false)]
     public class UpgradeLogic : MyGameLogicComponent
     {
-        public static Configuration config = new Configuration ();
         public int m_PowerEfficiencyUpgradeLevel = 0;
         public int m_AttackUpgradeLevel = 0;
         public int m_DefenseUpgradeLevel = 0;
@@ -48,11 +47,6 @@ namespace SEUpgrademodule
         bool m_closed = false;
         MyObjectBuilder_EntityBase m_objectBuilder;
         bool m_init = false;
-        UpgradeModuleSummary savemessage = new UpgradeModuleSummary();
-
-        // ■■■ 디버그 메시지 출력 주기를 제어하기 위한 프레임 카운터 (예: 120프레임마다 1회)
-        private int debugCounter = 0;
-        private const int DEBUG_INTERVAL = 120; // 대략 2초(60 FPS 기준)마다 한번만 출력
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
@@ -272,10 +266,6 @@ namespace SEUpgrademodule
 
             }
 
-            // ■■■ 나머지 로직
-            savemessage.DefenseUpgradeLevel = m_DefenseUpgradeLevel;
-            savemessage.AttackUpgradeLevel = m_AttackUpgradeLevel;
-            savemessage.PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel;
             ApplyThrustPowerMultiplier(cubeBlock.CubeGrid, m_PowerEfficiencyUpgradeLevel, m_SpeedModuleLevel);
 
             terminalBlock.RefreshCustomInfo();
@@ -329,18 +319,5 @@ namespace SEUpgrademodule
             SaveStorage();
         }
 
-        private int ParseLevelFromSubtype(string subtype, string prefix)
-        {
-            int level = 0;
-            if (subtype.StartsWith(prefix))
-            {
-                string levelStr = subtype.Substring(prefix.Length);
-                if (int.TryParse(levelStr, out level))
-                {
-                    return level;
-                }
-            }
-            return 0;
-        }
     }
 }

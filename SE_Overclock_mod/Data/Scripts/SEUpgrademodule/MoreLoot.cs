@@ -15,15 +15,12 @@ using VRage.Utils;
 using VRage.Game.Components;
 using VRage.Game;
 using VRage.Game.ModAPI;
-using System.Collections.Concurrent;
-
 
 namespace SEUpgrademodule
 {
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     public class MoreLoot : MySessionComponentBase
     {
-        public static ConcurrentDictionary<long, UpgradeLogic> cockpits = new ConcurrentDictionary<long, UpgradeLogic>();
         IMyCubeGrid Grid = null;
         List<IMySlimBlock> GridBlocks = new List<IMySlimBlock>();
         List<IMyCargoContainer> Container = new List<IMyCargoContainer>();
@@ -475,18 +472,6 @@ namespace SEUpgrademodule
         protected override void UnloadData()
         {
             MyVisualScriptLogicProvider.PrefabSpawnedDetailed -= NewSpawn; //Make sure to unregister
-        }
-
-        protected struct Item
-        {
-            public MyObjectBuilder_Component builder;
-            public int minItemsSmall;
-            public int minItemsLarge;
-            public int maxItemsSmall;
-            public int maxItemsLarge;
-            public double chanceSmall;
-            public double chanceLarge;
-            public string Name; // 추가: 이름을 저장하기 위해
         }
 
         // UpgradeLevel 클래스

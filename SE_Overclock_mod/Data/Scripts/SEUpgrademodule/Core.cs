@@ -19,73 +19,16 @@ using System.Collections.Concurrent;
 
 namespace SEUpgrademodule
 {
-    public class Configuration
-    {
-        public Multiplier Multiplier;
-        public Offset Offset;
-    }
-
-    public class Multiplier
-    {
-        public int Attack;
-        public int Defence;
-        public int Power;
-        public int Speed;
-    }
-
-    public class Offset
-    {
-        public int Attack;
-        public int Defence;
-        public int Power;
-        public int Speed;
-    }
-
-    public class UpgradecoreConfig
-    {
-        public static Configuration ConfigInstance { get; set; } = new Configuration
-        {
-            Multiplier = new Multiplier
-            {
-                Attack = 1,
-                Defence = 1,
-                Power = 1,
-                Speed = 1
-            },
-            Offset = new Offset
-            {
-                Attack = 0,
-                Defence = 0,
-                Power = 0,
-                Speed = 0
-            }
-        };
-
-        public static void ApplyConfig(Configuration configResponse)
-        {
-            ConfigInstance.Multiplier.Attack = configResponse.Multiplier.Attack;
-            ConfigInstance.Multiplier.Defence = configResponse.Multiplier.Defence;
-            ConfigInstance.Multiplier.Power = configResponse.Multiplier.Power;
-            ConfigInstance.Multiplier.Speed = configResponse.Multiplier.Speed;
-            ConfigInstance.Offset.Attack = configResponse.Offset.Attack;
-            ConfigInstance.Offset.Defence = configResponse.Offset.Defence;
-            ConfigInstance.Offset.Power = configResponse.Offset.Power;
-            ConfigInstance.Offset.Speed = configResponse.Offset.Speed;
-        }
-    }
-
     [Serializable]
     public class ConfigurationMessage
     {
         public ulong sender;
     }
 
-    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation | MyUpdateOrder.AfterSimulation | MyUpdateOrder.Simulation)]
+    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     class Upgradecore : MySessionComponentBase
     {
         bool m_init = false;
-        IMyEntity Entity;
-		MyObjectBuilder_SessionComponent m_objectBuilder;
 
         public static ConcurrentDictionary<long, UpgradeLogic> Upgrades = new ConcurrentDictionary<long, UpgradeLogic>();
 
@@ -101,11 +44,6 @@ namespace SEUpgrademodule
         private ConcurrentDictionary<long, List<UpgradeLogic>> m_cachedGrids = new ConcurrentDictionary<long, List<UpgradeLogic>>();
         private PrintLoadBalancer printLoadBalancer = new PrintLoadBalancer();
         private NetworkLoadBalancer networkLoadBalancer = new NetworkLoadBalancer();
-
-        public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
-        {
-            m_objectBuilder = sessionComponent;
-        }
 
         private void init()
         {
@@ -203,13 +141,6 @@ namespace SEUpgrademodule
 
             printLoadBalancer.Update();
             networkLoadBalancer.Update();
-        }
-
-        public override void UpdateAfterSimulation()
-        {
-            
-
-
         }
 
 		private void UpgradeMessageHandler(ushort channel, byte[] message, ulong recipient, bool reliable)
