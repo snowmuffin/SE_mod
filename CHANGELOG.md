@@ -8,6 +8,7 @@ All notable changes to this repository are recorded here. Each mod also has its 
 - **Workshop preview under 1 MB:** replaced `tools/steamcmd/workshop_preview.png` (~3 MB) with **`workshop_preview.jpg`** (~220 KB). `Deploy-Overclock.ps1` / `Deploy-Workshop.ps1` prefer `.jpg` then `.png`; warn if preview exceeds 900 KB (Steam `Limit exceeded` on large previews).
 
 ### SE_Overclock_mod
+- **Marketing:** `Textures/Marketing/module_icon_base_master.png` (neutral upgrade-chip master for role tint + level segment compositing) and `module_icon_base_SPEC.txt`.
 - **Upgrade module icon filenames:** DDS under `Textures/GUI/Icons/component/modules/` use role names (`defense`, `attack`, `power`, `berserker`, `speed`, `fortress`) × levels 01–10; **`Blueprints.sbc` `<Icon>` paths updated** to match (was still pointing at legacy `skyblue` / `red` / etc.).
 - **Script compile fix:** `Prime_block` `Config` / `MyConfig` sources moved from `Data/Scripts/Prime_block/` into `Data/Scripts/SEUpgrademodule/` (`Prime_block_Config.cs`, `Prime_block_MyConfig.cs`) so `MoreLoot` can reference `Prime_block.Config` (Space Engineers compiles each script subfolder as a separate assembly).
 - **`Data/BlockCategories_Overclock.sbc`**: single file for ShipTools + Production GUI categories (Production wrapped with the same `Category` schema as ShipTools); removed `BlockCategories_PrimeShipTools.sbc` and `BlockCategories_UpgradeProduction.sbc`.
