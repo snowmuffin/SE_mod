@@ -67,6 +67,10 @@ namespace SEUpgrademodule
             {
                 Instance.PrefabLootMaxCockpitAttempts = 1;
             }
+            if (Instance.SpeedModuleMaxSpeed < 100f)
+            {
+                Instance.SpeedModuleMaxSpeed = 100f;
+            }
 
             Write();
         }

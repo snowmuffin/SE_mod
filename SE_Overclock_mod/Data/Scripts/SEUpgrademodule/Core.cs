@@ -116,6 +116,9 @@ namespace SEUpgrademodule
         {
             MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdd;
             MyAPIGateway.Entities.OnEntityRemove -= OnEntityRemove;
+            MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(UpgradeSessionConstants.ChannelUpgradeSync, UpgradeMessageHandler);
+            MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(UpgradeSessionConstants.ChannelConfigRequest, HandleConfigRequest);
+            MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(UpgradeSessionConstants.ChannelConfigResponse, HandleConfigResponse);
         }
 
         private void ApplyPerGridMaxSpeed()
