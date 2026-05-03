@@ -2,44 +2,33 @@
 #
 # Usage:
 #   .\Deploy-Overclock.ps1
-# Optional env: STEAM_USER, STEAM_PASS, STEAM_GUARD, STEAMCMD
+# Credentials are read from .env in the repo root (STEAM_USER, STEAM_PASS).
+# Optional env overrides: STEAMCMD, STEAM_OVERCLOCK_PUBLISHED_ID
 #   STEAM_OVERCLOCK_PUBLISHED_ID = Workshop file id to update. If unset, a non-zero "publishedfileid"
 #     in se_overclock_workshop.vdf (left over from a previous run or hand-edited) is reused.
 #     If still unknown, "0" creates a NEW item — then set the id (env or VDF) before the next run.
 
 $ErrorActionPreference = "Stop"
 
-function ConvertFrom-SecureStringPlain {
-    param([System.Security.SecureString]$SecureString)
-    if ($null -eq $SecureString) { return $null }
-    $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecureString)
-    try {
-        return [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-    }
-    finally {
-        [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) | Out-Null
+# Load .env from repo root (two levels up from tools/steamcmd)
+$envFile = Join-Path (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent) ".env"
+if (Test-Path $envFile) {
+    Get-Content $envFile | ForEach-Object {
+        if ($_ -match '^\s*([^#][^=]*?)\s*=\s*(.*?)\s*$') {
+            $key = $matches[1]
+            $val = $matches[2] -replace '^["'']|["'']$'
+            if (-not [System.Environment]::GetEnvironmentVariable($key)) {
+                [System.Environment]::SetEnvironmentVariable($key, $val, "Process")
+            }
+        }
     }
 }
 
 function Get-SteamLogin {
     $user = $env:STEAM_USER
-    if ([string]::IsNullOrWhiteSpace($user)) {
-        $user = Read-Host "Steam account name (login)"
-    }
-    if ([string]::IsNullOrWhiteSpace($user)) {
-        Write-Error "Steam login name is required."
-    }
-
     $pass = $env:STEAM_PASS
-    if ([string]::IsNullOrWhiteSpace($pass)) {
-        $sec = Read-Host "Steam password" -AsSecureString
-        $pass = ConvertFrom-SecureStringPlain -SecureString $sec
-        $sec.Dispose()
-    }
-    if ([string]::IsNullOrWhiteSpace($pass)) {
-        Write-Error "Steam password is required."
-    }
-
+    if ([string]::IsNullOrWhiteSpace($user)) { Write-Error "STEAM_USER is not set. Add it to .env or set the environment variable." }
+    if ([string]::IsNullOrWhiteSpace($pass)) { Write-Error "STEAM_PASS is not set. Add it to .env or set the environment variable." }
     return @{ User = $user; Pass = $pass }
 }
 
@@ -51,11 +40,6 @@ if (-not (Test-Path $steamCmd)) {
 $login = Get-SteamLogin
 $user = $login.User
 $pass = $login.Pass
-
-$guard = $env:STEAM_GUARD
-if ([string]::IsNullOrWhiteSpace($guard)) {
-    $guard = Read-Host "Steam Guard code (Enter to skip)"
-}
 
 $toolsDir = $PSScriptRoot
 $repoRoot = Split-Path (Split-Path $toolsDir -Parent) -Parent
@@ -127,11 +111,7 @@ if ($pubId -eq "0") {
     Write-Warning "publishedfileid is 0: Steam creates a NEW item. Note the FileID from output and set STEAM_OVERCLOCK_PUBLISHED_ID for next run."
 }
 
-if ([string]::IsNullOrWhiteSpace($guard)) {
-    & $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +workshop_build_item $vdfPath +quit
-} else {
-    & $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +set_steam_guard_code $guard +workshop_build_item $vdfPath +quit
-}
+& $steamCmd +@ShutdownOnFailedCommand 1 +login $user $pass +workshop_build_item $vdfPath +quit
 
 if ($LASTEXITCODE -ne 0) {
     Write-Error "SteamCMD exited with code $LASTEXITCODE"
