@@ -81,8 +81,41 @@ namespace SEUpgrademodule
                 m_cachedGrids.Clear();
             }
 
+            ApplyPerGridMaxSpeed();
+
             printLoadBalancer.Update();
             networkLoadBalancer.Update();
+        }
+
+        private void ApplyPerGridMaxSpeed()
+        {
+            var gridSpeedLevels = new Dictionary<long, int>();
+            foreach (var kv in Upgradecore.Upgrades)
+            {
+                var logic = kv.Value;
+                if (logic?.Entity == null || !logic.Entity.InScene) continue;
+                var block = logic.Entity as IMyCubeBlock;
+                if (block?.CubeGrid == null) continue;
+                long gridId = block.CubeGrid.EntityId;
+                int current;
+                if (!gridSpeedLevels.TryGetValue(gridId, out current) || logic.m_SpeedModuleLevel > current)
+                    gridSpeedLevels[gridId] = logic.m_SpeedModuleLevel;
+            }
+
+            foreach (var kv in gridSpeedLevels)
+            {
+                if (kv.Value <= 0) continue;
+                IMyEntity entity = MyAPIGateway.Entities.GetEntityById(kv.Key);
+                IMyCubeGrid grid = entity as IMyCubeGrid;
+                if (grid?.Physics == null || grid.Physics.IsStatic) continue;
+                var physics = grid.Physics as MyPhysicsComponentBase;
+                if (physics == null) continue;
+                float maxSpeed = 100f * (float)Math.Pow(1.15, kv.Value);
+                Vector3 vel = physics.LinearVelocity;
+                float speed = vel.Length();
+                if (speed > maxSpeed)
+                    physics.LinearVelocity = vel * (maxSpeed / speed);
+            }
         }
 
 		private void UpgradeMessageHandler(ushort channel, byte[] message, ulong recipient, bool reliable)
