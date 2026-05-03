@@ -15,6 +15,7 @@ namespace SEUpgrademodule
     public static class UpgradeLogicConstants
     {
         public const int InventoryRescanFrameInterval = 1800;
+        public const int SpeedModuleMaxLevel = 10;
     }
 
     public static class LoadBalancerConstants

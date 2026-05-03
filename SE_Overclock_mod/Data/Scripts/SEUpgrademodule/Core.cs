@@ -102,6 +102,8 @@ namespace SEUpgrademodule
                     gridSpeedLevels[gridId] = logic.m_SpeedModuleLevel;
             }
 
+            float globalMax = 100f * MyAPIGateway.Session.SessionSettings.SpeedMultiplier;
+
             foreach (var kv in gridSpeedLevels)
             {
                 if (kv.Value <= 0) continue;
@@ -110,7 +112,8 @@ namespace SEUpgrademodule
                 if (grid?.Physics == null || grid.Physics.IsStatic) continue;
                 var physics = grid.Physics as MyPhysicsComponentBase;
                 if (physics == null) continue;
-                float maxSpeed = 100f * (float)Math.Pow(1.15, kv.Value);
+                float t = Math.Min((float)kv.Value / UpgradeLogicConstants.SpeedModuleMaxLevel, 1f);
+                float maxSpeed = 100f + (globalMax - 100f) * t;
                 Vector3 vel = physics.LinearVelocity;
                 float speed = vel.Length();
                 if (speed > maxSpeed)
