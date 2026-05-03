@@ -16,6 +16,8 @@ namespace SEUpgrademodule
     {
         public const int InventoryRescanFrameInterval = 1800;
         public const int SpeedModuleMaxLevel = 10;
+        /// <summary>Gradual deceleration when over speed cap (m/s per simulation tick at 60 Hz).</summary>
+        public const float SpeedDecelerationPerTick = 30f / 60f;
     }
 
     public static class LoadBalancerConstants

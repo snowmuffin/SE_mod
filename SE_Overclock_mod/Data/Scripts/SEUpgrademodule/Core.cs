@@ -154,7 +154,10 @@ namespace SEUpgrademodule
                 Vector3 vel = physics.LinearVelocity;
                 float speed = vel.Length();
                 if (speed > maxSpeed)
-                    physics.LinearVelocity = vel * (maxSpeed / speed);
+                {
+                    float newSpeed = Math.Max(maxSpeed, speed - UpgradeLogicConstants.SpeedDecelerationPerTick);
+                    physics.LinearVelocity = vel * (newSpeed / speed);
+                }
             }
         }
 
