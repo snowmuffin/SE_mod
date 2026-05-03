@@ -112,102 +112,68 @@ namespace SEUpgrademodule
 			}
 		}
 
+        private List<UpgradeLogic> GetGridUpgradeLogics(IMyCubeGrid grid)
+        {
+            List<UpgradeLogic> logics;
+            if (m_cachedGrids.TryGetValue(grid.EntityId, out logics))
+                return logics;
+
+            logics = new List<UpgradeLogic>();
+            IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(grid);
+            if (tsystem != null)
+            {
+                List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
+                tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
+                foreach (var cockpit in cockpits)
+                {
+                    UpgradeLogic logic = ((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>();
+                    if (logic != null)
+                        logics.Add(logic);
+                }
+            }
+            m_cachedGrids.TryAdd(grid.EntityId, logics);
+            return logics;
+        }
+
         void HandleDamage(object target, ref MyDamageInformation info)
         {
             IMySlimBlock slimBlock = target as IMySlimBlock;
-            long attackerId = info.AttackerId;
-            IMyEntity attackerEntity = null;
-            IMyCubeGrid attackerGrid = null;
-            float damageMultiplier = 1f;
+            if (slimBlock == null)
+                return;
 
             try
             {
-                attackerEntity = MyAPIGateway.Entities.GetEntityById(attackerId);
-                attackerGrid = attackerEntity as IMyCubeGrid;
-                if (attackerGrid == null && attackerEntity is IMyCubeBlock)
-                {
-                    attackerGrid = ((IMyCubeBlock)attackerEntity).CubeGrid;
-                }
+                float damageMultiplier = 1f;
 
-                int minAttackLevel = 0;
+                IMyEntity attackerEntity = MyAPIGateway.Entities.GetEntityById(info.AttackerId);
+                IMyCubeGrid attackerGrid = attackerEntity as IMyCubeGrid;
+                if (attackerGrid == null && attackerEntity is IMyCubeBlock)
+                    attackerGrid = ((IMyCubeBlock)attackerEntity).CubeGrid;
+
                 if (attackerGrid != null)
                 {
-                    if (!m_cachedGrids.ContainsKey(attackerGrid.EntityId))
+                    List<UpgradeLogic> attackerLogics = GetGridUpgradeLogics(attackerGrid);
+                    if (attackerLogics.Count > 0)
                     {
-                        IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(attackerGrid);
-                        List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
-                        List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
-
-                        if (tsystem != null)
-                        {
-                            tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
-
-                            foreach (var cockpit in cockpits)
-                            {
-                                UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
-                            }
-                            m_cachedGrids.TryAdd(attackerGrid.EntityId, UpgradeLogics);
-                        }
-                    }
-
-                    if (m_cachedGrids.ContainsKey(attackerGrid.EntityId))
-                    {
-                        List<UpgradeLogic> cachedattackerUpgradeLogics = m_cachedGrids[attackerGrid.EntityId];
-
-                        if (cachedattackerUpgradeLogics.Count > 0)
-                        {
-                            minAttackLevel = cachedattackerUpgradeLogics[0].m_AttackUpgradeLevel;
-
-                            foreach (var upgradeLogic in cachedattackerUpgradeLogics)
-                            {
-                                if (upgradeLogic.m_AttackUpgradeLevel < minAttackLevel)
-                                {
-                                    minAttackLevel = upgradeLogic.m_AttackUpgradeLevel;
-                                }
-                            }
-                            damageMultiplier *= (float)Math.Pow(1 + 0.02, minAttackLevel);
-                        }
+                        int minAttackLevel = attackerLogics[0].m_AttackUpgradeLevel;
+                        foreach (var logic in attackerLogics)
+                            if (logic.m_AttackUpgradeLevel < minAttackLevel)
+                                minAttackLevel = logic.m_AttackUpgradeLevel;
+                        damageMultiplier *= (float)Math.Pow(1.02, minAttackLevel);
                     }
                 }
 
-                int minDefenseLevel = 0;
-                if (!m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
+                List<UpgradeLogic> defenderLogics = GetGridUpgradeLogics(slimBlock.CubeGrid);
+                if (defenderLogics.Count > 0)
                 {
-                    IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(slimBlock.CubeGrid as IMyCubeGrid);
-                    List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
-                    List<UpgradeLogic> UpgradeLogics = new List<UpgradeLogic>();
-
-                    if (tsystem != null)
-                    {
-                        tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
-                        foreach (var cockpit in cockpits)
-                        {
-                            UpgradeLogics.Add(((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>());
-                        }
-                        m_cachedGrids.TryAdd(slimBlock.CubeGrid.EntityId, UpgradeLogics);
-                    }
+                    int minDefenseLevel = defenderLogics[0].m_DefenseUpgradeLevel;
+                    foreach (var logic in defenderLogics)
+                        if (logic.m_DefenseUpgradeLevel < minDefenseLevel)
+                            minDefenseLevel = logic.m_DefenseUpgradeLevel;
+                    damageMultiplier *= (float)Math.Pow(0.98, minDefenseLevel);
                 }
 
-                if (m_cachedGrids.ContainsKey(slimBlock.CubeGrid.EntityId))
-                {
-                    List<UpgradeLogic> cachedUpgradeLogics = m_cachedGrids[slimBlock.CubeGrid.EntityId];
-
-                    if (cachedUpgradeLogics.Count > 0)
-                    {
-                        minDefenseLevel = cachedUpgradeLogics[0].m_DefenseUpgradeLevel;
-                        foreach (var upgradeLogic in cachedUpgradeLogics)
-                        {
-                            if (upgradeLogic.m_DefenseUpgradeLevel < minDefenseLevel)
-                            {
-                                minDefenseLevel = upgradeLogic.m_DefenseUpgradeLevel;
-                            }
-                        }
-                        damageMultiplier *= (float)Math.Pow(1 - 0.02, minDefenseLevel);
-                    }
-                }
                 info.Amount *= damageMultiplier;
-
-                //MyLog.Default.WriteLineAndConsole($"Damage Handled: TargetGridId={slimBlock.CubeGrid.EntityId}, AttackerGridId={attackerGrid?.EntityId}, MinAttackLevel={minAttackLevel}, MinDefenseLevel={minDefenseLevel}, FinalDamage={info.Amount}");
             }
             catch (Exception e)
             {
