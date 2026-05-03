@@ -15,6 +15,7 @@ using VRage.Game.Components;
 using VRage.Game;
 using VRage.Game.ModAPI;
 using System.Collections.Concurrent;
+using Sandbox.Game.World;
 
 namespace SEUpgrademodule
 {
@@ -55,6 +56,17 @@ namespace SEUpgrademodule
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(0, HandleDamage);
 
             loadConfigFile();
+
+            // Sandbox whitelist test: MySector.EnvironmentDefinition access
+            try
+            {
+                float cur = MySector.EnvironmentDefinition.LargeShipMaxSpeed;
+                MyLog.Default.WriteLineAndConsole($"[SEOverclock] MySector.EnvironmentDefinition.LargeShipMaxSpeed = {cur} (sandbox OK)");
+            }
+            catch (Exception ex)
+            {
+                MyLog.Default.WriteLineAndConsole($"[SEOverclock] MySector access FAILED: {ex.Message}");
+            }
 
             foreach (var kv in Upgradecore.Upgrades)
             {
