@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.IO;
 using Sandbox.Definitions;
@@ -53,7 +52,6 @@ namespace SEUpgrademodule
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(UpgradeSessionConstants.ChannelConfigResponse, HandleConfigResponse);
 
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(0, HandleDamage);
-            MyAPIGateway.Missiles.OnMissileCollided += missileCollisionHandler;
 
             loadConfigFile();
 
@@ -71,62 +69,6 @@ namespace SEUpgrademodule
             m_init = true;
         }
 
-        HashSet<long> processedMissiles = new HashSet<long>();
-
-        void missileCollisionHandler(IMyMissile missile)
-        {
-            try
-            {
-                if (processedMissiles.Contains(missile.EntityId))
-                {
-                    return;
-                }
-                processedMissiles.Add(missile.EntityId);
-
-                IMyEntity attackerEntity = MyAPIGateway.Entities.GetEntityById(missile.LauncherId);
-                IMyCubeGrid attackergrid = attackerEntity as IMyCubeGrid;
-                IMyCubeBlock attackerblock = attackerEntity as IMyCubeBlock;
-
-                if (attackergrid == null && attackerblock != null)
-                {
-                    attackergrid = attackerblock.CubeGrid;
-                }
-
-                int maxAttackLevel = 0;
-                if (attackergrid != null)
-                {
-                    var UpgradeLogics = m_cachedGrids.GetOrAdd(attackergrid.EntityId, entityId =>
-                    {
-                        IMyGridTerminalSystem tsystem = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(attackergrid);
-                        List<IMyTerminalBlock> cockpits = new List<IMyTerminalBlock>();
-                        List<UpgradeLogic> logics = new List<UpgradeLogic>();
-
-                        if (tsystem != null)
-                        {
-                            tsystem.GetBlocksOfType<IMyCockpit>(cockpits, Filter);
-                            logics.AddRange(cockpits.Select(cockpit => ((IMyTerminalBlock)cockpit).GameLogic.GetAs<UpgradeLogic>()));
-                        }
-                        return logics;
-                    });
-
-                    if (UpgradeLogics.Any())
-                    {
-                        maxAttackLevel = UpgradeLogics.Max(upgradeLogic => upgradeLogic.m_AttackUpgradeLevel);
-                        missile.ExplosionDamage *= (float)Math.Pow(1 + 0.02, maxAttackLevel);
-                    }
-                }
-
-                if (maxAttackLevel > 0)
-                {
-                    //MyLog.Default.WriteLineAndConsole($"Missile Collision: MissileId={missile.EntityId}, AttackerGridId={attackergrid?.EntityId}, MaxAttackLevel={maxAttackLevel}, FinalExplosionDamage={missile.ExplosionDamage}");
-                }
-            }
-            catch (Exception e)
-            {
-                MyLog.Default.WriteLineAndConsole($"Exception in missileCollisionHandler: {e.Message}");
-            }
-        }
-
         public override void UpdateBeforeSimulation()
         {
             // 모드가 로드되고 한 번만 초기화
@@ -137,7 +79,6 @@ namespace SEUpgrademodule
             else
             {
                 m_cachedGrids.Clear();
-                processedMissiles.Clear();
             }
 
             printLoadBalancer.Update();
