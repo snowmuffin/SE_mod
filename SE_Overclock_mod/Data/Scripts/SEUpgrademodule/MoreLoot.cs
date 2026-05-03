@@ -29,6 +29,9 @@ namespace SEUpgrademodule
         List<UpgradeLevel> PUpLevels = new List<UpgradeLevel>();
         List<UpgradeLevel> AUpLevels = new List<UpgradeLevel>();
         List<UpgradeLevel> DUpLevels = new List<UpgradeLevel>();
+        List<UpgradeLevel> SUpLevels = new List<UpgradeLevel>();
+        List<UpgradeLevel> BUpLevels = new List<UpgradeLevel>();
+        List<UpgradeLevel> FUpLevels = new List<UpgradeLevel>();
 
         /// <summary>Prime Matter prefab rolls (merged from legacy Prime_block mod).</summary>
         PrimeMatterRoll _primeMatter;
@@ -112,6 +115,14 @@ namespace SEUpgrademodule
                         MinItemsLarge = Config.Instance.LargeGridAdvanced.MinAmount,
                         MaxItemsLarge = Config.Instance.LargeGridAdvanced.MaxAmount
                     });
+                }
+
+                int specialMaxLevel = 3;
+                for (int level = 1; level <= specialMaxLevel; level++)
+                {
+                    SUpLevels.Add(new UpgradeLevel { Name = $"SUpLv{level}", Builder = new MyObjectBuilder_Component() { SubtypeName = $"SpeedModule_Level{level}" } });
+                    BUpLevels.Add(new UpgradeLevel { Name = $"BUpLv{level}", Builder = new MyObjectBuilder_Component() { SubtypeName = $"BerserkerModule_Level{level}" } });
+                    FUpLevels.Add(new UpgradeLevel { Name = $"FUpLv{level}", Builder = new MyObjectBuilder_Component() { SubtypeName = $"FortressModule_Level{level}" } });
                 }
 
                 MyVisualScriptLogicProvider.PrefabSpawnedDetailed += NewSpawn;
@@ -316,6 +327,44 @@ namespace SEUpgrademodule
 
 
                 }
+                // Speed / Berserker / Fortress: 각 25% 확률, 레벨 1-3 지수 가중치
+                const double specialChance = 0.25;
+                const double kSpecial = 1.5;
+                const int specialMax = 3;
+
+                double[] specialWeights = new double[specialMax];
+                double specialTotalWeight = 0;
+                for (int i = 0; i < specialMax; i++)
+                {
+                    specialWeights[i] = Math.Exp(-kSpecial * i);
+                    specialTotalWeight += specialWeights[i];
+                }
+
+                var specialGroups = new List<UpgradeLevel>[] { SUpLevels, BUpLevels, FUpLevels };
+                var specialPrefixes = new string[] { "SUp", "BUp", "FUp" };
+
+                for (int g = 0; g < specialGroups.Length; g++)
+                {
+                    if (MyUtils.GetRandomDouble(0, 1) > specialChance)
+                        continue;
+
+                    double rand = MyUtils.GetRandomDouble(0, specialTotalWeight);
+                    double cumulative = 0;
+                    int selectedLevel = 1;
+                    for (int i = 0; i < specialMax; i++)
+                    {
+                        cumulative += specialWeights[i];
+                        if (rand <= cumulative) { selectedLevel = i + 1; break; }
+                    }
+
+                    var upgrade = specialGroups[g].Find(u => u.Name == $"{specialPrefixes[g]}Lv{selectedLevel}");
+                    if (upgrade != null)
+                    {
+                        inventory.AddItems(1, upgrade.Builder);
+                        added = true;
+                    }
+                }
+
                 // 6. 그리드 이름에 'LV'와 총 레벨을 추가 (합계; README와 동일하게 공격 배율만 곱하지 않음)
                 if (totalLevel >= 0)
                 {
