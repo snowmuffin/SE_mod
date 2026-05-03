@@ -39,6 +39,7 @@ namespace SEUpgrademodule
         public static int NpcOffsetDefence = 1;
         public static int NpcOffsetPower = 1;
         public static int NpcOffsetSpeed = 1;
+        public static float SpeedModuleMaxSpeed = 200f;
 
         private ConcurrentDictionary<long, List<UpgradeLogic>> m_cachedGrids = new ConcurrentDictionary<long, List<UpgradeLogic>>();
         private PrintLoadBalancer printLoadBalancer = new PrintLoadBalancer();
@@ -102,7 +103,7 @@ namespace SEUpgrademodule
                     gridSpeedLevels[gridId] = logic.m_SpeedModuleLevel;
             }
 
-            float globalMax = 100f * MyAPIGateway.Session.SessionSettings.SpeedMultiplier;
+            float globalMax = Upgradecore.SpeedModuleMaxSpeed;
 
             foreach (var kv in gridSpeedLevels)
             {
@@ -230,8 +231,7 @@ namespace SEUpgrademodule
                 NpcOffsetDefence = Config.Instance.NpcOffset.Defence;
                 NpcOffsetPower = Config.Instance.NpcOffset.Power;
                 NpcOffsetSpeed = Config.Instance.NpcOffset.Speed;
-
-
+                SpeedModuleMaxSpeed = Config.Instance.SpeedModuleMaxSpeed;
             }
             else
             {
@@ -265,7 +265,8 @@ namespace SEUpgrademodule
                     var configResponse = new MyUpConfig
                     {
                         NpcMultiplier = Config.Instance.NpcMultiplier,
-                        NpcOffset = Config.Instance.NpcOffset
+                        NpcOffset = Config.Instance.NpcOffset,
+                        SpeedModuleMaxSpeed = Config.Instance.SpeedModuleMaxSpeed
                     };
 
                     string responseXml = MyAPIGateway.Utilities.SerializeToXML(configResponse);
@@ -301,7 +302,7 @@ namespace SEUpgrademodule
                         NpcOffsetDefence = configResponse.NpcOffset.Defence;
                         NpcOffsetPower = configResponse.NpcOffset.Power;
                         NpcOffsetSpeed = configResponse.NpcOffset.Speed;
-
+                        SpeedModuleMaxSpeed = configResponse.SpeedModuleMaxSpeed;
                     }
                 }
                 catch (Exception ex)

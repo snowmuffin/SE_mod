@@ -47,6 +47,7 @@ namespace SEUpgrademodule
                     LargeGridAdvanced = new Item() { Chance = 0.2f, MinAmount = 2, MaxAmount = 6 },
                     NpcMultiplier  = new NpcMultiplier() {Attack = 2, Defence = 2, Power=2, Speed=1},
                     NpcOffset = new NpcOffset(){Attack = 1, Defence = 1, Power=1, Speed=1},
+                    SpeedModuleMaxSpeed = 200f,
                     DisableGrindSubgridDamage = true,
                     ExcludeGrids = new List<string>() { "respawn","Respawn" },
                     PrefabLootMaxCargoContainers = 7,

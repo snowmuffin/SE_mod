@@ -36,6 +36,10 @@ namespace SEUpgrademodule
         /// <summary>How many cockpit blocks to try for cockpit loot per spawn (default 1).</summary>
         [ProtoMember(10)]
         public int PrefabLootMaxCockpitAttempts;
+
+        /// <summary>Max speed (m/s) reachable at SpeedModule level 10 (default 200).</summary>
+        [ProtoMember(11)]
+        public float SpeedModuleMaxSpeed = 200f;
     }
 
     [ProtoContract]
