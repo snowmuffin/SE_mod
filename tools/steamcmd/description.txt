@@ -1,52 +1,51 @@
 [h1]⚠️ Early Access — Work in Progress[/h1]
-[b]이 모드는 현재 개발 중입니다. 밸런스 조정 및 기능 변경이 수시로 이루어질 수 있으며, 버그가 존재할 수 있습니다.[/b]
-[i]This mod is under active development. Balance and features may change at any time. Bugs may be present.[/i]
+[b]This mod is under active development. Balance and features may change at any time. Bugs may be present. Use at your own risk.[/b]
 
 [hr][/hr]
 
 [h1]SE Overclock — Ship Upgrade Module System[/h1]
 
-함선에 업그레이드 모듈을 장착하여 전투 능력을 강화하는 모드입니다.
-코크핏 블록의 인벤토리에 모듈을 넣는 것만으로 즉시 효과가 적용됩니다.
+Enhance your ship's combat capabilities by equipping upgrade modules.
+Simply place a module into a cockpit inventory and the effect is applied instantly.
 
 [hr][/hr]
 
-[h1]사용 방법[/h1]
+[h1]How to Use[/h1]
 
-[b]1. 코크핏 이름에 [Upgrade] 추가[/b]
-인벤토리가 있는 코크핏 블록의 이름을 변경하여 [Upgrade] 를 포함시킵니다.
-예) [code]Fighter Cockpit [Upgrade][/code]
+[b]1. Rename a cockpit to include [Upgrade][/b]
+Rename any cockpit block that has an inventory to include [Upgrade] in its name.
+Example: [code]Fighter Cockpit [Upgrade][/code]
 
-[b]2. 업그레이드 모듈 제작[/b]
-조립기(Assembler)에서 원하는 모듈을 제작합니다.
-모듈은 레벨 1부터 시작하며, 이전 레벨 모듈을 재료로 상위 레벨을 제작합니다.
+[b]2. Craft upgrade modules[/b]
+Build the desired modules in an Assembler.
+Each module starts at Level 1. Higher levels require the previous level as a crafting ingredient.
 
-[b]3. 모듈을 코크핏 인벤토리에 넣기[/b]
-제작한 모듈을 해당 코크핏의 인벤토리에 넣으면 즉시 효과가 적용됩니다.
-같은 종류는 가장 높은 레벨 하나만 인식됩니다.
+[b]3. Place the module in the cockpit inventory[/b]
+Put the crafted module into that cockpit's inventory. The effect is applied immediately.
+Only the highest level of each module type is recognized.
 
-[b]4. 현재 레벨 확인[/b]
-코크핏 블록의 터미널 정보(Custom Info)에서 현재 적용된 레벨을 확인할 수 있습니다.
+[b]4. Check your current levels[/b]
+Open the cockpit's terminal info (Custom Info panel) to see all currently applied module levels.
 
 [hr][/hr]
 
-[h1]모듈 종류[/h1]
+[h1]Module Types[/h1]
 
 [table]
-[tr][th]모듈[/th][th]효과[/th][th]레벨당 변화[/th][/tr]
-[tr][td][b]Defense Module[/b][/td][td]받는 데미지 감소[/td][td]-2% per level[/td][/tr]
-[tr][td][b]Attack Module[/b][/td][td]주는 데미지 증가[/td][td]+2% per level[/td][/tr]
-[tr][td][b]Power Efficiency Module[/b][/td][td]추진기 전력 소모 감소[/td][td]-2% per level[/td][/tr]
-[tr][td][b]Speed Module[/b][/td][td]추진력 증가 / 전력 효율 감소[/td][td]+15% thrust per level[/td][/tr]
-[tr][td][b]Berserker Module[/b][/td][td]공격력 ↑ / 방어력 ↓ / 전력 효율 ↓[/td][td]Attack +1 / Defense -1 / Power -1[/td][/tr]
-[tr][td][b]Fortress Module[/b][/td][td]방어력 ↑ / 속도 ↓ / 전력 효율 ↓[/td][td]Defense +1 / Speed -1 / Power -1[/td][/tr]
+[tr][th]Module[/th][th]Effect[/th][th]Per Level[/th][/tr]
+[tr][td][b]Defense Module[/b][/td][td]Reduces incoming damage[/td][td]-2% damage taken[/td][/tr]
+[tr][td][b]Attack Module[/b][/td][td]Increases outgoing damage[/td][td]+2% damage dealt[/td][/tr]
+[tr][td][b]Power Efficiency Module[/b][/td][td]Reduces thruster power consumption[/td][td]-2% power usage[/td][/tr]
+[tr][td][b]Speed Module[/b][/td][td]Increases thrust / costs power efficiency[/td][td]+15% thrust[/td][/tr]
+[tr][td][b]Berserker Module[/b][/td][td]Attack ↑ / Defense ↓ / Power efficiency ↓[/td][td]Attack +1 / Defense -1 / Power -1[/td][/tr]
+[tr][td][b]Fortress Module[/b][/td][td]Defense ↑ / Speed ↓ / Power efficiency ↓[/td][td]Defense +1 / Speed -1 / Power -1[/td][/tr]
 [/table]
 
 [hr][/hr]
 
-[h1]주의 사항[/h1]
+[h1]Notes[/h1]
 [list]
-[*] 그라인더/드릴 데미지에는 모듈 효과가 적용되지 않습니다.
-[*] 함선에 [Upgrade] 코크핏이 여러 개 있을 경우, 가장 낮은 레벨 기준으로 적용됩니다.
-[*] 모듈 효과는 서버에서 계산되며, 멀티플레이에서도 정상 작동합니다.
+[*] Grinder and drill damage is not affected by upgrade modules.
+[*] If a ship has multiple [Upgrade] cockpits, the lowest level among them is used.
+[*] All effects are calculated server-side and work correctly in multiplayer.
 [/list]
