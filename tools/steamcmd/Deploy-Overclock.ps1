@@ -91,6 +91,14 @@ if ([string]::IsNullOrWhiteSpace($pubId)) {
 
 $prevEsc = Escape-VdfPath $preview
 $contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
+
+$descFile = Join-Path $toolsDir "description.txt"
+$description = if (Test-Path $descFile) {
+    (Get-Content $descFile -Raw -Encoding UTF8).Replace('"', "'").TrimEnd()
+} else {
+    "SE Overclock — Upgrade module system for Space Engineers."
+}
+
 @"
 "workshopitem"
 {
@@ -100,7 +108,7 @@ $contentEsc = Escape-VdfPath (Join-Path $repoRoot "SE_Overclock_mod")
 	"previewfile"		"$prevEsc"
 	"visibility"		"0"
 	"title"			"SE Overclock"
-	"description"		"Upgrade modules + Prime blocks (unified). Repo: SE_mod SE_Overclock_mod."
+	"description"		"$description"
 	"changenote"		"SE Overclock — SteamCMD publish"
 }
 "@ | Set-Content -Path $vdfPath -Encoding ASCII
