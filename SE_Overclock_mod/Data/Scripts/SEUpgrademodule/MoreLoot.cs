@@ -328,7 +328,7 @@ namespace SEUpgrademodule
 
                 }
                 // Speed / Berserker / Fortress: 각 25% 확률, 레벨 1-3 지수 가중치
-                const double specialChance = 0.25;
+                const double specialChance = 0.10;
                 const double kSpecial = 1.5;
                 const int specialMax = 3;
 
