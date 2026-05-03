@@ -323,6 +323,7 @@ namespace SEUpgrademodule
             InitStorage();
             LoadStorage();
             SaveStorage();
+            Upgradecore.Upgrades[Entity.EntityId] = this;
         }
 
     }
