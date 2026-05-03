@@ -261,8 +261,8 @@ namespace SEUpgrademodule
             int maxLevel = 10;
             double k = 0.7f; // 지수 스케일링 상수 (필요에 따라 조정)
 
-            // 그리드 레벨 합산을 위한 변수
-            int totalLevel = Config.Instance.NpcOffset.Power+Config.Instance.NpcOffset.Defence+Config.Instance.NpcOffset.Attack;
+            // 원시 레벨 추적 (NPC 보정 전)
+            int rawPower = 0, rawAttack = 0, rawDefense = 0;
 
             try
             {
@@ -317,8 +317,9 @@ namespace SEUpgrademodule
                         inventory.AddItems(amount, upgrade.Builder);
                         added = true;
 
-                        // 해당 업그레이드 레벨을 합산
-                        totalLevel += selectedLevel;
+                        if (selectedUpgradeType == "PUp") rawPower = selectedLevel;
+                        else if (selectedUpgradeType == "AUp") rawAttack = selectedLevel;
+                        else if (selectedUpgradeType == "DUp") rawDefense = selectedLevel;
                     }
                     else
                     {
@@ -342,6 +343,7 @@ namespace SEUpgrademodule
 
                 var specialGroups = new List<UpgradeLevel>[] { SUpLevels, BUpLevels, FUpLevels };
                 var specialPrefixes = new string[] { "SUp", "BUp", "FUp" };
+                int rawSpeed = 0, rawBerserker = 0, rawFortress = 0;
 
                 for (int g = 0; g < specialGroups.Length; g++)
                 {
@@ -362,8 +364,25 @@ namespace SEUpgrademodule
                     {
                         inventory.AddItems(1, upgrade.Builder);
                         added = true;
+                        if (g == 0) rawSpeed = selectedLevel;
+                        else if (g == 1) rawBerserker = selectedLevel;
+                        else rawFortress = selectedLevel;
                     }
                 }
+
+                // Logic.cs와 동일한 조합 공식 적용
+                int combinedPower  = rawPower  - rawSpeed - rawBerserker - rawFortress;
+                int combinedAttack = rawAttack + rawBerserker;
+                int combinedDefense = rawDefense + rawFortress - rawBerserker;
+                int combinedSpeed  = Math.Max(0, rawSpeed - rawFortress);
+
+                // NPC 오프셋 + 배율 적용
+                int finalPower   = (combinedPower   + Config.Instance.NpcOffset.Power)   * Config.Instance.NpcMultiplier.Power;
+                int finalAttack  = (combinedAttack  + Config.Instance.NpcOffset.Attack)  * Config.Instance.NpcMultiplier.Attack;
+                int finalDefense = (combinedDefense + Config.Instance.NpcOffset.Defence) * Config.Instance.NpcMultiplier.Defence;
+                int finalSpeed   = (combinedSpeed   + Config.Instance.NpcOffset.Speed)   * Config.Instance.NpcMultiplier.Speed;
+
+                int totalLevel = finalPower + finalAttack + finalDefense + finalSpeed;
 
                 // 6. 그리드 이름에 'LV'와 총 레벨을 추가 (합계; README와 동일하게 공격 배율만 곱하지 않음)
                 if (totalLevel >= 0)
