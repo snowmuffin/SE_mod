@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Text;
 using Sandbox.Common;
 using Sandbox.Common.ObjectBuilders;
 using Sandbox.Definitions;
@@ -271,7 +271,6 @@ namespace SEUpgrademodule
             }
 
             ApplyThrustPowerMultiplier(cubeBlock.CubeGrid, m_PowerEfficiencyUpgradeLevel, m_SpeedModuleLevel);
-            ApplyMaxSpeedMultiplier(cubeBlock.CubeGrid, m_SpeedModuleLevel);
 
             terminalBlock.RefreshCustomInfo();
         }
@@ -318,42 +317,6 @@ namespace SEUpgrademodule
             }
         }
 
-        private float m_baseMaxSpeed = -1f;
-        private static System.Reflection.PropertyInfo s_rigidBodyProp;
-        private static System.Reflection.PropertyInfo s_maxLinearVelProp;
-
-        private void ApplyMaxSpeedMultiplier(IMyCubeGrid grid, int speedLevel)
-        {
-            if (grid?.Physics == null)
-                return;
-            try
-            {
-                if (s_rigidBodyProp == null)
-                    s_rigidBodyProp = grid.Physics.GetType().GetProperty("RigidBody");
-
-                var rigidBody = s_rigidBodyProp?.GetValue(grid.Physics);
-                if (rigidBody == null)
-                    return;
-
-                if (s_maxLinearVelProp == null)
-                    s_maxLinearVelProp = rigidBody.GetType().GetProperty("MaxLinearVelocity");
-                if (s_maxLinearVelProp == null)
-                    return;
-
-                if (m_baseMaxSpeed < 0f)
-                    m_baseMaxSpeed = (float)s_maxLinearVelProp.GetValue(rigidBody);
-
-                float newSpeed = speedLevel > 0
-                    ? m_baseMaxSpeed * (float)Math.Pow(1.15, speedLevel)
-                    : m_baseMaxSpeed;
-
-                s_maxLinearVelProp.SetValue(rigidBody, newSpeed);
-            }
-            catch (Exception e)
-            {
-                MyLog.Default.WriteLineAndConsole($"ApplyMaxSpeedMultiplier error: {e.Message}");
-            }
-        }
 
         public override void UpdateOnceBeforeFrame()
         {
