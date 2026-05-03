@@ -7,8 +7,8 @@ namespace SEUpgrademodule
         public const ushort ChannelConfigRequest = 5853;
         public const ushort ChannelConfigResponse = 5854;
 
-        /// <summary>Payload: entityId (8) + three int32 levels (12) = 20 bytes.</summary>
-        public const int UpgradeSyncMessageByteLength = 20;
+        /// <summary>Payload: entityId (8) + four int32 levels (16) = 24 bytes.</summary>
+        public const int UpgradeSyncMessageByteLength = 24;
     }
 
     /// <summary>Per-cockpit logic timing (approx. 30 s at 60 Hz).</summary>

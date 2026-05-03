@@ -137,6 +137,7 @@ namespace SEUpgrademodule
             else
             {
                 m_cachedGrids.Clear();
+                processedMissiles.Clear();
             }
 
             printLoadBalancer.Update();
@@ -151,18 +152,20 @@ namespace SEUpgrademodule
 			int value1 = BitConverter.ToInt32(message, 8);
             int value2 = BitConverter.ToInt32(message, 12);
             int value3 = BitConverter.ToInt32(message, 16);
+            int value4 = BitConverter.ToInt32(message, 20);
 
 			if(!MyAPIGateway.Multiplayer.IsServer)
 			{
 
 
-				foreach(var LogicKV in Upgradecore.Upgrades) 
+				foreach(var LogicKV in Upgradecore.Upgrades)
 				{
-					if(ID == LogicKV.Key) 
+					if(ID == LogicKV.Key)
 					{
                         LogicKV.Value.m_PowerEfficiencyUpgradeLevel = value1;
                         LogicKV.Value.m_AttackUpgradeLevel = value2;
                         LogicKV.Value.m_DefenseUpgradeLevel = value3;
+                        LogicKV.Value.m_SpeedModuleLevel = value4;
 					}
 				}
 			}

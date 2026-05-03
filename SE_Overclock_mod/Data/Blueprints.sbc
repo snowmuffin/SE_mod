@@ -972,7 +972,9 @@
                 <Item Amount="70" TypeId="Ingot" SubtypeId="Gold"/>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Uranium"/>
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="Prime_Matter"/>
+            <Results>
+                <Item Amount="1" TypeId="Component" SubtypeId="Prime_Matter"/>
+            </Results>
             <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
         </Blueprint>
     </Blueprints>

@@ -79,6 +79,7 @@ namespace SEUpgrademodule
                     byte[] messageValue1 = BitConverter.GetBytes(m_PowerEfficiencyUpgradeLevel);
                     byte[] messageValue2 = BitConverter.GetBytes(m_AttackUpgradeLevel);
                     byte[] messageValue3 = BitConverter.GetBytes(m_DefenseUpgradeLevel);
+                    byte[] messageValue4 = BitConverter.GetBytes(m_SpeedModuleLevel);
 
                     for (int i = 0; i < 8; i++)
                     {
@@ -96,6 +97,10 @@ namespace SEUpgrademodule
                     for (int i = 0; i < 4; i++)
                     {
                         message[i + 16] = messageValue3[i];
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        message[i + 20] = messageValue4[i];
                     }
                     MyAPIGateway.Multiplayer.SendMessageToOthers(UpgradeSessionConstants.ChannelUpgradeSync, message, true);
                 }
@@ -160,6 +165,7 @@ namespace SEUpgrademodule
                 m_PowerEfficiencyUpgradeLevel = storagedata.PowerEfficiencyUpgradeLevel;
                 m_AttackUpgradeLevel = storagedata.AttackUpgradeLevel;
                 m_DefenseUpgradeLevel = storagedata.DefenseUpgradeLevel;
+                m_SpeedModuleLevel = storagedata.SpeedModuleLevel;
                 // 추가 데이터 로드 가능
             }
             catch (Exception e)
@@ -177,7 +183,8 @@ namespace SEUpgrademodule
             {
                 PowerEfficiencyUpgradeLevel = m_PowerEfficiencyUpgradeLevel,
                 AttackUpgradeLevel = m_AttackUpgradeLevel,
-                DefenseUpgradeLevel = m_DefenseUpgradeLevel
+                DefenseUpgradeLevel = m_DefenseUpgradeLevel,
+                SpeedModuleLevel = m_SpeedModuleLevel
             };
 
             var data = MyAPIGateway.Utilities.SerializeToBinary(storageData);
@@ -245,6 +252,7 @@ namespace SEUpgrademodule
             m_AttackUpgradeLevel += m_BerserkerModuleLevel;
             m_DefenseUpgradeLevel += m_FortressModuleLevel - m_BerserkerModuleLevel;
             m_SpeedModuleLevel -= m_FortressModuleLevel;
+            if (m_SpeedModuleLevel < 0) m_SpeedModuleLevel = 0;
 
             // ■■■ NPC 보정 적용
             if (cubeBlock != null && IsOwnedByNPC(cubeBlock.OwnerId))

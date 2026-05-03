@@ -8,8 +8,6 @@ namespace SEUpgrademodule
 
         int m_progress = 0;
 
-        float m_progressPerTick = 0;
-
         int m_processedCount = 0;
 
         int m_initialSize = 0;
@@ -38,8 +36,6 @@ namespace SEUpgrademodule
                 m_initialSize = m_notProcessed.Count;
 
                 m_processedCount = 0;
-
-                m_progressPerTick = m_periodLength / ((float) m_notProcessed.Count);
             }
 
             m_progress += 1;

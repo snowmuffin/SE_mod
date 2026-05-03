@@ -15,6 +15,8 @@ namespace SEUpgrademodule
         public int AttackUpgradeLevel =0;
         [ProtoMember(3), DefaultValue(0)]
         public int PowerEfficiencyUpgradeLevel= 0;
+        [ProtoMember(4), DefaultValue(0)]
+        public int SpeedModuleLevel = 0;
 
         public UpgradeModuleSummary ()
         {

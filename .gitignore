@@ -1,5 +1,8 @@
 
 /ref
+/Base/
+/module_cards_lv1-10_all/
+/_icon_tmp/
 
 # Local SteamCMD workshop descriptors (may contain machine-specific paths)
 tools/steamcmd/se_upgrade_workshop.vdf
@@ -8,4 +11,6 @@ tools/steamcmd/se_unified_workshop.vdf
 tools/steamcmd/se_overclock_workshop.vdf
 tools/steamcmd/last_deploy*.log
 tools/texconv/
+tools/_cache_texconv/
+tools/_module_icons_png_preview/
 tools/voxel_backup_2048/
