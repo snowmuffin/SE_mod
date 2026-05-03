@@ -16,6 +16,8 @@ namespace SEUpgrademodule
     {
         public const int InventoryRescanFrameInterval = 1800;
         public const int SpeedModuleMaxLevel = 10;
+        /// <summary>Rate at which the speed cap decreases when a module is removed (m/s per tick at 60 Hz).</summary>
+        public const float SpeedCapDecreasePerTick = 30f / 60f;
     }
 
     public static class LoadBalancerConstants

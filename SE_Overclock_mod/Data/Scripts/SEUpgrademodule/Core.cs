@@ -43,6 +43,7 @@ namespace SEUpgrademodule
 
         private ConcurrentDictionary<long, List<UpgradeLogic>> m_cachedGrids = new ConcurrentDictionary<long, List<UpgradeLogic>>();
         private HashSet<long> m_allGridIds = new HashSet<long>();
+        private Dictionary<long, float> m_gridCurrentCaps = new Dictionary<long, float>();
         private PrintLoadBalancer printLoadBalancer = new PrintLoadBalancer();
         private NetworkLoadBalancer networkLoadBalancer = new NetworkLoadBalancer();
 
@@ -105,7 +106,10 @@ namespace SEUpgrademodule
         private void OnEntityRemove(IMyEntity entity)
         {
             if (entity is IMyCubeGrid)
+            {
                 m_allGridIds.Remove(entity.EntityId);
+                m_gridCurrentCaps.Remove(entity.EntityId);
+            }
         }
 
         protected override void UnloadData()
@@ -139,22 +143,33 @@ namespace SEUpgrademodule
                 var physics = grid.Physics as MyPhysicsComponentBase;
                 if (physics == null) continue;
 
-                float maxSpeed;
                 int speedLevel;
+                float targetCap;
                 if (gridSpeedLevels.TryGetValue(gridId, out speedLevel) && speedLevel > 0)
                 {
                     float t = Math.Min((float)speedLevel / UpgradeLogicConstants.SpeedModuleMaxLevel, 1f);
-                    maxSpeed = 100f + (globalMax - 100f) * t;
+                    targetCap = 100f + (globalMax - 100f) * t;
                 }
                 else
                 {
-                    maxSpeed = 100f;
+                    targetCap = 100f;
                 }
+
+                float currentCap;
+                if (!m_gridCurrentCaps.TryGetValue(gridId, out currentCap))
+                    currentCap = targetCap;
+
+                if (currentCap > targetCap)
+                    currentCap = Math.Max(targetCap, currentCap - UpgradeLogicConstants.SpeedCapDecreasePerTick);
+                else
+                    currentCap = targetCap;
+
+                m_gridCurrentCaps[gridId] = currentCap;
 
                 Vector3 vel = physics.LinearVelocity;
                 float speed = vel.Length();
-                if (speed > maxSpeed)
-                    physics.LinearVelocity = vel * (maxSpeed / speed);
+                if (speed > currentCap)
+                    physics.LinearVelocity = vel * (currentCap / speed);
             }
         }
 
