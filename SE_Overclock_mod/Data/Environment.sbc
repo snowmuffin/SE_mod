@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Definition xsi:type="EnvironmentDefinition">
+    <Id>
+      <TypeId>EnvironmentDefinition</TypeId>
+      <SubtypeId>Default</SubtypeId>
+    </Id>
+    <!-- Raised to allow Speed Module (level 10) to reach SpeedModuleMaxSpeed.
+         All grids are clamped by the mod's velocity logic; this value is the
+         Havok physics ceiling. Must be >= SpeedModuleMaxSpeed in config. -->
+    <LargeShipMaxSpeed>500</LargeShipMaxSpeed>
+    <SmallShipMaxSpeed>500</SmallShipMaxSpeed>
+  </Definition>
+</Definitions>

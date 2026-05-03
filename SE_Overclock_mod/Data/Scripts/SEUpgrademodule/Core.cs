@@ -15,7 +15,6 @@ using VRage.Game.Components;
 using VRage.Game;
 using VRage.Game.ModAPI;
 using System.Collections.Concurrent;
-using Sandbox.Game.World;
 
 namespace SEUpgrademodule
 {
@@ -43,6 +42,7 @@ namespace SEUpgrademodule
         public static float SpeedModuleMaxSpeed = 200f;
 
         private ConcurrentDictionary<long, List<UpgradeLogic>> m_cachedGrids = new ConcurrentDictionary<long, List<UpgradeLogic>>();
+        private HashSet<long> m_allGridIds = new HashSet<long>();
         private PrintLoadBalancer printLoadBalancer = new PrintLoadBalancer();
         private NetworkLoadBalancer networkLoadBalancer = new NetworkLoadBalancer();
 
@@ -57,16 +57,12 @@ namespace SEUpgrademodule
 
             loadConfigFile();
 
-            // Sandbox whitelist test: MySector.EnvironmentDefinition access
-            try
-            {
-                float cur = MySector.EnvironmentDefinition.LargeShipMaxSpeed;
-                MyLog.Default.WriteLineAndConsole($"[SEOverclock] MySector.EnvironmentDefinition.LargeShipMaxSpeed = {cur} (sandbox OK)");
-            }
-            catch (Exception ex)
-            {
-                MyLog.Default.WriteLineAndConsole($"[SEOverclock] MySector access FAILED: {ex.Message}");
-            }
+            var existing = new HashSet<IMyEntity>();
+            MyAPIGateway.Entities.GetEntities(existing, e => e is IMyCubeGrid);
+            foreach (var e in existing)
+                m_allGridIds.Add(e.EntityId);
+            MyAPIGateway.Entities.OnEntityAdd += OnEntityAdd;
+            MyAPIGateway.Entities.OnEntityRemove += OnEntityRemove;
 
             foreach (var kv in Upgradecore.Upgrades)
             {
@@ -100,6 +96,24 @@ namespace SEUpgrademodule
             networkLoadBalancer.Update();
         }
 
+        private void OnEntityAdd(IMyEntity entity)
+        {
+            if (entity is IMyCubeGrid)
+                m_allGridIds.Add(entity.EntityId);
+        }
+
+        private void OnEntityRemove(IMyEntity entity)
+        {
+            if (entity is IMyCubeGrid)
+                m_allGridIds.Remove(entity.EntityId);
+        }
+
+        protected override void UnloadData()
+        {
+            MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdd;
+            MyAPIGateway.Entities.OnEntityRemove -= OnEntityRemove;
+        }
+
         private void ApplyPerGridMaxSpeed()
         {
             var gridSpeedLevels = new Dictionary<long, int>();
@@ -117,16 +131,26 @@ namespace SEUpgrademodule
 
             float globalMax = Upgradecore.SpeedModuleMaxSpeed;
 
-            foreach (var kv in gridSpeedLevels)
+            foreach (long gridId in m_allGridIds)
             {
-                if (kv.Value <= 0) continue;
-                IMyEntity entity = MyAPIGateway.Entities.GetEntityById(kv.Key);
+                IMyEntity entity = MyAPIGateway.Entities.GetEntityById(gridId);
                 IMyCubeGrid grid = entity as IMyCubeGrid;
                 if (grid?.Physics == null || grid.Physics.IsStatic) continue;
                 var physics = grid.Physics as MyPhysicsComponentBase;
                 if (physics == null) continue;
-                float t = Math.Min((float)kv.Value / UpgradeLogicConstants.SpeedModuleMaxLevel, 1f);
-                float maxSpeed = 100f + (globalMax - 100f) * t;
+
+                float maxSpeed;
+                int speedLevel;
+                if (gridSpeedLevels.TryGetValue(gridId, out speedLevel) && speedLevel > 0)
+                {
+                    float t = Math.Min((float)speedLevel / UpgradeLogicConstants.SpeedModuleMaxLevel, 1f);
+                    maxSpeed = 100f + (globalMax - 100f) * t;
+                }
+                else
+                {
+                    maxSpeed = 100f;
+                }
+
                 Vector3 vel = physics.LinearVelocity;
                 float speed = vel.Length();
                 if (speed > maxSpeed)
