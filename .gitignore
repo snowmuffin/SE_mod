@@ -4,7 +4,8 @@
 /Base/
 /module_cards_lv1-10_all/
 /_icon_tmp/
-
+/SekCustomWorkshopMods/
+.claude/
 # Local SteamCMD workshop descriptors (may contain machine-specific paths)
 tools/steamcmd/se_upgrade_workshop.vdf
 tools/steamcmd/se_prime_workshop.vdf
